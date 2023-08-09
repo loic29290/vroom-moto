@@ -1,4 +1,9 @@
-
+// Mobile First
+* {
+  padding: 0;
+  margin: 0;
+  
+}
 //mise en forme du body
 body {
     display: grid;
@@ -63,7 +68,31 @@ body {
 }
   
        main{
-       }
+           h1{
+               display:flex;
+                flex-direction:column;
+                align-items:center;
+           }
+               
+           }
+           div {
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+               h2{}
+               p{}
+               img{
+                   max-height:150px;
+               }
+           }
+               form {
+                   display:flex;
+                   flex-direction:column;
+                   align-items:center;
+               }
+               
+           
+       
   
       footer{
            display:flex;
@@ -111,11 +140,6 @@ body {
                 align-items:center;  
                 }
          a{
-            color:red;
-            font-size:20px;
-            text-decoration:none;
-            height:30px;
-            align-items:center;
             
     }        
                 

@@ -1,3 +1,4 @@
+<main>
 <form method="POST">
     <input name="marque" placeholder="marque" value="<?= $data['moto']->getMarque() ?>"/>
     <input name="modele" placeholder="modele" value="<?= $data['moto']->getModele() ?>"/>
@@ -7,3 +8,4 @@
     <input name="image_url" type="url" placeholder="URL d'une image" />
     <button name="submit">Envoyer</button>
 </form>
+</main>

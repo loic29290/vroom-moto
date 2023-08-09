@@ -1,5 +1,5 @@
 <main>
-<h2>Mes motos</h2>
+<h1>Mes motos</h1>
 <?php
 
 foreach($data['motos'] as $moto) {
