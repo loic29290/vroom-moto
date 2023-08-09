@@ -1,0 +1,13 @@
+<?php
+
+session_start();
+unset($_SESSION['connected']);
+session_destroy();
+
+
+// Redirection vers template.phtml après un délai de 3 secondes
+// durant lesquelles le message Vous allez être redirigé à la page d'accueil est affichée
+
+echo "Vous allez être redirigé à la page d'accueil";
+
+header( "refresh:3;url=index.php" );

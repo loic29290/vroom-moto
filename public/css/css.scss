@@ -1,0 +1,124 @@
+
+//mise en forme du body
+body {
+    display: grid;
+    grid-template: 
+        "header"
+        "nav"
+        "main"
+        "footer"
+    ;
+    header {
+        grid-area: header;
+    }
+    nav {
+        grid-area: nav;
+    }
+    main {
+        grid-area: main;
+    }
+    footer {
+        grid-area: footer;
+    }
+}
+    
+    //mise en forme du header
+    header{
+           
+            background-color:white;
+           
+            //dimension de l'image
+        img {
+                max-width:150px;
+                max-height:150px;}
+            //couleur du texte    
+        h1 {
+                color:red;
+                align-items:center;  
+                }
+         a{
+            color:red;
+            font-size:20px;
+            text-decoration:none;
+            height:30px;
+            align-items:center;
+            
+    }        
+                
+            }
+    
+    //mise en forme de la nav
+    nav {
+            
+            display:flex;
+            justify-content:space-evenly;
+         //mise en forme des liens de la nav 
+        a{
+            color:red;
+            font-size:20px;
+            text-decoration:none;
+            height:30px;
+            
+    }        
+}
+  
+       main{
+       }
+  
+      footer{
+           display:flex;
+            justify-content:space-evenly;
+                    
+    }
+
+@media (min-width: 768px) and (max-width: 1200px) {
+    body {
+        grid-template: 
+            "header header"
+            "nav nav"
+            "main main"
+            "footer footer"
+        ;
+        grid-template-columns: 1fr 4fr;
+    }
+}
+
+@media (min-width: 1200px) {
+    body {
+        grid-template: 
+            "header header header"
+            "nav nav nav"
+            " main main main"
+            "footer footer footer"
+        ;
+        grid-template-columns: 15fr 70fr 15fr;
+    }
+}
+     //mise en forme du header
+    header{
+           
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+           
+            //dimension de l'image
+        img {
+                max-width:150px;
+                max-height:150px;}
+            //couleur du texte    
+        h1 {
+                color:red;
+                align-items:center;  
+                }
+         a{
+            color:red;
+            font-size:20px;
+            text-decoration:none;
+            height:30px;
+            align-items:center;
+            
+    }        
+                
+            }
+
+

@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="public/css/css.css" type="text/css" />
+        
+    </head>
+    <body>
+        <?php require_once "header.phtml"; ?> 
+        <?php require_once "nav.phtml"; ?>
+        
+<?php
+    if (isset($vue)) {
+        require_once $vue;
+    }
+?>
+        <?php require_once "footer.phtml"; ?>
+    </body>
+</html>

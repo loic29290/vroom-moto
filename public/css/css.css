@@ -1,0 +1,86 @@
+body {
+  display: grid;
+  grid-template: "header" "nav" "main" "footer";
+}
+body header {
+  grid-area: header;
+}
+body nav {
+  grid-area: nav;
+}
+body main {
+  grid-area: main;
+}
+body footer {
+  grid-area: footer;
+}
+
+header {
+  background-color: white;
+}
+header img {
+  max-width: 150px;
+  max-height: 150px;
+}
+header h1 {
+  color: red;
+  align-items: center;
+}
+header a {
+  color: red;
+  font-size: 20px;
+  text-decoration: none;
+  height: 30px;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+nav a {
+  color: red;
+  font-size: 20px;
+  text-decoration: none;
+  height: 30px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  body {
+    grid-template: "header header" "nav nav" "main main" "footer footer";
+    grid-template-columns: 1fr 4fr;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    grid-template: "header header header" "nav nav nav" " main main main" "footer footer footer";
+    grid-template-columns: 15fr 70fr 15fr;
+  }
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header img {
+  max-width: 150px;
+  max-height: 150px;
+}
+header h1 {
+  color: red;
+  align-items: center;
+}
+header a {
+  color: red;
+  font-size: 20px;
+  text-decoration: none;
+  height: 30px;
+  align-items: center;
+}
+
+/*# sourceMappingURL=css.css.map */
