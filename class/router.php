@@ -36,6 +36,17 @@ class Router {
             if ($_GET['page'] == "mes_motos") {
                 MotoController::motoDelete();
             }
+            if ($_GET['page'] == "accueil") {
+                IndexController::getIndex();
+            }
+            if ($_GET['page'] == "moto") {
+                AvisController::getAvis();
+            }
+            if ($_GET['page'] == "moto") {
+                LocationController::getLocation();
+            }
+            
+           
             
         } else {
             // Défaut

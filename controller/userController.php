@@ -29,7 +29,7 @@ class UserController {
                 echo "Connexion réussie";
                 
                 if (isset($_GET['retour'])) {
-                    header("Location: index.php?page=".$_GET['retour']);
+                    header("Location: index.php?page=".urldecode($_GET['retour']));
                 } else {
                     header("Location: index.php?page=motos");
                 }

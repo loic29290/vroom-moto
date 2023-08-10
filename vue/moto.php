@@ -1,22 +1,28 @@
 <main>
 <div >
-    <h2><?= $data['moto']->getMarque() ?></h2>
-    <p><?= $data['moto']->getModele() ?></p>
-    <p><?= $data['moto']->getAnnee() ?></p>
-    <p><?= $data['moto']->getDescription() ?></p>
-    <p><?= $data['moto']->getPrix() ?></p>
+    <h2><?= $data['moto']->getModele() ?></h2>
+    <p>Marque: <?= $data['moto']->getMarque() ?></p>
+    <p>Année: <?= $data['moto']->getAnnee() ?></p>
+    <p>Description: <?= $data['moto']->getDescription() ?></p>
+    <p>Prix: <?= $data['moto']->getPrix() ?> €</p>
     <img src="<?= $data['moto']->getImageUrl() ?>" />
      <form method="POST">
-    <button name="reserverMoto" name="reserver" >Réserver moto</button>
+          <label for="debut">Début:</label>
+        <input type="date" id="debut" name="debut" required><br>
+
+         <label for="fin">Fin:</label>
+        <input type="date" id="fin" name="fin" required><br>
+
+    <button name="submit" name="reserver" >Réserver moto</button>
       </form>
     
 </div>
 
 
     <form method="POST">
-        <textarea name="avis" placeholder="Avis"></textarea>
+        <textarea name="commentaire" placeholder="Avis"></textarea>
         <p>Note</p>
-        <select name="rating">
+        <select name="note">
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>

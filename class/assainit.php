@@ -8,6 +8,9 @@ trait Assainit {
     public function assainitFloat($val): float {
         return floatval($val);
     }
+     public function assainitDate($val): date {
+        return dateval($val);
+    }
 }
 function assainit($post) {
     if (isset($_POST[$post])) {

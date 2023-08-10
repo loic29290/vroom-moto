@@ -1,5 +1,5 @@
 <main>
-<h1>Mes motos</h1>
+<h1>Mes motos/ Réservations</h1>
 <?php
 
 foreach($data['motos'] as $moto) {
