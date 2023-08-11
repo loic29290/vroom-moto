@@ -6,15 +6,9 @@
     <p>Description: <?= $data['moto']->getDescription() ?></p>
     <p>Prix: <?= $data['moto']->getPrix() ?> €</p>
     <img src="<?= $data['moto']->getImageUrl() ?>" />
-     <form method="POST">
-          <label for="debut">Début:</label>
-        <input type="date" id="debut" name="debut" required><br>
-
-         <label for="fin">Fin:</label>
-        <input type="date" id="fin" name="fin" required><br>
-
-    <button name="submit" name="reserver" >Réserver moto</button>
-      </form>
+    
+    <!--garder l id de la moto pour la reservation -->
+   <a href="index.php?page=reservation&id=<?= $data['moto']->getId() ?>">Réservation</a>
     
 </div>
 
