@@ -84,12 +84,35 @@ body {
                img{
                    max-height:150px;
                }
+                #carousel {
+                    position: relative;
+                    width: 150px;
+                    height: 150px;
+                    margin: 20px;
+}
+
+                #carousel>img {
+                      display: block;
+                      position: absolute;
+                      opacity: 0;
+                      transition: opacity 1s ease-in-out;
+                      border-radius: 10%;
+}
+                
+                #carousel>img:first-child {
+                  opacity: 1;
+}
+               
+               
+               
            }
                form {
                    display:flex;
                    flex-direction:column;
                    align-items:center;
                }
+               
+                
                
            
        
@@ -99,6 +122,11 @@ body {
             justify-content:space-evenly;
                     
     }
+    
+    
+  
+    
+    
 
 @media (min-width: 768px) and (max-width: 1200px) {
     body {
@@ -144,5 +172,21 @@ body {
     }        
                 
             }
+ #carousel {
+                    position: relative;
+                    width: 400px;
+                    height: 400px;
+                    margin: 20px;
+}
 
-
+                #carousel>img {
+                      display: block;
+                      position: absolute;
+                      opacity: 0;
+                      transition: opacity 1s ease-in-out;
+                      border-radius: 10%;
+}
+                
+                #carousel>img:first-child {
+                  opacity: 1;
+}

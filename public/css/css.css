@@ -64,6 +64,22 @@ div {
 div img {
   max-height: 150px;
 }
+div #carousel {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 20px;
+}
+div #carousel > img {
+  display: block;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  border-radius: 10%;
+}
+div #carousel > img:first-child {
+  opacity: 1;
+}
 
 form {
   display: flex;
@@ -100,6 +116,24 @@ header img {
 header h1 {
   color: red;
   align-items: center;
+}
+#carousel {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: 20px;
+}
+
+#carousel > img {
+  display: block;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  border-radius: 10%;
+}
+
+#carousel > img:first-child {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=css.css.map */

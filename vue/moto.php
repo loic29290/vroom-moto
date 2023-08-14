@@ -9,27 +9,7 @@
     
     <!--garder l id de la moto pour la reservation -->
    <a href="index.php?page=reservation&id=<?= $data['moto']->getId() ?>">Réservation</a>
-    
+     <!--garder l id de la moto pour l'avis -->
+   <a href="index.php?page=avis&id=<?= $data['moto']->getId() ?>">Avis</a>
 </div>
-
-
-    <form method="POST">
-        <textarea name="commentaire" placeholder="Avis"></textarea>
-        <p>Note</p>
-        <select name="note">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-        <button name="envoyerAvis" name="avis" value="" >Envoyer</button>
-        </form>
-    
-    
-
-
-
-
 </main>

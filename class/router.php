@@ -48,6 +48,10 @@ class Router {
             if ($_GET['page'] == "reservation") {
                 LocationController::getLocation();
             }
+              
+            if ($_GET['page'] == "avis") {
+                AvisController::getAvis();
+            }
             
            
             
