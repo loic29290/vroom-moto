@@ -53,6 +53,10 @@ class Router {
                 AvisController::getAvis();
             }
             
+            if ($_GET['page'] == "calendrier") {
+                IndexController::getCalendrier();
+            }
+            
            
             
         } else {

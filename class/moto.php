@@ -1,4 +1,7 @@
 <?php
+//classe a modifier pour ajouter catégorie de la moto
+
+
 
 class Moto{
     use Assainit;
@@ -6,6 +9,7 @@ class Moto{
     private $id;
     private $marque;
     private $modele;
+    private $categorie;
     private $annee;
     private $description;
     private $prix;
@@ -16,6 +20,7 @@ class Moto{
         $this->setId(null);
         $this->setMarque("");
         $this->setModele("");
+        $this->setCategorie("");
         $this->setAnnee(0);
         $this->setDescription("");
         $this->setPrix(0);
@@ -40,6 +45,12 @@ class Moto{
     }
     public function getModele(): string {
         return $this->modele;
+    }
+     public function setCategorie(string $categorie): void {
+        $this->categorie=$categorie;
+    }
+    public function getCategorie(): string {
+        return $this->categorie;
     }
     public function setAnnee(float $annee): void {
         $this->annee=$annee;
@@ -96,13 +107,16 @@ class Moto{
     }
     
     public function checkPost(): bool {
-        if (!isset($this->marque, $this->modele, $this->annee, $this->description, $this->image_url, $this->prix)) {
+        if (!isset($this->marque, $this->modele, $this->categorie, $this->annee, $this->description, $this->image_url, $this->prix)) {
             return false;
         }
         if (empty($this->marque)) {
             return false;
         }
         if (empty($this->modele)) {
+            return false;
+        }
+         if (empty($this->categorie)) {
             return false;
         }
         if (empty($this->annee)) {
@@ -126,6 +140,7 @@ class Moto{
     public function loadFromPost(): void {
         $this->setMarque($this->assainit($_POST['marque']));
         $this->setModele($this->assainit($_POST['modele']));
+        $this->setCategorie($this->assainit($_POST['categorie']));
         $this->setAnnee($this->assainitFloat($_POST['annee']));
         $this->setImageUrl($this->assainit($_POST['image_url']));
         $this->setDescription($this->assainit($_POST['description']));
@@ -135,13 +150,14 @@ class Moto{
     
     public function save(): void {
         $query = "INSERT INTO moto
-        (marque, modele, annee, image_url, description, prix, proprietaire_id )
+        (marque, modele, categorie, annee, image_url, description, prix, proprietaire_id )
         VALUES
-        (:marque, :modele, :annee, :image_url, :description, :prix, :proprietaire_id)";
+        (:marque, :modele, :categorie, :annee, :image_url, :description, :prix, :proprietaire_id)";
         $sth = Db::getDbh()->prepare($query);
         $sth->execute([
             ":marque" => $this->getMarque(),
             ":modele" => $this->getModele(),
+            ":categorie" => $this->getCategorie(),
             ":annee" => $this->getAnnee(),
             ":image_url" => $this->getImageUrl(),
             ":description" => $this->getDescription(),

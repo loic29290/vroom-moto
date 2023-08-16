@@ -37,7 +37,7 @@ body {
                 max-width:150px;
                 max-height:150px;}
             //couleur du texte    
-        h1 {
+        h3 {
                 color:red;
                 align-items:center;  
                 }
@@ -84,6 +84,7 @@ body {
                img{
                    max-height:150px;
                }
+               
                 #carousel {
                     position: relative;
                     width: 150px;
@@ -102,7 +103,7 @@ body {
                 #carousel>img:first-child {
                   opacity: 1;
 }
-               
+                        
                
                
            }
@@ -122,10 +123,7 @@ body {
             justify-content:space-evenly;
                     
     }
-    
-    
-  
-    
+
     
 
 @media (min-width: 768px) and (max-width: 1200px) {
