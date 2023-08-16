@@ -1,6 +1,7 @@
 <?php
 
 class MotoController {
+    // Récupérer les motos 
     public static function getMotos() {
         // Appel au Modèle moto
         $motos = Moto::findAll(); // Chargement depuis la BDD
@@ -82,7 +83,7 @@ class MotoController {
             die;
         }
         
-        Renderer::render("vue/mes_motos.php", [
+        Renderer::render("vue/mes_motos.phtml", [
             "motos" => $mesMotos
         ]);
     }
@@ -107,7 +108,7 @@ class MotoController {
         $mesMotos = Moto::supprimerMoto( $motoID);
         
         // Rendez la vue mise à jour
-        Renderer::render("vue/mes_motos.php", [
+        Renderer::render("vue/mes_motos.phtml", [
             "motos" => $mesMotos
         ]);
     }

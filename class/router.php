@@ -32,6 +32,9 @@ class Router {
             if ($_GET['page'] == "moto") {
                 MotoController::getMoto();
             }
+             if ($_GET['page'] == "mon_compte") {
+                IndexController::getCompte();
+            }
            
             if ($_GET['page'] == "mes_motos") {
                MotoController::motoProprietaire();
@@ -41,6 +44,14 @@ class Router {
                 MotoController::motoDelete();
             }
             
+             if ($_GET['page'] == "mes_reservations") {
+                LocationController::getReservations();
+            }
+            
+            if ($_GET['page'] == "mes_locations") {
+                LocationController::getMesReservations();
+            }
+            
             if ($_GET['page'] == "moto") {
                 AvisController::getAvis();
             }
@@ -48,6 +59,7 @@ class Router {
             if ($_GET['page'] == "reservation") {
                 LocationController::getLocation();
             }
+           
               
             if ($_GET['page'] == "avis") {
                 AvisController::getAvis();

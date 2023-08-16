@@ -11,5 +11,6 @@
    <a href="index.php?page=reservation&id=<?= $data['moto']->getId() ?>">Réservation</a>
      <!--garder l id de la moto pour l'avis -->
    <a href="index.php?page=avis&id=<?= $data['moto']->getId() ?>">Avis</a>
+   
 </div>
 </main>

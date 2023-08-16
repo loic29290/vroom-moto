@@ -2,12 +2,12 @@
 <form method="POST">
     <input name="marque" placeholder="marque" value="<?= $data['moto']->getMarque() ?>"/>
     <input name="modele" placeholder="modele" value="<?= $data['moto']->getModele() ?>"/>
-     <select name="Categorie">
+     <select name="categorie">
           <option value="">Toutes les catégories</option>
             <option value="Sportive">Sportive</option>
             <option value="Roadster">Roadster</option>
             <option value="Trail">Trail</option>
-            <option value="Routiére">Routiére</option>
+            <option value="Routiere">Routiére</option>
             <option value="Cross">Cross</option>
             <option value="Scooter">Scooter</option>
         </select>
