@@ -54,8 +54,6 @@ class MotoController {
                 //Enregistrer
                 $moto->save();
                 
-              
-                
                 // si conexion ok retour à la page motos
                 header("Location: index.php?page=motos");
                 die;

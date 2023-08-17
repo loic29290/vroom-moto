@@ -5,7 +5,7 @@
     <p>Année: <?= $data['moto']->getAnnee() ?></p>
     <p>Description: <?= $data['moto']->getDescription() ?></p>
     <p>Prix: <?= $data['moto']->getPrix() ?> €</p>
-    <img src="<?= $data['moto']->getImageUrl() ?>" />
+    <img src="<?= $data['moto']->getImage() ?>" />
     
     <!--garder l id de la moto pour la reservation -->
    <a href="index.php?page=reservation&id=<?= $data['moto']->getId() ?>">Réservation</a>

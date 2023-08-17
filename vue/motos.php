@@ -25,8 +25,7 @@ foreach($data['motos'] as $moto) {
 ?>
     <div>
         <h2><a href="index.php?page=moto&id=<?= $moto->getId() ?>"><?= $moto->getModele() ?></a></h2>
-        <img src="<?= $moto->getImageUrl() ?>" />
-    
+        <img src="<?= $moto->getImage() ?>" />
     </div>
 <?php
 }
