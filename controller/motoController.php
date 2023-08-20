@@ -1,6 +1,8 @@
 <?php
 
 class MotoController {
+    
+    
     // Récupérer les motos 
     public static function getMotos() {
         // Appel au Modèle moto

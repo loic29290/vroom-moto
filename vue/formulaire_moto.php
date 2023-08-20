@@ -1,4 +1,5 @@
 <main>
+    <div>
     <form method="POST" enctype="multipart/form-data">
         <input name="marque" placeholder="marque" value="<?= $data['moto']->getMarque() ?>" />
         <input name="modele" placeholder="modele" value="<?= $data['moto']->getModele() ?>" />
@@ -22,4 +23,5 @@
         <input type="file" name="file" id="imageFile">
         <button name="submit">Envoyer</button>
     </form>
+    </div>
 </main>
