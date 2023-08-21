@@ -9,8 +9,24 @@
     
     <!--garder l id de la moto pour la reservation -->
    <a href="index.php?page=reservation&id=<?= $data['moto']->getId() ?>">Réservation</a>
-     <!--garder l id de la moto pour l'avis -->
-   <a href="index.php?page=avis&id=<?= $data['moto']->getId() ?>">Avis</a>
-   
+  
+  </div>
+  
+   <?php
+if (isset($data['avis'])) {
+?>
+<?php
+    foreach($data['avis'] as $avis) {
+?>
+<div>
+   <p>Auteur: <?= $avis->getAuteurId() ?></p>
+   <p>Commentaire: <?= $avis->getCommentaire() ?></p>
+   <p>Note: <?= $avis->getNote() ?>"</p>
+   <p>Date: </p>
+   </div>
+   <?php
+    }
+}
+?>
 </div>
 </main>

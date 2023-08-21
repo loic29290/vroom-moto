@@ -185,7 +185,7 @@ class Moto
         $extension = strtolower(end($tabExtension));
 
         $extensions = ['jpg', 'png', 'jpeg', 'gif'];
-        $maxSize = 1024*1024*5;
+        $maxSize = 1024 * 1024 * 5;
 
         if (in_array($extension, $extensions) && $size <= $maxSize && $error == 0) {
             $uniqueName = uniqid('', true);
