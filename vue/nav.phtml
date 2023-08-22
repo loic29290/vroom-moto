@@ -10,6 +10,9 @@
 				<li><a href="index.php?page=mes_motos">Mes Motos</a></li>
 				<li><a href="index.php?page=mes_reservations">Mes locations</a></li>
 				<li><a href="index.php?page=mes_locations">Mes motos louées</a></li>
+				 <?php if (userController::getAdmin()) : ?>
+				<li><a href="index.php?page=administrateur">Administation du site</a></li>
+				<?php endif; ?>
 			</ul>
 		</li>
 

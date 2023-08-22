@@ -6,6 +6,7 @@ class User
     private $nom;
     private $email;
     private $password;
+    private $admin;
 
     public function setId(int $id): void
     {
@@ -42,21 +43,27 @@ class User
     {
         return $this->password;
     }
+    public function setAdmin(?int $admin): void {
+        $this->admin = $admin;
+    }
+    public function getAdmin(): ?int {
+        return $this->admin;
+    }
 
-
+     // Méthode pour ajouter les données utilisateur
     public function addUser()
     {
         $this->setNom($this->clearForm($_POST['nom']));
         $this->setPassword($this->clearForm($_POST['pwd']));
         $this->setEmail($this->clearForm($_POST['email']));
     }
-
+    // Méthode pour obtenir les données de connexion
     public function getPostDataLogin()
     {
         $this->setNom($this->clearForm($_POST['nom']));
         $this->setPassword($this->clearForm($_POST['pwd']));
     }
-
+    // Méthode pour nettoyer les valeurs des champs de formulaire
     public function clearForm($valeur)
     {
         if (isset($valeur)) {
@@ -119,7 +126,7 @@ class User
         }
         return true;
     }
-
+    // Méthode pour valider le formulaire de connexion utilisateur
     public function testFormConnexion()
     {
         $error = false;
@@ -133,12 +140,10 @@ class User
         if (empty($this->getPassword())) {
             $error = true;
         }
-        // if (empty($this->getEmail())) {
-        //     $error = true;
-        // }
+        
 
         if (!$error) {
-            $query = "SELECT id, password FROM user WHERE nom=:nom";
+            $query = "SELECT id, password,admin FROM user WHERE nom=:nom";
             $sth = Db::getDbh()->prepare($query);
             $sth->execute([
                 ":nom" => $this->getNom()
@@ -149,6 +154,7 @@ class User
             if ($row) {
                 if (password_verify($this->getPassword(), $row['password'])) {
                     $_SESSION['ID'] = $row['id'];
+                    $_SESSION['ADMIN'] = $row['admin'];
 
                     return true;
                 }
@@ -167,4 +173,14 @@ class User
             ":mail" => $this->getEmail()
         ]);
     }
+    // Méthode pour récupérer tous les utilisateurs de la base de données
+    public static function allUsers()
+    {
+        $query = "SELECT * FROM user";
+        $sth = Db::getDbh()->prepare($query);
+        $sth->execute([
+            ":nom" => $this->getNom()
+            ]);
+}
+return $users;
 }

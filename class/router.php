@@ -26,6 +26,10 @@ class Router
             if ($_GET['page'] == "disconnect") {
                 UserController::getDisconnect();
             }
+            
+            if ($_GET['page'] == "administrateur") {
+                UserController::getAdmin();
+            }
 
             if ($_GET['page'] == "motos") {
                 MotoController::getMotos();
@@ -72,9 +76,11 @@ class Router
                 AvisController::avisMoto();
             }
 
+            
             if ($_GET['page'] == "calendrier") {
                 IndexController::getCalendrier();
             }
+            
         } else {
             // Défaut
             IndexController::getIndex();

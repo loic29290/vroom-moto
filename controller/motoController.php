@@ -2,121 +2,126 @@
 
 class MotoController
 {
-
-
-    // Récupérer les motos 
+    // Méthode pour afficher la liste de toutes les motos
     public static function getMotos()
     {
-        // Appel au Modèle moto
-        $motos = Moto::findAll(); // Chargement depuis la BDD
+        // Appel au modèle Moto pour récupérer toutes les motos depuis la base de données
+        $motos = Moto::findAll();
 
-        // Affichage de la Vue Motos
-        Renderer::render("vue/motos.php", [
+        // Afficher la vue de la liste de motos avec les données récupérées
+        Renderer::render("vue/motos.phtml", [
             "motos" => $motos
         ]);
     }
-    // Afficher une moto
+
+    // Méthode pour afficher les détails d'une moto 
     public static function getMoto()
     {
+        // Vérifier si l'ID de la moto est défini dans l'URL
         if (!isset($_GET['id'])) {
             header("Location: index.php");
             die;
         }
 
+        // Récupérer la moto par son ID
         $moto = Moto::findById($_GET['id']);
 
+        // Vérifier si la moto existe
         if (!$moto) {
             header("Location: index.php");
             die;
         }
-       
 
+        // Récupérer les avis liés à la moto
+        $avis = Avis::getAvisByMotoLocation($moto->getId());
 
-        Renderer::render("vue/moto.php", [
+        // Afficher la vue des détails de la moto avec les données récupérées
+        Renderer::render("vue/moto.phtml", [
             "moto" => $moto,
-            "avis" => Avis::getAvisByMotoLocation($moto->getId()),
+            "avis" => $avis
         ]);
     }
 
+    // Méthode pour afficher le formulaire d'ajout de moto
     public static function getFormulaire()
     {
-
-        //Si pas conecté retour à la page connexion puis aprés connexion retour à la page formulaire
+        // Si l'utilisateur n'est pas connecté, le rediriger vers la page de connexion
         if (!isset($_SESSION['ID'])) {
             header("Location: index.php?page=connexion&retour=formulaire_moto");
             die;
         }
 
-        //Créer l'objet
+        // Créer un objet Moto
         $moto = new Moto();
 
+        // Vérifier si le formulaire d'ajout de moto a été soumis
         if (isset($_POST['submit'])) {
-            //Charger dans l'objet
+            // Charger les données POST dans l'objet Moto
             $moto->loadFromPost();
-            //Vérifier la conformité des données POST
-            if ($moto->checkPost()) {
 
+            // Vérifier la validité des données POST
+            if ($moto->checkPost()) {
                 // Ajout de la liaison utilisateur - propriétaire_id
                 $id = $_SESSION['ID'];
                 $moto->setProprietaire_Id($id);
 
-                //Enregistrer
+                // Enregistrer la moto dans la base de données
                 $moto->save();
 
-                // si conexion ok retour à la page motos
+                // Redirection vers la page des motos
                 header("Location: index.php?page=motos");
                 die;
             }
         }
 
-
-        Renderer::render("vue/formulaire_moto.php", [
+        // Afficher la vue du formulaire d'ajout de moto avec l'objet Moto
+        Renderer::render("vue/formulaire_moto.phtml", [
             "moto" => $moto
         ]);
     }
 
-    // Afficher les motos d'un propriétaire
+    // Méthode pour afficher les motos d'un propriétaire spécifique
     public static function motoProprietaire()
     {
-
+        // Si l'utilisateur n'est pas connecté, le rediriger vers la page de connexion
         if (!isset($_SESSION['ID'])) {
             header("Location: index.php?page=connexion&retour=mes_motos");
             die;
         }
 
+        // Appel au modèle Moto pour récupérer les motos du propriétaire actuellement connecté
         $mesMotos = Moto::proprietaireAnnonces($_SESSION['ID']);
 
+        // Vérifier si le propriétaire a des annonces de moto
         if (!$mesMotos) {
             header("Location: index.php");
             die;
         }
 
+        // Afficher la vue des motos du propriétaire avec les données récupérées
         Renderer::render("vue/mes_motos.phtml", [
             "motos" => $mesMotos
         ]);
     }
 
-
-    // Supprimer une moto d'un propriétaire
+    // Méthode pour supprimer une moto d'un propriétaire
     public static function motoDelete()
     {
-
+        // Si l'utilisateur n'est pas connecté, le rediriger vers la page de connexion
         if (!isset($_SESSION['ID'])) {
             header("Location: index.php?page=connexion&retour=mes_motos");
             die;
         }
 
-
-
+        // Vérifier si le formulaire de suppression de moto a été soumis
         if (isset($_POST['supprimerMoto'])) {
-            // Obtenez l'ID de la moto à supprimer à partir des données du formulaire
+            // Obtenir l'ID de la moto à supprimer depuis les données du formulaire
             $motoID = $_POST['supprimerMoto'];
 
-
-            // Supprimez la moto et obtenez les motos restantes
+            // Supprimer la moto et obtenir les motos restantes
             $mesMotos = Moto::supprimerMoto($motoID);
 
-            // Rendez la vue mise à jour
+            // Rendre la vue mise à jour
             Renderer::render("vue/mes_motos.phtml", [
                 "motos" => $mesMotos
             ]);

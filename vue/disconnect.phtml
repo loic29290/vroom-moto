@@ -1,13 +1,6 @@
-<?php
-
-session_start();
-unset($_SESSION['connected']);
-session_destroy();
+Vous allez être redirigé à la page d'accueil, sinon <a href="index.php">cliquez ici</a>
 
 
-// Redirection vers template.phtml après un délai de 3 secondes
-// durant lesquelles le message Vous allez être redirigé à la page d'accueil est affichée
+<img src="public/images/motovie.jpg"></img>
 
-echo "Vous allez être redirigé à la page d'accueil";
 
-header( "refresh:3;url=index.php" );
