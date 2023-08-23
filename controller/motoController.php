@@ -104,27 +104,5 @@ class MotoController
         ]);
     }
 
-    // Méthode pour supprimer une moto d'un propriétaire
-    public static function motoDelete()
-    {
-        // Si l'utilisateur n'est pas connecté, le rediriger vers la page de connexion
-        if (!isset($_SESSION['ID'])) {
-            header("Location: index.php?page=connexion&retour=mes_motos");
-            die;
-        }
-
-        // Vérifier si le formulaire de suppression de moto a été soumis
-        if (isset($_POST['supprimerMoto'])) {
-            // Obtenir l'ID de la moto à supprimer depuis les données du formulaire
-            $motoID = $_POST['supprimerMoto'];
-
-            // Supprimer la moto et obtenir les motos restantes
-            $mesMotos = Moto::supprimerMoto($motoID);
-
-            // Rendre la vue mise à jour
-            Renderer::render("vue/mes_motos.phtml", [
-                "motos" => $mesMotos
-            ]);
-        }
-    }
+    
 }

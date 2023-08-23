@@ -162,16 +162,13 @@ class Moto
         if (empty($this->prix)) {
             return false;
         }
-        // if (empty($this->proprietaire_id)) {
-        //     return false;
-        // }
         if (!$this->checkImageMoto()) {
             return false;
         }
         return true;
     }
 
-    private function checkImageMoto()
+    private function checkImageMoto(): mixed
     {
         if (!isset($_FILES['file'])) {
             return false;
@@ -236,7 +233,7 @@ class Moto
         ]);
     }
     // Recuperé les annonces d'un propriétaire
-    public static function proprietaireAnnonces($proprietaire_id)
+    public static function proprietaireAnnonces(int $proprietaire_id): mixed
     {
         $query = "SELECT * FROM moto WHERE proprietaire_id = :proprietaire_id";
         $stmt = Db::getDbh()->prepare($query);
@@ -247,17 +244,5 @@ class Moto
     }
 
 
-    // Supprimer une annonce d'un propriétaire
-    public static function supprimerMoto($id)
-    {
-
-        $query = "DELETE FROM moto WHERE id = :id AND proprietaire_id = :proprietaire_id";
-        $stmt = Db::getDbh()->prepare($query);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        //suppression ne peux se faire que par le propriétaire de l'annonce
-        $stmt->bindParam(':proprietaire_id', $_SESSION['ID'], PDO::PARAM_INT);
-        $stmt->execute();
-        $listeMoto = $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Moto");
-        return $listeMoto;
-    }
+   
 }

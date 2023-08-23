@@ -84,24 +84,30 @@ class UserController
     }
     // Méthode pour vérifier si l'utilisateur est admin
     public static function getAdmin()
-{
-    if (isset($_SESSION['ID']) && isset($_SESSION['ADMIN'])) {
-        if ($_SESSION['ADMIN'] === 1) {
-            // L'utilisateur est un administrateur
-            Renderer::render("vue/administrateur.phtml");
-            return true;
+    {
+        if (isset($_SESSION['ID']) && isset($_SESSION['ADMIN'])) {
+            if ($_SESSION['ADMIN'] === 1) {
+                
+                $allUsers = User::findUsers();
+                $motos =  Moto::findAll();
+                $avis = Avis::allAvis();
+                
+                // L'utilisateur est un administrateur
+                Renderer::render("vue/administrateur.phtml",
+                [
+                    "allUsers" => $allUsers,
+                    "motos" => $motos,
+                    "avis" => $avis,
+                ]);
+                return true;
+            }
         }
+
+        // L'utilisateur n'est pas un administrateur
+        Renderer::render("vue/mes_motos.phtml");
+        return false;
     }
-    
-    // L'utilisateur n'est pas un administrateur
-    Renderer::render("vue/mes_motos.phtml");
-    return false;
-}
-   // Récuperer tous les utilisateurs
-   public static function getAllUser()
-{
-    
 }
 
-}
+
 

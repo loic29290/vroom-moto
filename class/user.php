@@ -174,13 +174,12 @@ class User
         ]);
     }
     // Méthode pour récupérer tous les utilisateurs de la base de données
-    public static function allUsers()
-    {
-        $query = "SELECT * FROM user";
-        $sth = Db::getDbh()->prepare($query);
-        $sth->execute([
-            ":nom" => $this->getNom()
-            ]);
+    public static function findUsers()
+{
+    $query = "SELECT * FROM user";
+    $sth = Db::getDbh()->prepare($query);
+    $sth->execute();
+    return $sth->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "User");
 }
-return $users;
 }
+
