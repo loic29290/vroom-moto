@@ -51,7 +51,6 @@ class Router
                 ReservationController::getReservations();
             }
 
-
             if ($_GET['page'] == "mes_locations") {
                 LocationController::getMesLocations();
             }
@@ -76,6 +75,7 @@ class Router
                 AvisController::supprimerAvis();
                 UserController::getAdmin();
             }
+            
 
         } else {
             // Défaut
