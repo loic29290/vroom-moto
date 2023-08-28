@@ -7,16 +7,16 @@ class UserController
     {
         // Créer l'objet User
         $user = new User();
-        
+
         // Vérifier si le formulaire d'inscription a été soumis
         if (isset($_POST['subscribe'])) {
             // Préparer les données de l'utilisateur
             $user->addUser();
-            
+
             // Vérifier la validité du formulaire d'inscription
             if ($user->testFormInscription($_POST['pwd2'])) {
                 echo "Inscription réussie";
-                
+
                 // Ajouter l'utilisateur à la base de données
                 $user->addUserOnDb();
 
@@ -56,10 +56,15 @@ class UserController
 
                 die; // Arrêter l'exécution du script
             } else {
-                echo "Login ou Mot de passe incorrect ou inexistant";
+
+                //echo "Login ou Mot de passe incorrect ou inexistant";
+               
+                $errorMessage = "Login ou Mot de passe incorrect ou inexistant";
+                echo "<script>alert('$errorMessage');</script>";
+            
                 // Rediriger vers la page de connexion en cas d'échec de connexion
-                header("Location: index.php?page=connexion");
-                die; // Arrêter l'exécution du script
+                //header("Location: index.php?page=connexion");
+                //die; // Arrêter l'exécution du script
             }
         }
 
@@ -87,18 +92,20 @@ class UserController
     {
         if (isset($_SESSION['ID']) && isset($_SESSION['ADMIN'])) {
             if ($_SESSION['ADMIN'] === 1) {
-                
+
                 $allUsers = User::findUsers();
                 $motos =  Moto::findAll();
                 $avis = Avis::allAvis();
-                
+
                 // L'utilisateur est un administrateur
-                Renderer::render("vue/administrateur.phtml",
-                [
-                    "allUsers" => $allUsers,
-                    "motos" => $motos,
-                    "avis" => $avis,
-                ]);
+                Renderer::render(
+                    "vue/administrateur.phtml",
+                    [
+                        "allUsers" => $allUsers,
+                        "motos" => $motos,
+                        "avis" => $avis,
+                    ]
+                );
                 return true;
             }
         }
@@ -107,9 +114,4 @@ class UserController
         Renderer::render("vue/mes_motos.phtml");
         return false;
     }
-    
-    
 }
-
-
-

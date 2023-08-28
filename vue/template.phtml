@@ -6,17 +6,21 @@
     <title>Vroom moto</title>
     <link rel="stylesheet" href="public/css/css.css" type="text/css" />
     <script type="text/javascript" src="public/js/main.js" defer></script>
+    <script src="https://kit.fontawesome.com/581cc916c6.js" crossorigin="anonymous"></script>
 </head>
 
-    <body>
-        <?php require_once "header.phtml"; ?> 
-        <?php require_once "nav.phtml"; ?>
-        
-<?php
+<body>
+
+    <?php require_once "header.phtml"; ?>
+    <?php require_once "nav.phtml"; ?>
+
+    <?php
     if (isset($vue)) {
         require_once $vue;
     }
-?>
-        <?php require_once "footer.phtml"; ?>
-    </body>
+    ?>
+    <?php require_once "footer.phtml"; ?>
+
+</body>
+
 </html>

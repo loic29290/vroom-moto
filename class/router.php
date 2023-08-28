@@ -10,7 +10,7 @@ class Router
             if ($_GET['page'] == "accueil") {
                 IndexController::getIndex();
             }
-            
+
             if ($_GET['page'] == "mon_compte") {
                 IndexController::getCompte();
             }
@@ -18,7 +18,7 @@ class Router
             if ($_GET['page'] == "calendrier") {
                 IndexController::getCalendrier();
             }
-           
+
             if ($_GET['page'] == "inscription") {
                 UserController::getInscription();
             }
@@ -38,12 +38,12 @@ class Router
             if ($_GET['page'] == "moto") {
                 MotoController::getMoto();
             }
-            
+
             if ($_GET['page'] == "mes_motos") {
                 MotoController::motoProprietaire();
             }
-            
-             if ($_GET['page'] == "formulaire_moto") {
+
+            if ($_GET['page'] == "formulaire_moto") {
                 MotoController::getFormulaire();
             }
 
@@ -62,21 +62,19 @@ class Router
             if ($_GET['page'] == "avis") {
                 AvisController::getAvis();
             }
-            
+
             if ($_GET['page'] == "avisMotos") {
                 AvisController::avisMoto();
             }
-            
+
             if ($_GET['page'] == "mes_avis") {
                 AvisController::MotoReserver();
             }
-            
+
             if ($_GET['page'] == "administrateur") {
                 AvisController::supprimerAvis();
                 UserController::getAdmin();
             }
-            
-
         } else {
             // Défaut
             IndexController::getIndex();

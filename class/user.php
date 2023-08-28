@@ -43,14 +43,16 @@ class User
     {
         return $this->password;
     }
-    public function setAdmin(?int $admin): void {
+    public function setAdmin(?int $admin): void
+    {
         $this->admin = $admin;
     }
-    public function getAdmin(): ?int {
+    public function getAdmin(): ?int
+    {
         return $this->admin;
     }
 
-     // Méthode pour ajouter les données utilisateur
+    // Méthode pour ajouter les données utilisateur
     public function addUser()
     {
         $this->setNom($this->clearForm($_POST['nom']));
@@ -131,7 +133,6 @@ class User
     {
         $error = false;
 
-        echo "test";
 
         if (empty($this->getNom())) {
             $error = true;
@@ -140,7 +141,13 @@ class User
         if (empty($this->getPassword())) {
             $error = true;
         }
-        
+
+
+        //Vérifier si un compte avec le nom d'utilisateur existe
+        if (!$this->userExists()) {
+            echo "Ce compte n'existe pas.";
+            $error = true;
+        }
 
         if (!$error) {
             $query = "SELECT id, password,admin FROM user WHERE nom=:nom";
@@ -173,13 +180,37 @@ class User
             ":mail" => $this->getEmail()
         ]);
     }
+
+    // Méthode pour vérifier si un compte avec le nom d'utilisateur existe
+    public function userExists()
+    {
+        $query = "SELECT COUNT(*) as count FROM user WHERE nom=:nom";
+        $sth = Db::getDbh()->prepare($query);
+        $sth->execute([
+            ":nom" => $this->getNom()
+        ]);
+
+        $row = $sth->fetch(PDO::FETCH_ASSOC);
+
+        return ($row['count'] > 0); // Retourne true si au moins un compte existe
+    }
     // Méthode pour récupérer tous les utilisateurs de la base de données
     public static function findUsers()
-{
-    $query = "SELECT * FROM user";
-    $sth = Db::getDbh()->prepare($query);
-    $sth->execute();
-    return $sth->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "User");
+    {
+        $query = "SELECT * FROM user";
+        $sth = Db::getDbh()->prepare($query);
+        $sth->execute();
+        return $sth->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "User");
+    }
+    // Méthode pour récupérer un utilisateur de la base de données
+    public static function findUser()
+    {
+        $query = "SELECT * FROM user WHERE id=:id";
+        $sth = Db::getDbh()->prepare($query);
+        $sth->execute([
+            ":id" => $_SESSION['ID']
+        ]);
+        $sth->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "User");
+        return $sth->fetch();
+    }
 }
-}
-

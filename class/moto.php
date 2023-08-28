@@ -242,7 +242,4 @@ class Moto
         $annonces = $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Moto");
         return $annonces;
     }
-
-
-   
 }

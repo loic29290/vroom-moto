@@ -43,6 +43,7 @@ header {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
 }
 header img {
   max-width: 100px;
@@ -50,8 +51,22 @@ header img {
 }
 header h1 {
   color: var(--couleur-secondaire);
-  margin: 10px;
   text-align: center;
+  position: relative;
+  animation: waveEffect 2s infinite;
+  font-size: 24px;
+}
+@keyframes waveEffect {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+    /* Réglez cette valeur pour ajuster l'ampleur de la vague */
+  }
+}
+header p {
+  color: var(--couleur-secondaire);
 }
 header div {
   display: flex;
@@ -116,6 +131,7 @@ main {
   margin-top: 20px;
   margin-bottom: 20px;
   height: max-content;
+  /* Mise en forme des avis */
   /* Style général du formulaire */
   /* Style des champs de saisie */
   /* Style des options de la liste déroulante */
@@ -128,14 +144,54 @@ main h1 {
 }
 main div {
   text-align: center;
+  padding: 5px;
+}
+main h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+main p {
+  font-size: 16px;
+  margin-bottom: 8px;
+  text-align: center;
 }
 main img {
-  max-width: 100px;
+  max-width: 250px;
+  border-radius: var(--border-radius);
+  margin: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+main a:hover {
+  background-color: #2581b9;
+}
+main .reservation-link {
+  display: inline-block;
+  background-color: var(--couleur-principale);
+  color: var(--couleur-secondaire);
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  /* Ajout d'une marge pour l'espacement */
+}
+main .reservation-link:hover {
+  background-color: #2581b9;
+}
+main div.comment {
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  padding: 15px;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+main div.comment p {
+  margin: 5px 0;
 }
 main #carousel {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 350px;
   margin: 20px;
   display: flex;
   justify-content: center;
@@ -149,6 +205,11 @@ main #carousel > img {
 }
 main #carousel > img:first-child {
   opacity: 1;
+}
+main .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 main .wrapper {
   margin: 15px auto;
@@ -262,7 +323,8 @@ main .today {
   color: white;
 }
 main .reserved {
-  background-color: #f39c12; /* Couleur de fond pour les jours réservés */
+  background-color: #f39c12;
+  /* Couleur de fond pour les jours réservés */
   color: white;
   opacity: 0.5;
 }
@@ -275,6 +337,8 @@ main form {
 }
 main input[type=text],
 main input[type=number],
+main input[type=password],
+main input[type=email],
 main select,
 main textarea {
   width: 100%;
@@ -289,7 +353,9 @@ main textarea {
 main select {
   height: 40px;
 }
-main button[name=submit] {
+main button[name=submit],
+main button[name=connexion],
+main button[name=subscribe] {
   background-color: var(--couleur-principale);
   color: var(--couleur-secondaire);
   border: none;
@@ -300,14 +366,54 @@ main button[name=submit] {
   transition: background-color 0.3s ease;
 }
 main button[name=submit]:hover {
-  background-color: #2581b9; /* Une nuance plus sombre au survol */
+  background-color: #2581b9;
+  /* Une nuance plus sombre au survol */
 }
 main input[type=file] {
   margin-top: 10px;
 }
 
-footer p {
+footer {
   text-align: center;
+  padding: 10px;
+  background-color: var(--couleur-fond);
+  display: flex;
+}
+
+footer div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer p {
+  margin: 0;
+  padding-right: 2px;
+  font-size: 12px;
+}
+
+footer a {
+  text-decoration: none;
+  margin: 10px;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.close-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
 @media (min-width: 768px) and (max-width: 1200px) {

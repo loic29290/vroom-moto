@@ -1,14 +1,20 @@
 <header>
-    
-    <img src="public/images/VROOM.png" alt="logo" >
-    
-     <h1> Location de moto entre particuliers</h1>
-   <div>
-     <?php if (isset($_SESSION['ID'])) { ?>
-    <a href="index.php?page=disconnect">Déconnexion</a>
-    <?php } else { ?>
-    <a href="index.php?page=connexion">Se connecter</a>
-    <?php } ?>
-    
-   </div>
+
+    <img src="public/images/VROOM.png" alt="logo">
+
+    <h1> LOCATION DE MOTO ENTRE PARTICULIERS</h1>
+
+    <div>
+        <?php if ($user) { ?>
+            <p>Bienvenue <?= $user->getNom() ?></p>
+            <a href="index.php?page=disconnect">Déconnexion</a>
+
+        <?php } else { ?>
+
+            <a href="index.php?page=connexion">Se connecter</a>
+
+        <?php } ?>
+
+    </div>
+
 </header>

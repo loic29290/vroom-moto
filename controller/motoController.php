@@ -103,6 +103,4 @@ class MotoController
             "motos" => $mesMotos
         ]);
     }
-
-    
 }
