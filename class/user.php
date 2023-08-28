@@ -213,4 +213,19 @@ class User
         $sth->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "User");
         return $sth->fetch();
     }
+    
+     // Méthode pour récupérer le nom d'un utilisateur par rapport à l'avis
+      public static function avisName(int $location_id) : mixed
+        
+    {
+        $query = "SELECT user.* FROM user, avis WHERE user.id = avis.auteur_id AND avis.location_id = :location_id";
+        $sth = Db::getDbh()->prepare($query);
+        $sth->execute([
+            ":location_id" => $location_id,
+        ]);
+        $sth->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "User");
+        return $sth->fetch();
+    }
+   
+    
 }

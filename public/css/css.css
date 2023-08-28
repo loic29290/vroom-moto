@@ -145,6 +145,7 @@ main h1 {
 main div {
   text-align: center;
   padding: 5px;
+  display: contents;
 }
 main h2 {
   font-size: 20px;
