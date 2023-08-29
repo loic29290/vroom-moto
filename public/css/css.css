@@ -166,10 +166,10 @@ main img {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 main a {
-  display: block;
-}
-main a:hover {
-  background-color: #2581b9;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
 }
 main div.comment {
   background-color: #fff;
@@ -366,6 +366,25 @@ main input[type=file] {
   margin-top: 10px;
 }
 
+.mes_motos {
+  background-color: var(--couleur-fond);
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+.mes_motos a {
+  color: blue;
+  text-decoration: none;
+}
+.mes_motos a:hover {
+  text-decoration: underline;
+}
+
+.admin {
+  background-color: var(--couleur-fond);
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
 footer {
   text-align: center;
   padding: 10px;
@@ -390,32 +409,42 @@ footer a {
   margin: 10px;
 }
 
-.popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.close-button {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
 @media (min-width: 768px) and (max-width: 1200px) {
   body {
     grid-template: "header header" "nav nav" "main main" "footer footer";
     grid-template-columns: 1fr 4fr;
   }
   header {
-    margin-bottom: 0;
+    /* Styles de l'en-tête pour cette plage de largeurs */
+  }
+  nav {
+    /* Styles de la navigation pour cette plage de largeurs */
+  }
+  .moto-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 20px;
+  }
+  .moto-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  .moto-card h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  .moto-image {
+    height: 200px;
+    /* Hauteur fixe pour toutes les images */
+    object-fit: cover;
+    /* Ajuster la taille de l'image tout en préservant le ratio */
+  }
+  footer {
+    /* Styles du pied de page pour cette plage de largeurs */
   }
 }
 @media (min-width: 1200px) {
@@ -423,8 +452,59 @@ footer a {
     grid-template: "header header header" "nav nav nav" " main main main" "footer footer footer";
     grid-template-columns: 15fr 70fr 15fr;
   }
+  nav #menu {
+    background-color: #333;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  nav #menu li {
+    padding: 10px;
+    border-bottom: 1px solid #666;
+    color: #fff;
+    position: relative;
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+  }
+  .moto-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 20px 0;
+  }
+  .moto-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+  }
+  .moto-card h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  .moto-card img {
+    height: 300px;
+    object-fit: cover;
+  }
   form {
     max-width: 600px;
+  }
+  footer p {
+    margin: 0;
+    padding-right: 2px;
+    font-size: 16px;
+  }
+  footer a {
+    text-decoration: none;
+    margin: 5px;
+    font-size: 16px;
   }
 }
 
