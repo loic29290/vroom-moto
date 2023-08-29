@@ -140,12 +140,15 @@ main {
 }
 main h1 {
   text-align: center;
-  margin: 20px;
+  text-decoration: underline;
+  padding: 20px;
 }
 main div {
   text-align: center;
   padding: 5px;
-  display: contents;
+}
+main div #reservation {
+  display: content;
 }
 main h2 {
   font-size: 20px;
@@ -162,21 +165,10 @@ main img {
   margin: 20px 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+main a {
+  display: block;
+}
 main a:hover {
-  background-color: #2581b9;
-}
-main .reservation-link {
-  display: inline-block;
-  background-color: var(--couleur-principale);
-  color: var(--couleur-secondaire);
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  margin-top: 10px;
-  /* Ajout d'une marge pour l'espacement */
-}
-main .reservation-link:hover {
   background-color: #2581b9;
 }
 main div.comment {
