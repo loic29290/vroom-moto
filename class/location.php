@@ -182,5 +182,15 @@ class Location
             ":fin" => $this->getFin()
         ]);
     }
+    
+    public static function locationMoto($motoId): mixed {
+        $query = "SELECT location.* FROM location 
+              WHERE moto_id = :moto_id";
+        $sth = Db::getDbh()->prepare($query);
+        $sth->execute([
+            ":moto_id" => $motoId,
+        ]);
+        return $sth->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Location");
+    }
      
 }
