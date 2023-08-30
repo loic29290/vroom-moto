@@ -68,7 +68,7 @@ class Location
     
     public function getFinFormate(): string
     {
-        $date = new DateTime($this->debut);
+        $date = new DateTime($this->fin);
         return $date->format('d/m/Y');
     }
 
@@ -147,7 +147,7 @@ class Location
     {
         $query = "SELECT location.* FROM location 
               WHERE moto_id = :moto_id 
-              AND (('date_debut' BETWEEN :debut AND :fin) OR ('date_fin'  BETWEEN :debut AND :fin))";
+              AND ((debut BETWEEN :debut AND :fin) OR (fin BETWEEN :debut AND :fin))";
 
         $sth = Db::getDbh()->prepare($query);
         $sth->execute([
