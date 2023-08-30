@@ -1,0 +1,39 @@
+<main>
+    <div class="reservation">
+        <h1><?= $data['moto']->getModele() ?></h1>
+        <p>Marque: <?= $data['moto']->getMarque() ?></p>
+        <p>Année: <?= $data['moto']->getAnnee() ?></p>
+        <p>Description: <?= $data['moto']->getDescription() ?></p>
+        <p>Prix: <?= $data['moto']->getPrix() ?> €</p>
+        <img src="<?= $data['moto']->getImage() ?>" />
+
+        <!--garder l id de la moto pour la reservation -->
+        <p><a href="index.php?page=reservation&id=<?= $data['moto']->getId() ?>">Réservation</a></p>
+
+    </div>
+
+
+
+
+    <?php
+    if (isset($data['avis'])) {
+    ?>
+        <?php
+        foreach ($data['avis'] as $avis) {
+            $user = User::avisName($avis->getLocationId());
+        ?>
+            <div>
+                <p>Auteur: <?= $user->getNom() ?></p>
+                <p>Commentaire: <?= $avis->getCommentaire() ?></p>
+                <p>Note: <?= $avis->getNote() ?></p>
+
+            </div>
+    <?php
+        }
+    }
+    ?>
+    </div>
+     <div>
+      
+   
+</main>

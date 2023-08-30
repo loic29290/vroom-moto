@@ -1,0 +1,761 @@
+// Mobile First
+:root {
+    --couleur-principale: rgba(0, 74, 171, 1); //bleu
+    --couleur-secondaire: rgba(255, 255, 255, 1); //blanc
+    --couleur-texte: rgba(128, 128, 128, 1); // gris
+    --couleur-fond: rgba(192, 192, 192, 1);
+    --border-radius: 1.25rem;
+    --font-size: 1rem;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+//mise en forme du body
+body {
+    display: grid;
+    grid-template:
+        "header"
+        "nav"
+        "main"
+        "footer"
+    ;
+
+    header {
+        grid-area: header;
+    }
+
+    nav {
+        grid-area: nav;
+    }
+
+    main {
+        grid-area: main;
+    }
+
+    footer {
+        grid-area: footer;
+    }
+}
+
+//BODY
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--couleur-fond);
+    color: var(--couleur-texte);
+    font-size: var(--font-size);
+    width:100%;
+    
+}
+
+//HEADER
+header {
+    background-color: var(--couleur-principale);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem;
+    box-shadow: 0rem 0.3rem 1rem rgba(0, 0, 0, 0.5);
+
+    img {
+        max-width: 100px;
+        margin-bottom: 0.3rem;
+    }
+
+    h1 {
+        color: var(--couleur-secondaire);
+        text-align: center;
+        position: relative;
+        animation: waveEffect 2s infinite;
+        font-size: 1.5rem;
+
+    }
+
+    @keyframes waveEffect {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-0.625rem);
+            /* Réglez cette valeur pour ajuster l'ampleur de la vague */
+        }
+    }
+
+    p {
+        color: var(--couleur-secondaire);
+    }
+
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    a {
+        color: var(--couleur-secondaire);
+        font-size: 1rem;
+        text-decoration: none;
+        margin-left: 0.3rem;
+    }
+    
+    .bienvenue {
+        align-self: start; /* Aligne le contenu à gauche */
+        padding-left: 1.25rem; /* Ajoute un espace depuis le bord gauche */
+        align-items: revert;
+}
+
+}
+
+
+
+   //NAV
+    nav {
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+
+
+.menu {
+    list-style: none;
+    display: none;
+}
+
+.menu.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu li {
+    margin: 20px;
+    
+}
+.menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.burger-menu {
+    cursor: pointer;
+    display: block;
+    color: white;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+}
+/* Style du sous-menu (caché par défaut) */
+.sous {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    list-style: none;
+    padding: 10px;
+    z-index: 1;
+}
+
+/* Style des éléments du sous-menu */
+.sous li {
+    margin: 10px 0;
+}
+
+.sous a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Appliquer le style du sous-menu lorsque l'élément parent a la classe 'ouvert' */
+.deroulant.ouvert .sous {
+    display: block;
+}
+
+
+}
+
+//MAIN
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    height: max-content;
+
+    h1 {
+        text-align: center;
+        text-decoration: underline;
+        padding: 1.25rem;
+    }
+
+
+    div {
+        text-align: center;
+        padding: 5px;
+    }
+
+    #reservation {
+        display: content;
+    }
+
+
+    h2 {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 1rem;
+        margin-bottom: 8px;
+        text-align: center;
+    }
+
+    img {
+        max-width: 250px;
+        border-radius: var(--border-radius);
+        margin: 1.25rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    a {
+        padding: 10px;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+    }
+
+
+    /* Mise en forme des avis */
+    div.comment {
+        background-color: #fff;
+        border-radius: var(--border-radius);
+        padding: 15px;
+        margin-top: 1.25rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    div.comment p {
+        margin: 5px;
+    }
+
+    // Carousel
+    #carousel {
+        position: relative;
+        width: 250px;
+        height: 350px;
+        margin: 1.25rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    #carousel>img {
+        display: block;
+        position: absolute;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        border-radius: 10%;
+    }
+
+    #carousel>img:first-child {
+        opacity: 1;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+
+    //calendrier
+
+
+    .wrapper {
+        margin: 15px auto;
+        max-width: 1100px;
+    }
+
+    .container-calendar {
+        background: var(--couleur-secondaire);
+        padding: 15px;
+        max-width: 475px;
+        margin: 0 auto;
+        overflow: auto;
+    }
+
+    .button-container-calendar button {
+        cursor: pointer;
+        display: inline-block;
+        zoom: 1;
+        background: var(--couleur-principale);
+        color: var(--couleur-secondaire);
+        border: 1px solid #0aa2b5;
+        border-radius: 4px;
+        padding: 5px 10px;
+    }
+
+    .table-calendar {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .table-calendar td,
+    .table-calendar th {
+        padding: 5px;
+        border: 1px solid rgba(226, 226, 226, 1);
+        text-align: center;
+        vertical-align: top;
+    }
+
+    .date-picker.selected {
+        font-weight: bold;
+        outline: 1px dashed rgba(0, 188, 212, 1);
+    }
+
+    .date-picker.selected span {
+        border-bottom: 2px solid currentColor;
+    }
+
+
+    #monthAndYear {
+        text-align: center;
+        margin-top: 0;
+    }
+
+    .button-container-calendar {
+        position: relative;
+        margin-bottom: 1em;
+        overflow: hidden;
+        clear: both;
+    }
+
+    #previous {
+        float: left;
+    }
+
+    #next {
+        float: right;
+    }
+
+    .footer-container-calendar {
+        margin-top: 1em;
+        border-top: 1px solid rgba(218, 218, 218, 1);
+        padding: 10px 0;
+    }
+
+    .footer-container-calendar select {
+        cursor: pointer;
+        display: inline-block;
+        zoom: 1;
+        background: var(--couleur-secondaire);
+        color: rgba(88, 88, 88, 1);
+        border: 1px solid rgba(191, 197, 197, 1);
+        border-radius: 3px;
+        padding: 5px 1em;
+    }
+
+    .calendar {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(221, 221, 221, 1);
+        padding: 10px;
+    }
+
+    .days-of-week {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+        margin-top: 10px;
+    }
+
+    .days-of-week span {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .days {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+        margin-top: 10px;
+    }
+
+    .day {
+        text-align: center;
+        padding: 5px;
+        border: 1px solid rgba(221, 221, 221, 1);
+        cursor: pointer;
+    }
+
+    .selected {
+        background-color: rgba(243, 156, 18, 1);
+        color: white;
+    }
+
+    .today {
+        background-color: rgba(39, 174, 96, 1);
+        color: white;
+    }
+
+    .reserved {
+        background-color: rgba(243, 156, 18, 1);
+        /* Couleur de fond pour les jours réservés */
+        color: white;
+        opacity: 0.5;
+    }
+
+
+
+
+    /* Style général du formulaire */
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 1.25rem;
+        border-radius: var(--border-radius);
+        background-color: var(--couleur-principale);
+    }
+
+    /* Style des champs de saisie */
+    input[type="text"],
+    input[type="number"],
+    input[type="password"],
+    input[type="email"],
+    select,
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid var(--couleur-texte);
+        border-radius: var(--border-radius);
+        font-size: 1rem;
+        color: var(--couleur-texte);
+        background-color: var(--couleur-secondaire);
+    }
+
+    /* Style des options de la liste déroulante */
+    select {
+        height: 40px;
+    }
+
+    /* Style du bouton de soumission */
+    button[name="submit"],
+    button[name="connexion"],
+    button[name="subscribe"] {
+        background-color: var(--couleur-principale);
+        color: var(--couleur-secondaire);
+        border: none;
+        border-radius: var(--border-radius);
+        padding: 10px 1.25rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button[name="submit"]:hover {
+        background-color: rgba(37, 129, 185, 1);
+        /* Une nuance plus sombre au survol */
+    }
+
+    /* Style pour le champ de téléchargement de fichier */
+    input[type="file"] {
+        margin-top: 10px;
+    }
+
+    .mes_motos {
+        background-color: var(--couleur-fond);
+        padding: 10px;
+        border: 1px solid rgba(204, 204, 204, 1);
+
+
+        a {
+            color: var(--couleur-texte);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .admin {
+        background-color: var(--couleur-fond);
+        padding: 10px;
+        border: 1px solid rgba(204, 204, 204, 1);
+    }
+}
+
+//FOOTER
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--couleur-fond);
+    display: flex;
+
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    p {
+        margin: 0;
+        padding-right: 2px;
+        font-size: 12px;
+    }
+
+    a {
+        text-decoration: none;
+        margin: 10px;
+
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 1200px) {
+    body {
+        grid-template:
+            "header header"
+            "nav nav"
+            "main main"
+            "footer footer"
+        ;
+        grid-template-columns: 1fr 4fr;
+    }
+
+    //HEADER
+    header {
+        /* Styles de l'en-tête pour cette plage de largeurs */
+    }
+
+    //NAV
+    nav {
+     
+    }
+
+    //MAIN
+    main {
+
+
+        .moto-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin: 1.25rem;
+        }
+
+        .moto-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .moto-card h2 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .moto-image {
+
+            height: 200px;
+            object-fit: cover;
+        }
+    }
+
+
+    //FOOTER
+    footer {
+        /* Styles du pied de page pour cette plage de largeurs */
+    }
+}
+
+    @media (min-width: 1200px) {
+        body {
+            grid-template:
+                "header header header"
+                "nav nav nav"
+                " main main main"
+                "footer footer footer"
+            ;
+            grid-template-columns: 15fr 70fr 15fr;
+        }
+
+
+        //HEADER
+        header {
+           
+                
+            
+            .bienvenue {
+        text-align: left;
+        margin-left: 1rem; /* Réglez cette marge selon vos besoins */
+                    }
+            
+            
+                }
+
+        //NAV
+        nav {
+    .burger-menu {
+        display: none; /* Masque le menu hamburger */
+    }
+
+    .menu {
+        display: flex; /* Affiche la liste de menu */
+        flex-direction: row;
+        width: 100%; /* Les éléments prennent toute la largeur */
+    }
+
+    .menu li {
+        flex: 1; /* Les éléments se répartissent la largeur disponible */
+        min-width: auto;
+        position: relative;
+    }
+
+    .deroulant {
+        position: relative;
+    }
+
+    .deroulant:hover .sous {
+        display: block; /* Affiche le sous-menu au survol */
+    }
+
+    .sous {
+        display: none; /* Masque le sous-menu par défaut */
+        position: absolute;
+        background-color: #333;
+        list-style: none;
+        padding: 10px;
+        z-index: 1;
+        top: 100%; /* Ajustez la position verticale */
+        left: 0;
+        width: 100%; /* Les sous-menus prennent toute la largeur */
+    }
+
+    .sous li {
+        margin: 10px 0;
+    }
+
+    .sous a {
+        text-decoration: none; /* Supprime la soulignement du texte */
+        color: white; /* Ajustez la couleur du texte */
+    }
+}
+
+/* Autres styles spécifiques */
+.menu {
+    background-color: #333;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Les éléments prennent toute la largeur */
+}
+
+.menu.active {
+    display: flex; /* Affiche le menu lorsque le bouton est cliqué */
+}
+
+.menu li {
+    padding: 10px;
+    border-bottom: 1px solid #666;
+    color: #fff;
+    position: relative;
+    text-align: center;
+    min-width: 200px;
+    width: 100%; /* Les éléments prennent toute la largeur */
+}
+        //MAIN
+        main {
+
+
+            .moto-list {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.25rem;
+                margin: 20px 0;
+            }
+
+            .moto-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 1.25rem;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+                transition: transform 0.2s;
+            }
+
+            .moto-card:hover {
+                transform: scale(1.05);
+                /* Applique un effet d'agrandissement au survol */
+            }
+
+            .moto-card h2 {
+                font-size: 18px;
+                margin-bottom: 5px;
+            }
+
+            .moto-card img {
+                height: 300px;
+                object-fit: cover;
+            }
+
+            form {
+                max-width: 600px;
+            }
+        }
+
+        //FOOTER
+        footer {
+
+            p {
+                margin: 0;
+                padding-right: 2px;
+                font-size: 1rem;
+            }
+
+            a {
+                text-decoration: none;
+                margin: 5px;
+                font-size: 1rem;
+            }
+        }
+    }

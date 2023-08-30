@@ -1,0 +1,31 @@
+<main>
+    <h1>Mes locations </h1>
+    <?php
+    if (isset($data['reservations'])) {
+    ?>
+        <?php
+        foreach ($data['reservations'] as $reservation) {
+            $moto = $reservation->getMoto();
+            $avis = Avis::getAvisByLocation($reservation->getId());
+        ?>
+            <div>
+                <div>
+                    <p><?= $moto->getMarque(); ?> <?= $moto->getModele(); ?>
+                    Début:  <?= $reservation->getDebutFormate() ?> Fin: <?= $reservation->getFinFormate() ?></p>
+                    
+                    <?php if ($avis) { 
+                     
+                     ?>
+                        
+                        <?= $avis->getCommentaire(); ?>
+                        <a href="index.php?page=avis&id=<?= $reservation->getId() ?>">Modifiez votre avis</a>
+                    <?php } else { ?>
+                        <a href="index.php?page=avis&id=<?= $reservation->getId() ?>">Laissez un avis</a>
+                    <?php } ?>
+                </div>
+            </div>
+    <?php
+        }
+    }
+    ?>
+</main>

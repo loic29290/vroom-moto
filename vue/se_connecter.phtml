@@ -1,0 +1,13 @@
+<header>
+
+
+    <div>
+        <?php if (isset($_SESSION['ID'])) { ?>
+            <a href="index.php?page=disconnect">Déconnexion</a>
+        <?php } else { ?>
+            <a href="index.php?page=inscription">Inscription</a>
+            <a href="index.php?page=connexion">Connexion</a>
+        <?php } ?>
+    </div>
+
+</header>

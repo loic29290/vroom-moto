@@ -1,0 +1,16 @@
+<main>
+
+    <h1>Liste des motos </h1>
+ <div class="moto-list">
+        <?php
+        foreach ($data['motos'] as $moto) {
+        ?>
+            <div class="moto-card">
+                <h2><a href="index.php?page=moto&id=<?= $moto->getId() ?>"><?= $moto->getModele() ?></a></h2>
+                <img src="<?= $moto->getImage() ?>" />
+            </div>
+        <?php
+        }
+        ?>
+    </div>
+</main>

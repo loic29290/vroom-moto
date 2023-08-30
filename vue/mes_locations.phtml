@@ -1,0 +1,22 @@
+<main>
+
+    <?php
+    if (isset($data['locations'])) {
+
+    ?>
+        <h1>Les locations de mes motos</h1>
+        <?php
+        foreach ($data['locations'] as $location) {
+            $moto = $location->getMoto();
+            
+        ?>
+            <div>
+                
+                <p><?= $moto->getMarque(); ?> <?= $moto->getModele(); ?>
+                 Début: <?= $location->getDebut() ?> Fin: <?= $location->getFin() ?></p>
+            </div>
+    <?php
+        }
+    }
+    ?>
+</main>

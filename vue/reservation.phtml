@@ -1,0 +1,51 @@
+<main>
+    <div>
+        <form method="POST">
+            <label for="debut">Début:</label>
+            <input type="date" id="debut" name="debut" required><br>
+
+            <label for="fin">Fin:</label>
+            <input type="date" id="fin" name="fin" required><br>
+
+            <button name="submit" name="reserver">Réserver moto</button>
+        </form>
+    </div>
+
+
+    <form method="POST">
+
+        <div class="calendar">
+            <div class="header">
+                <button id="prevBtn" type="button">&lt;</button>
+                <div id="monthYear"></div>
+                <button id="nextBtn" type="button">&gt;</button>
+            </div>
+           
+            <div class="days"></div>
+
+        </div>
+    </form>
+    <div>
+   <?php
+    if (isset($data['locationMoto'])) {
+
+    ?>
+    <h2>Réservation pour cette moto</h2>
+        <?php
+        foreach ($data['locationMoto'] as $locationMoto) {
+            $moto = $locationMoto->getMoto();
+            
+        ?>
+        
+                
+                <p><?= $moto->getMarque(); ?> <?= $moto->getModele(); ?> 
+                Début: <?= $locationMoto->getDebutFormate() ?> Fin: <?= $locationMoto->getFinFormate() ?></p>
+            
+             <?php
+        }
+    }
+    ?>
+       
+   </div>
+
+</main>

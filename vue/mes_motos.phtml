@@ -1,0 +1,19 @@
+<main>
+    <?php
+    if (isset($data['motos'])) {
+    ?>
+        <h1>Mes motos</h1>
+        <?php
+        foreach ($data['motos'] as $moto) {
+        ?>
+            <div>
+                <form class="mes_motos" method="POST">
+                    <h2><a href="index.php?page=moto&id=<?= $moto->getId() ?>"><?= $moto->getModele() ?></a></h2>
+
+                </form>
+            </div>
+    <?php
+        }
+    }
+    ?>
+</main>

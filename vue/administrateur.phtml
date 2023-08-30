@@ -1,0 +1,63 @@
+<main>
+    <div id"admin">
+        <h1>Administrateur</h1>
+
+        <?php
+        if (isset($data['allUsers'])) {
+        ?>
+            <h2>Tous les utilisateurs </h2>
+            <?php
+
+            foreach ($data['allUsers'] as $user) {
+            ?>
+                <div>
+                    <p><?= $user->getNom() ?></p>
+                </div>
+        <?php
+            }
+        }
+        ?>
+
+        <?php
+        if (isset($data['motos'])) {
+        ?>
+            <h2>Toutes les annonces du site</h2>
+            <?php
+
+            foreach ($data['motos'] as $moto) {
+            ?>
+                <div>
+                    <h3><a href="index.php?page=moto&id=<?= $moto->getId() ?>"><?= $moto->getModele() ?></a></h3>
+                </div>
+        <?php
+            }
+        }
+        ?>
+
+        <h2>Tous les avis du site</h2>
+        <?php
+        if (isset($data['avis'])) {
+        ?>
+
+            <?php
+
+            foreach ($data['avis'] as $avis) {
+                $user = User::avisName($avis->getLocationId());
+            ?>
+                <div>
+                    <p>Auteur: <?= $user->getNom() ?></p>
+                    <p><?= $avis->getCommentaire() ?></p>
+                    <form class="admin" method="POST">
+                        <button name="supprimerAvis" name="supprimerAvis" value="<?= $avis->getId() ?>">Supprimer avis</button>
+                    </form>
+                </div>
+        <?php
+
+            }
+        }
+        ?>
+
+
+
+    </div>
+</main>
