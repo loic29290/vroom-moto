@@ -7,6 +7,7 @@ class UserController
     {
         // Créer l'objet User
         $user = new User();
+        $errors = [];
 
         // Vérifier si le formulaire d'inscription a été soumis
         if (isset($_POST['subscribe'])) {
@@ -14,7 +15,8 @@ class UserController
             $user->addUser();
 
             // Vérifier la validité du formulaire d'inscription
-            if ($user->testFormInscription($_POST['pwd2'])) {
+            $errors = $user->testFormInscription($_POST['pwd2']);
+            if (!is_array($errors)) {
                 echo "Inscription réussie";
 
                 // Ajouter l'utilisateur à la base de données
@@ -27,7 +29,7 @@ class UserController
         }
 
         // Afficher la vue d'inscription avec l'objet utilisateur
-        Renderer::render('vue/inscription.phtml', ["user" => $user]);
+        Renderer::render('vue/inscription.phtml', ["user" => $user, "errors" => $errors]);
     }
 
     // Méthode pour gérer la connexion de l'utilisateur

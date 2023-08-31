@@ -8,25 +8,93 @@
     --font-size: 1rem;
 }
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 
 //mise en forme du body
@@ -62,8 +130,8 @@ body {
     background-color: var(--couleur-fond);
     color: var(--couleur-texte);
     font-size: var(--font-size);
-    width:100%;
-    
+    width: 100%;
+
 }
 
 //HEADER
@@ -119,19 +187,21 @@ header {
         text-decoration: none;
         margin-left: 0.3rem;
     }
-    
+
     .bienvenue {
-        align-self: start; /* Aligne le contenu à gauche */
-        padding-left: 1.25rem; /* Ajoute un espace depuis le bord gauche */
+        align-self: start;
+        /* Aligne le contenu à gauche */
+        padding-left: 1.25rem;
+        /* Ajoute un espace depuis le bord gauche */
         align-items: revert;
-}
+    }
 
 }
 
 
 
-   //NAV
-    nav {
+//NAV
+nav {
     background-color: #333;
     display: flex;
     align-items: center;
@@ -139,61 +209,75 @@ header {
     color: white;
 
 
-.menu {
-    list-style: none;
-    display: none;
-}
+    .menu {
+        list-style: none;
+        display: none;
+    }
 
-.menu.active {
-    display: flex;
-    flex-direction: column;
-}
+    .menu.active {
+        display: flex;
+        flex-direction: column;
+    }
 
-.menu li {
-    margin: 20px;
-    
-}
-.menu a {
-    color: white;
-    text-decoration: none;
-}
+    .menu li {
+        margin: 20px;
 
-.burger-menu {
-    cursor: pointer;
-    display: block;
-    color: white;
-}
+    }
 
-.bar {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 6px 0;
-}
-/* Style du sous-menu (caché par défaut) */
-.sous {
-    display: none;
-    position: absolute;
-    background-color: #333;
-    list-style: none;
-    padding: 10px;
-    z-index: 1;
-}
+    .menu a {
+        color: white;
+        text-decoration: none;
+    }
 
-/* Style des éléments du sous-menu */
-.sous li {
-    margin: 10px 0;
-}
+    .burger-menu {
+        cursor: pointer;
+        display: block;
+        color: white;
+    }
 
-.sous a {
-    color: white;
-    text-decoration: none;
-}
+    .bar {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 6px 0;
+    }
 
-/* Appliquer le style du sous-menu lorsque l'élément parent a la classe 'ouvert' */
-.deroulant.ouvert .sous {
-    display: block;
-}
+    /* Style du sous-menu (caché par défaut) */
+    .sous {
+        display: none;
+        position: absolute;
+        background-color: #333;
+        list-style: none;
+        padding: 10px;
+        z-index: 1;
+    }
+
+    /* Style des éléments du sous-menu */
+    .sous li {
+        margin: 10px 0;
+    }
+
+    .sous a {
+        color: white;
+        text-decoration: none;
+    }
+
+    /* Appliquer le style du sous-menu lorsque l'élément parent a la classe 'ouvert' */
+    .deroulant.ouvert .sous {
+        display: block;
+    }
+
+    /* Indicateur visuel */
+    .menu li.deroulant::after {
+        content: "▼";
+        /* Flèche vers le bas ou autre icône */
+        margin-left: 5px;
+    }
+
+    /* Modification de la couleur de fond du lien principal */
+    .menu li.deroulant.ouvert a {
+        background-color: #555;
+    }
 
 
 }
@@ -447,6 +531,7 @@ main {
         padding: 1.25rem;
         border-radius: var(--border-radius);
         background-color: var(--couleur-principale);
+        display: grid;
     }
 
     /* Style des champs de saisie */
@@ -524,6 +609,7 @@ footer {
     padding: 10px;
     background-color: var(--couleur-fond);
     display: flex;
+    justify-content: space-around;
 
 
     div {
@@ -563,9 +649,7 @@ footer {
     }
 
     //NAV
-    nav {
-     
-    }
+    nav {}
 
     //MAIN
     main {
@@ -605,157 +689,207 @@ footer {
     }
 }
 
-    @media (min-width: 1200px) {
-        body {
-            grid-template:
-                "header header header"
-                "nav nav nav"
-                " main main main"
-                "footer footer footer"
-            ;
-            grid-template-columns: 15fr 70fr 15fr;
+@media (min-width: 1200px) {
+    body {
+        grid-template:
+            "header header header"
+            "nav nav nav"
+            " main main main"
+            "footer footer footer"
+        ;
+        grid-template-columns: 15fr 70fr 15fr;
+    }
+
+
+    //HEADER
+    header {
+
+
+
+        .bienvenue {
+            text-align: left;
+            margin-left: 1rem;
+            /* Réglez cette marge selon vos besoins */
         }
 
 
-        //HEADER
-        header {
-           
-                
-            
-            .bienvenue {
-        text-align: left;
-        margin-left: 1rem; /* Réglez cette marge selon vos besoins */
-                    }
-            
-            
-                }
-
-        //NAV
-        nav {
-    .burger-menu {
-        display: none; /* Masque le menu hamburger */
     }
 
+    //NAV
+    nav {
+        .burger-menu {
+            display: none;
+            /* Masque le menu hamburger */
+        }
+
+        .menu {
+            display: flex;
+            /* Affiche la liste de menu */
+            flex-direction: row;
+            width: 100%;
+            /* Les éléments prennent toute la largeur */
+        }
+
+        .menu li {
+            flex: 1;
+            /* Les éléments se répartissent la largeur disponible */
+            min-width: auto;
+            position: relative;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            /* Supprime la soulignement du texte */
+            color: white;
+            /* Ajustez la couleur du texte */
+            padding: 10px;
+            /* Ajoute un padding aux éléments du menu principal */
+            display: block;
+            /* Pour que les liens remplissent toute la largeur */
+            text-align: center;
+        }
+
+        .deroulant {
+            position: relative;
+        }
+
+        .deroulant .sous {
+            display: none;
+            /* Masque le sous-menu par défaut */
+            position: absolute;
+            background-color: #333;
+            list-style: none;
+            padding: 0;
+            /* Réinitialise le padding */
+            margin: 0;
+            /* Réinitialise le margin */
+            z-index: 1;
+            top: 40px;
+            /* Ajustez la position verticale */
+            left: 0;
+            width: 100%;
+            /* Les sous-menus prennent toute la largeur */
+        }
+
+        .deroulant:hover .sous {
+            display: block;
+            /* Affiche le sous-menu au survol */
+        }
+
+        .sous li {
+            margin: 10px 0;
+            padding: 10px;
+            /* Ajoute un padding aux éléments du sous-menu */
+        }
+
+        .sous a {
+            text-decoration: none;
+            /* Supprime la soulignement du texte */
+            color: white;
+            /* Ajustez la couleur du texte */
+            display: block;
+            /* Pour que les liens remplissent toute la largeur */
+            padding: 10px;
+            /* Ajoute un padding aux éléments du sous-menu */
+        }
+
+
+    }
+
+    /* Autres styles spécifiques */
     .menu {
-        display: flex; /* Affiche la liste de menu */
-        flex-direction: row;
-        width: 100%; /* Les éléments prennent toute la largeur */
+        background-color: #333;
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        /* Les éléments prennent toute la largeur */
+    }
+
+    .menu.active {
+        display: flex;
+        /* Affiche le menu lorsque le bouton est cliqué */
     }
 
     .menu li {
-        flex: 1; /* Les éléments se répartissent la largeur disponible */
-        min-width: auto;
-        position: relative;
-    }
-
-    .deroulant {
-        position: relative;
-    }
-
-    .deroulant:hover .sous {
-        display: block; /* Affiche le sous-menu au survol */
-    }
-
-    .sous {
-        display: none; /* Masque le sous-menu par défaut */
-        position: absolute;
-        background-color: #333;
-        list-style: none;
         padding: 10px;
-        z-index: 1;
-        top: 100%; /* Ajustez la position verticale */
-        left: 0;
-        width: 100%; /* Les sous-menus prennent toute la largeur */
+        color: #fff;
+        position: relative;
+        text-align: center;
+        min-width: 200px;
+        width: 100%;
+        /* Les éléments prennent toute la largeur */
     }
 
-    .sous li {
-        margin: 10px 0;
+    /* Indicateur visuel */
+    .menu li.deroulant::after {
+        content: "▼";
+        /* Flèche vers le bas ou autre icône */
+        margin-left: 5px;
     }
 
-    .sous a {
-        text-decoration: none; /* Supprime la soulignement du texte */
-        color: white; /* Ajustez la couleur du texte */
+    /* Modification de la couleur de fond du lien principal */
+    .menu li.deroulant.ouvert a {
+        background-color: #555;
     }
-}
-
-/* Autres styles spécifiques */
-.menu {
-    background-color: #333;
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    width: 100%; /* Les éléments prennent toute la largeur */
-}
-
-.menu.active {
-    display: flex; /* Affiche le menu lorsque le bouton est cliqué */
-}
-
-.menu li {
-    padding: 10px;
-    border-bottom: 1px solid #666;
-    color: #fff;
-    position: relative;
-    text-align: center;
-    min-width: 200px;
-    width: 100%; /* Les éléments prennent toute la largeur */
-}
-        //MAIN
-        main {
 
 
-            .moto-list {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1.25rem;
-                margin: 20px 0;
-            }
+    //MAIN
+    main {
 
-            .moto-card {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 1.25rem;
-                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-                transition: transform 0.2s;
-            }
 
-            .moto-card:hover {
-                transform: scale(1.05);
-                /* Applique un effet d'agrandissement au survol */
-            }
-
-            .moto-card h2 {
-                font-size: 18px;
-                margin-bottom: 5px;
-            }
-
-            .moto-card img {
-                height: 300px;
-                object-fit: cover;
-            }
-
-            form {
-                max-width: 600px;
-            }
+        .moto-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin: 20px 0;
         }
 
-        //FOOTER
-        footer {
+        .moto-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 1.25rem;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
 
-            p {
-                margin: 0;
-                padding-right: 2px;
-                font-size: 1rem;
-            }
+        .moto-card:hover {
+            transform: scale(1.05);
+            /* Applique un effet d'agrandissement au survol */
+        }
 
-            a {
-                text-decoration: none;
-                margin: 5px;
-                font-size: 1rem;
-            }
+        .moto-card h2 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .moto-card img {
+            height: 300px;
+            object-fit: cover;
+        }
+
+        form {
+            max-width: 600px;
         }
     }
+
+    //FOOTER
+    footer {
+
+        p {
+            margin: 0;
+            padding-right: 2px;
+            font-size: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            margin: 5px;
+            font-size: 1rem;
+        }
+    }
+}

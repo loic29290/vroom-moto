@@ -5,6 +5,7 @@ class LocationController
     // Méthode pour gérer l'ajout d'une location
     public static function getLocation()
     {
+        
         // Si l'utilisateur n'est pas connecté, le rediriger vers la page de connexion
         if (!isset($_SESSION['ID'])) {
             // Permet le retour à la page de la moto sélectionnée après connexion

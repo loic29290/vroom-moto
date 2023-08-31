@@ -9,13 +9,6 @@ class IndexController
         Renderer::render("vue/accueil.phtml");
     }
 
-    // Méthode pour afficher la page du calendrier
-    public static function getCalendrier()
-    {
-        // Afficher la vue de la page du calendrier
-        Renderer::render("vue/calendrier.phtml");
-    }
-
     // Méthode pour afficher la page du compte utilisateur
     public static function getCompte()
     {

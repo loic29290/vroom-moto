@@ -1,9 +1,28 @@
 <main>
+    <p>Tous les champs de ce formulaire doivent être remplis</p>
+    <?php
+        if (!empty($data['errors'])) {
+        ?><ul><?php
+            foreach ($data['errors'] as $error) {
+                ?><li><?= $error ?></li><?php
+            }
+        ?></ul><?php
+        }
+    ?>
         <form method="POST">
+            
+            <label for="text">Renseignez le nom qui vous servira d'identifiant de connexion</label>
             <input type="text" name="nom" placeholder="Votre nom" />
+            
+            <label for="email">Adresse email </label>
             <input type="email" name="email" placeholder="Email" />
+            
+            <label for="password">Choisissez un mot de passe d'au moins 4 caractèresion</label>
             <input type="password" name="pwd" placeholder="Votre mot de passe" />
+            
+            <label for="password">Re-tapez votre mot de passe</label>
             <input type="password" name="pwd2" placeholder="Re-tapez votre mot de passe" />
+            
             <button name="subscribe">S'inscrire</button>
         </form>
 </main>

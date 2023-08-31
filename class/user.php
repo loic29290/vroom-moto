@@ -80,33 +80,34 @@ class User
     public function testFormInscription($password2)
     {
         $error = false;
+        $error_msg = [];
 
         if (empty($this->getNom())) {
-            echo "Nom vide";
+            $error_msg[] = "Nom vide";
             $error = true;
         }
         if (empty($this->getEmail())) {
-            echo "Email vide";
+            $error_msg[] = "Email vide";
             $error = true;
         }
 
         if (empty($this->getPassword())) {
-            echo " Mot de passe vide";
+            $error_msg[] =  "Mot de passe vide";
             $error = true;
         }
 
         if (strlen($this->getNom()) < 1) {
-            echo " Le nom doit faire 4 caractères ou plus";
+            $error_msg[] =  "Le nom doit faire 1 caractères ou plus";
             $error = true;
         }
 
-        if (strlen($this->getPassword()) < 1) {
-            echo " Le mot de passe doit faire 4 caractères ou plus";
+        if (strlen($this->getPassword()) < 4) {
+            $error_msg[] =  "Le mot de passe doit faire 4 caractères ou plus";
             $error = true;
         }
 
         if (!($this->getPassword() == $password2)) {
-            echo " Les mots de passes de correspondent pas";
+            $error_msg[] =  "Les mots de passes de correspondent pas";
             $error = true;
         }
 
@@ -118,13 +119,13 @@ class User
             ]);
 
             if ($sth->rowCount() > 0) {
-                echo "Erreur : Un nom similaire est déjà présent dans la base de données";
+                $error_msg[] = "Erreur : Un nom similaire est déjà présent dans la base de données";
                 $error = true;
             }
         }
 
         if ($error) {
-            return false;
+            return $error_msg;
         }
         return true;
     }
@@ -132,7 +133,7 @@ class User
     public function testFormConnexion()
     {
         $error = false;
-
+        
 
         if (empty($this->getNom())) {
             $error = true;

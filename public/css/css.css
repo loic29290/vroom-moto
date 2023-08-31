@@ -8,19 +8,87 @@
   --font-size: 1rem;
 }
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -97,8 +165,10 @@ header a {
   margin-left: 0.3rem;
 }
 header .bienvenue {
-  align-self: start; /* Aligne le contenu à gauche */
-  padding-left: 1.25rem; /* Ajoute un espace depuis le bord gauche */
+  align-self: start;
+  /* Aligne le contenu à gauche */
+  padding-left: 1.25rem;
+  /* Ajoute un espace depuis le bord gauche */
   align-items: revert;
 }
 
@@ -111,6 +181,8 @@ nav {
   /* Style du sous-menu (caché par défaut) */
   /* Style des éléments du sous-menu */
   /* Appliquer le style du sous-menu lorsque l'élément parent a la classe 'ouvert' */
+  /* Indicateur visuel */
+  /* Modification de la couleur de fond du lien principal */
 }
 nav .menu {
   list-style: none;
@@ -155,6 +227,14 @@ nav .sous a {
 }
 nav .deroulant.ouvert .sous {
   display: block;
+}
+nav .menu li.deroulant::after {
+  content: "▼";
+  /* Flèche vers le bas ou autre icône */
+  margin-left: 5px;
+}
+nav .menu li.deroulant.ouvert a {
+  background-color: #555;
 }
 
 main {
@@ -362,6 +442,7 @@ main form {
   padding: 1.25rem;
   border-radius: var(--border-radius);
   background-color: var(--couleur-principale);
+  display: grid;
 }
 main input[type=text],
 main input[type=number],
@@ -423,6 +504,7 @@ footer {
   padding: 10px;
   background-color: var(--couleur-fond);
   display: flex;
+  justify-content: space-around;
 }
 footer div {
   display: flex;
@@ -479,44 +561,75 @@ footer a {
   }
   header .bienvenue {
     text-align: left;
-    margin-left: 1rem; /* Réglez cette marge selon vos besoins */
+    margin-left: 1rem;
+    /* Réglez cette marge selon vos besoins */
   }
   nav .burger-menu {
-    display: none; /* Masque le menu hamburger */
+    display: none;
+    /* Masque le menu hamburger */
   }
   nav .menu {
-    display: flex; /* Affiche la liste de menu */
+    display: flex;
+    /* Affiche la liste de menu */
     flex-direction: row;
-    width: 100%; /* Les éléments prennent toute la largeur */
+    width: 100%;
+    /* Les éléments prennent toute la largeur */
   }
   nav .menu li {
-    flex: 1; /* Les éléments se répartissent la largeur disponible */
+    flex: 1;
+    /* Les éléments se répartissent la largeur disponible */
     min-width: auto;
     position: relative;
+  }
+  nav .menu li a {
+    text-decoration: none;
+    /* Supprime la soulignement du texte */
+    color: white;
+    /* Ajustez la couleur du texte */
+    padding: 10px;
+    /* Ajoute un padding aux éléments du menu principal */
+    display: block;
+    /* Pour que les liens remplissent toute la largeur */
+    text-align: center;
   }
   nav .deroulant {
     position: relative;
   }
-  nav .deroulant:hover .sous {
-    display: block; /* Affiche le sous-menu au survol */
-  }
-  nav .sous {
-    display: none; /* Masque le sous-menu par défaut */
+  nav .deroulant .sous {
+    display: none;
+    /* Masque le sous-menu par défaut */
     position: absolute;
     background-color: #333;
     list-style: none;
-    padding: 10px;
+    padding: 0;
+    /* Réinitialise le padding */
+    margin: 0;
+    /* Réinitialise le margin */
     z-index: 1;
-    top: 100%; /* Ajustez la position verticale */
+    top: 40px;
+    /* Ajustez la position verticale */
     left: 0;
-    width: 100%; /* Les sous-menus prennent toute la largeur */
+    width: 100%;
+    /* Les sous-menus prennent toute la largeur */
+  }
+  nav .deroulant:hover .sous {
+    display: block;
+    /* Affiche le sous-menu au survol */
   }
   nav .sous li {
     margin: 10px 0;
+    padding: 10px;
+    /* Ajoute un padding aux éléments du sous-menu */
   }
   nav .sous a {
-    text-decoration: none; /* Supprime la soulignement du texte */
-    color: white; /* Ajustez la couleur du texte */
+    text-decoration: none;
+    /* Supprime la soulignement du texte */
+    color: white;
+    /* Ajustez la couleur du texte */
+    display: block;
+    /* Pour que les liens remplissent toute la largeur */
+    padding: 10px;
+    /* Ajoute un padding aux éléments du sous-menu */
   }
   /* Autres styles spécifiques */
   .menu {
@@ -525,19 +638,31 @@ footer a {
     padding: 0;
     display: flex;
     flex-direction: column;
-    width: 100%; /* Les éléments prennent toute la largeur */
+    width: 100%;
+    /* Les éléments prennent toute la largeur */
   }
   .menu.active {
-    display: flex; /* Affiche le menu lorsque le bouton est cliqué */
+    display: flex;
+    /* Affiche le menu lorsque le bouton est cliqué */
   }
   .menu li {
     padding: 10px;
-    border-bottom: 1px solid #666;
     color: #fff;
     position: relative;
     text-align: center;
     min-width: 200px;
-    width: 100%; /* Les éléments prennent toute la largeur */
+    width: 100%;
+    /* Les éléments prennent toute la largeur */
+  }
+  /* Indicateur visuel */
+  .menu li.deroulant::after {
+    content: "▼";
+    /* Flèche vers le bas ou autre icône */
+    margin-left: 5px;
+  }
+  /* Modification de la couleur de fond du lien principal */
+  .menu li.deroulant.ouvert a {
+    background-color: #555;
   }
   main .moto-list {
     display: grid;
