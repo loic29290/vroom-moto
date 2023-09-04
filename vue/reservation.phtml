@@ -1,7 +1,15 @@
 <main>
     <h1>Réservation</h1>
     
- 
+ <?php
+        if (!empty($data['errors'])) {
+        ?><ul><?php
+            foreach ($data['errors'] as $error) {
+                ?><li><?= $error ?></li><?php
+            }
+        ?></ul><?php
+        }
+    ?>
        
     
     <div>

@@ -2,7 +2,7 @@
 :root {
     --couleur-principale: rgba(0, 74, 171, 1); //bleu
     --couleur-secondaire: rgba(255, 255, 255, 1); //blanc
-    --couleur-texte: rgba(128, 128, 128, 1); // gris
+    --couleur-texte: rgba(16,30,221,1); // bleu foncé
     --couleur-fond: rgba(192, 192, 192, 1);
     --border-radius: 1.25rem;
     --font-size: 1rem;
@@ -190,9 +190,7 @@ header {
 
     .bienvenue {
         align-self: start;
-        /* Aligne le contenu à gauche */
         padding-left: 1.25rem;
-        /* Ajoute un espace depuis le bord gauche */
         align-items: revert;
     }
 
@@ -202,11 +200,11 @@ header {
 
 //NAV
 nav {
-    background-color: #333;
+    background-color: rgba(51,51,51,1);
     display: flex;
     align-items: center;
     padding: 10px 20px;
-    color: white;
+    color: var(--couleur-secondaire);
 
 
     .menu {
@@ -225,20 +223,20 @@ nav {
     }
 
     .menu a {
-        color: white;
+        color: var(--couleur-secondaire);
         text-decoration: none;
     }
 
     .burger-menu {
         cursor: pointer;
         display: block;
-        color: white;
+        color: var(--couleur-secondaire);
     }
 
     .bar {
         width: 25px;
         height: 3px;
-        background-color: white;
+        background-color: var(--couleur-secondaire);
         margin: 6px 0;
     }
 
@@ -252,13 +250,8 @@ nav {
         z-index: 1;
     }
 
-    /* Style des éléments du sous-menu */
-    .sous li {
-        margin: 10px 0;
-    }
-
     .sous a {
-        color: white;
+        color: var(--couleur-secondaire);
         text-decoration: none;
     }
 
@@ -274,10 +267,6 @@ nav {
         margin-left: 5px;
     }
 
-    /* Modification de la couleur de fond du lien principal */
-    .menu li.deroulant.ouvert a {
-        background-color: #555;
-    }
 
 
 }
@@ -297,6 +286,9 @@ main {
         text-align: center;
         text-decoration: underline;
         padding: 1.25rem;
+            font-size: 24px;
+    margin-bottom: 20px;
+
     }
 
 
@@ -317,7 +309,7 @@ main {
 
     p {
         font-size: 1rem;
-        margin-bottom: 8px;
+        margin-bottom: 30px;
         text-align: center;
     }
 
@@ -334,6 +326,123 @@ main {
         text-align: center;
         text-decoration: none;
     }
+    
+    h2 {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Styles pour la liste à puces */
+ol {
+    font-size: 16px;
+    margin-bottom: 30px; /* Espacement entre les éléments de liste */
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+    // Page moto
+    .motorcycle {
+    text-align: center;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    max-width: 100%; /* Pour s'adapter à la largeur de l'écran */
+    box-sizing: border-box; /* Inclure la marge et la bordure dans la largeur */
+
+    h1 {
+        font-size: 1.5rem;
+        margin-top: 0.5rem;
+        color: #333;
+    }
+
+    .motorcycle__info {
+        font-size: 1rem;
+    margin: 0.5rem 0;
+    color: #555;
+    text-align: center;
+    width: 25rem;
+    height: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    }
+
+    .motorcycle__image {
+        max-width: 100%;
+        height: auto;
+        margin: 1rem 0;
+        border: 1px solid #ddd;
+        border-radius: 0.5rem;
+    }
+
+    .motorcycle__reservation {
+        margin-top: 1rem;
+        a {
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            display: inline-block;
+        }
+    }
+}
+
+.review {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin: 1rem 0;
+
+    p {
+        font-weight: bold;
+        margin: 0.5rem 0;
+    }
+} 
+
+.moto-list {
+           
+            margin: 1.5rem ;
+            padding: 1.5rem;
+        }
+
+        .moto-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 1.25rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  background-color: var(--couleur-secondaire);
+
+  &:hover {
+    transform: scale(1.05);
+    /* Applique un effet d'agrandissement au survol */
+  }
+
+  h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+
+  p {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+
+  img {
+    width: 150px;
+    height: 200px;
+  }
+}
+        
 
 
     /* Mise en forme des avis */
@@ -350,33 +459,32 @@ main {
     }
 
     // Carousel
-    #carousel {
-        position: relative;
-        width: 250px;
-        height: 350px;
-        margin: 1.25rem;
-        display: flex;
-        justify-content: center;
-    }
+#carousel {
+  position: relative;
+  width: 250px;
+  height: 350px;
+  margin: 1.25rem;
+  display: flex;
+  justify-content: center;
 
-    #carousel>img {
-        display: block;
-        position: absolute;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-        border-radius: 10%;
-    }
+   img {
+    display: block;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    border-radius: 10%;
+  }
 
-    #carousel>img:first-child {
-        opacity: 1;
-    }
+   img:first-child {
+    opacity: 1;
+  }
+}
 
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 2rem;
-    }
-
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
 
     //calendrier
 
@@ -524,83 +632,175 @@ main {
 
 
 
-    /* Style général du formulaire */
-    form {
-        max-width: 400px;
-        margin: 0 auto;
-        padding: 1.25rem;
-        border-radius: var(--border-radius);
-        background-color: var(--couleur-principale);
-        display: grid;
-    }
+    /* Styles de base pour les petits écrans (mobiles) */
+form {
+    max-width: 25rem;
+    margin: 0;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    display: block;
+}
 
-    /* Style des champs de saisie */
-    input[type="text"],
-    input[type="number"],
-    input[type="password"],
-    input[type="email"],
-    select,
-    textarea {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-        border: 1px solid var(--couleur-texte);
-        border-radius: var(--border-radius);
-        font-size: 1rem;
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--couleur-texte);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    background-color: var(--couleur-secondaire);
+    text-align: center;
+}
+
+select {
+    height: 40px;
+}
+
+button[name="submit"],
+button[name="connexion"],
+button[name="subscribe"] {
+    background-color: var(--couleur-principale);
+    color: var(--couleur-secondaire);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[name="submit"]:hover {
+    background-color: rgba(37, 129, 185, 1);
+    /* Une nuance plus sombre au survol */
+}
+
+input[type="file"] {
+    margin-top: 1rem;
+}
+
+.mes_motos {
+    background-color: var(--couleur-secondaire);
+    padding: 1rem;
+    border: 1px solid rgba(204, 204, 204, 1);
+
+    a {
         color: var(--couleur-texte);
-        background-color: var(--couleur-secondaire);
+        text-decoration: none;
     }
 
-    /* Style des options de la liste déroulante */
-    select {
-        height: 40px;
+    a:hover {
+        text-decoration: underline;
     }
+}
 
-    /* Style du bouton de soumission */
-    button[name="submit"],
-    button[name="connexion"],
-    button[name="subscribe"] {
-        background-color: var(--couleur-principale);
-        color: var(--couleur-secondaire);
-        border: none;
-        border-radius: var(--border-radius);
-        padding: 10px 1.25rem;
+.motos-list {
+    list-style: none;
+    padding: 0;
+}
+
+.moto-item {
+    border: 1px solid var(--couleur-fond);
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+
+    h2 {
         font-size: 1rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    button[name="submit"]:hover {
-        background-color: rgba(37, 129, 185, 1);
-        /* Une nuance plus sombre au survol */
-    }
-
-    /* Style pour le champ de téléchargement de fichier */
-    input[type="file"] {
-        margin-top: 10px;
-    }
-
-    .mes_motos {
-        background-color: var(--couleur-fond);
-        padding: 10px;
-        border: 1px solid rgba(204, 204, 204, 1);
-
+        margin: 0;
 
         a {
-            color: var(--couleur-texte);
             text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
+            color: var(--couleur-texte);
         }
     }
+}
 
-    .admin {
-        background-color: var(--couleur-fond);
-        padding: 10px;
-        border: 1px solid rgba(204, 204, 204, 1);
-    }
+
+
+
+    
+    //Espace admin
+
+#admin {
+  background-color:rgba(244,244,244,1);
+  padding: 20px;
+  text-align: center; /* Centrer le contenu horizontalement */
+
+
+/* Styliser l'en-tête pour mobile */
+h1 {
+  text-align: center;
+  background-color: rgba(51,51,51,1);
+  color:var(--couleur-secondaire);
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+/* Styliser les sections pour mobile */
+.section {
+  background-color: var(--couleur-secondaire);
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+  text-align: center; /* Aligner le contenu des sections à gauche */
+}
+
+/* Styliser les sections pour mobile */
+.section h2 {
+  text-align: center;
+}
+
+/* Styliser la liste des utilisateurs et la liste des motos pour mobile */
+.user-list,
+.moto-list,
+.review-list{
+  list-style: none;
+  padding-left: 0;
+}
+
+.user-list li,
+.moto-list li,
+.review-list li{
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  background-color:rgba(249,249,249,1);
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  display: inline-block; /* Afficher les éléments côte à côte */
+  margin-right: 10px; /* Espacement horizontal entre les éléments */
+  font-size: 14px; /* Réduire la taille de la police */
+  
+}
+
+/* Styliser les liens pour mobile */
+.moto-list a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.moto-list a:hover {
+  text-decoration: underline;
+}
+.delete-button {
+    background-color: rgba(255,99,71,1);
+    color: var(--couleur-secondaire);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    
+  }
+  
+  
+  
+  
+}
 }
 
 //FOOTER
@@ -632,90 +832,25 @@ footer {
 }
 
 
-@media (min-width: 768px) and (max-width: 1200px) {
+//Tablette
+
+@media (min-width: 768px) and ( max-width: 1200px) {
+    
+    //BODY
     body {
-        grid-template:
-            "header header"
-            "nav nav"
-            "main main"
-            "footer footer"
-        ;
-        grid-template-columns: 1fr 4fr;
-    }
-
-    //HEADER
-    header {
-        /* Styles de l'en-tête pour cette plage de largeurs */
-    }
-
-    //NAV
-    nav {}
-
-    //MAIN
-    main {
-
-
-        .moto-list {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.25rem;
-            margin: 1.25rem;
-        }
-
-        .moto-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 10px;
-            border: 1px solid #ccc;
-        }
-
-        .moto-card h2 {
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-
-        .moto-image {
-
-            height: 200px;
-            object-fit: cover;
-        }
-    }
-
-
-    //FOOTER
-    footer {
-        /* Styles du pied de page pour cette plage de largeurs */
-    }
+    display: grid;
+    grid-template:
+        "header header"
+        "nav nav"
+        "main main"
+        "footer footer"
+    ;
+     grid-template-columns: 1fr 4fr;
 }
-
-@media (min-width: 1200px) {
-    body {
-        grid-template:
-            "header header header"
-            "nav nav nav"
-            " main main main"
-            "footer footer footer"
-        ;
-        grid-template-columns: 15fr 70fr 15fr;
-    }
+//HEADER
 
 
-    //HEADER
-    header {
-
-
-
-        .bienvenue {
-            text-align: left;
-            margin-left: 1rem;
-            /* Réglez cette marge selon vos besoins */
-        }
-
-
-    }
-
-    //NAV
+//NAV
     nav {
         .burger-menu {
             display: none;
@@ -755,42 +890,31 @@ footer {
 
         .deroulant .sous {
             display: none;
-            /* Masque le sous-menu par défaut */
             position: absolute;
-            background-color: #333;
+            background-color: rgba(51,51,51,1);
             list-style: none;
             padding: 0;
-            /* Réinitialise le padding */
             margin: 0;
-            /* Réinitialise le margin */
             z-index: 1;
             top: 40px;
-            /* Ajustez la position verticale */
             left: 0;
             width: 100%;
-            /* Les sous-menus prennent toute la largeur */
         }
 
         .deroulant:hover .sous {
             display: block;
-            /* Affiche le sous-menu au survol */
         }
 
         .sous li {
             margin: 10px 0;
             padding: 10px;
-            /* Ajoute un padding aux éléments du sous-menu */
         }
 
         .sous a {
             text-decoration: none;
-            /* Supprime la soulignement du texte */
-            color: white;
-            /* Ajustez la couleur du texte */
+            color: var(--couleur-secondaire);
             display: block;
-            /* Pour que les liens remplissent toute la largeur */
             padding: 10px;
-            /* Ajoute un padding aux éléments du sous-menu */
         }
 
 
@@ -798,45 +922,227 @@ footer {
 
     /* Autres styles spécifiques */
     .menu {
-        background-color: #333;
+        background-color:rgba(51,51,51,1);
         list-style: none;
         padding: 0;
         display: flex;
         flex-direction: column;
         width: 100%;
-        /* Les éléments prennent toute la largeur */
     }
 
     .menu.active {
         display: flex;
-        /* Affiche le menu lorsque le bouton est cliqué */
     }
 
     .menu li {
         padding: 10px;
-        color: #fff;
+        color:rgba(255,255,255,1);
         position: relative;
         text-align: center;
         min-width: 200px;
         width: 100%;
-        /* Les éléments prennent toute la largeur */
     }
 
-    /* Indicateur visuel */
     .menu li.deroulant::after {
         content: "▼";
-        /* Flèche vers le bas ou autre icône */
         margin-left: 5px;
     }
 
-    /* Modification de la couleur de fond du lien principal */
     .menu li.deroulant.ouvert a {
-        background-color: #555;
+        background-color: rgba(85,85,85,1);
     }
+
+//MAIN
+main {
+    
+    
+        form {
+            max-width: 30rem;
+            margin: auto;
+            
+            
+             button[name="submit"] {
+        order: 2; /* Réorganise le bouton sous les autres champs */
+        width: 100%;
+        margin-top: 1rem;
+    }
+        }
+    
+    
+    .motorcycle {
+        text-align: center;
+        max-width: 80%;
+    }
+
+    .motorcycle__image {
+        max-width: 100%;
+        height: auto;
+        margin: 1rem 0;
+        float: right;
+    }
+
+    .motorcycle__info {
+        margin: 1rem;
+        text-align: left;
+        float: left;
+    }
+    
+    .motorcycle__reservation {
+        clear: both;
+        text-align: center;
+    }
+}
+}
+
+
+    
+//Ecran ordinateur
+
+@media (min-width: 1200px) {
+   
+
+//BODY
+body {
+    display: grid;
+    grid-template:
+        "header header header"
+        "nav nav nav"
+        "main main main"
+        "footer footer footer"
+    ;
+     grid-template-columns: 15fr 70fr 15fr;
+}
+    //HEADER
+    header {
+
+
+
+
+
+    }
+//NAV
+    nav {
+        .burger-menu {
+            display: none;
+            /* Masque le menu hamburger */
+        }
+
+        .menu {
+            display: flex;
+            /* Affiche la liste de menu */
+            flex-direction: row;
+            width: 100%;
+            /* Les éléments prennent toute la largeur */
+        }
+
+        .menu li {
+            flex: 1;
+            /* Les éléments se répartissent la largeur disponible */
+            min-width: auto;
+            position: relative;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            /* Supprime la soulignement du texte */
+            color: white;
+            /* Ajustez la couleur du texte */
+            padding: 10px;
+            /* Ajoute un padding aux éléments du menu principal */
+            display: block;
+            /* Pour que les liens remplissent toute la largeur */
+            text-align: center;
+        }
+
+        .deroulant {
+            position: relative;
+        }
+
+        .deroulant .sous {
+            display: none;
+            position: absolute;
+            background-color: rgba(51,51,51,1);
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            z-index: 1;
+            top: 40px;
+            left: 0;
+            width: 100%;
+        }
+
+        .deroulant:hover .sous {
+            display: block;
+        }
+
+        .sous li {
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        .sous a {
+            text-decoration: none;
+            color: var(--couleur-secondaire);
+            display: block;
+            padding: 10px;
+        }
+
+
+    }
+
+    /* Autres styles spécifiques */
+    .menu {
+        background-color:rgba(51,51,51,1);
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu li {
+        padding: 10px;
+        color:rgba(255,255,255,1);
+        position: relative;
+        text-align: center;
+        min-width: 200px;
+        width: 100%;
+    }
+
+    .menu li.deroulant::after {
+        content: "▼";
+        margin-left: 5px;
+    }
+
+    .menu li.deroulant.ouvert a {
+        background-color: rgba(85,85,85,1);
+    }
+    
 
 
     //MAIN
-    main {
+   
+        main {
+        max-width: 960px;
+        margin: 0 auto;
+    
+
+    /* Ajustement de la taille du carrousel */
+    #carousel img {
+        max-width: 300px;
+        margin: 10px;
+    }
+
+    /* Réorganiser la liste à puces en colonnes */
+    ol {
+        columns: 2;
+        column-gap: 20px;
+    }
+        
 
 
         .moto-list {
@@ -845,37 +1151,110 @@ footer {
             gap: 1.25rem;
             margin: 20px 0;
         }
-
-        .moto-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 1.25rem;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s;
-        }
-
-        .moto-card:hover {
-            transform: scale(1.05);
-            /* Applique un effet d'agrandissement au survol */
-        }
-
-        .moto-card h2 {
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-
-        .moto-card img {
-            height: 300px;
-            object-fit: cover;
-        }
-
+        
         form {
-            max-width: 600px;
+            max-width: 40rem;
+            margin: auto;
         }
+        
+           button[name="submit"] {
+        order: 2; /* Réorganise le bouton sous les autres champs */
+        width: 100%;
+        margin-top: 1rem;
     }
+        
+        .users-motos-section {
+            flex-direction: row;
+        }
+
+        .users-section, .motos-section {
+            flex: 1;
+            width: auto;
+        }
+
+        .avis-section {
+            width: 100%;
+        }
+        
+      #admin {
+    max-width: 1600px; 
+    width: 90%; 
+    margin: 0 auto;
+  
+.users-motos-section {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around; 
+  }
+
+ 
+  .user-item,
+  .moto-item {
+    width: 48%; 
+    margin-right: 2%; 
+  }
+
+  /* Styliser les éléments de moto (annonces) pour les écrans plus larges */
+  .moto-item {
+    position: relative;
+    display: inline-block; 
+    margin-right: 20px; 
+    text-align: center; 
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+
+  /* Appliquer une animation de transition pour les éléments de moto (annonces) pour les écrans plus larges */
+  .moto-item:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Styliser les éléments de commentaire pour les écrans plus larges */
+  .review-item {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px; 
+    text-align: center; 
+  }
+
+  /* Appliquer une animation de transition pour les éléments de commentaire pour les écrans plus larges */
+  .review-item:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+
+  /* Styliser le bouton de suppression pour les écrans plus larges */
+  .delete-button {
+    cursor: pointer;
+  }
+
+  /* Appliquer un changement de couleur de fond au bouton de suppression au survol pour les écrans plus larges */
+  .delete-button:hover {
+    background-color: rgba(217,83,79,1);
+  }
+}
+
+.mes_motos {
+    display: table;
+    width: 100%;
+  
+
+  h2 {
+    font-size: 18px;
+    margin: 0;
+  }
+
+  a {
+    display: block;
+    padding: 5px ;
+  }
+}
+               
+    }
+        
+        
+    
 
     //FOOTER
     footer {

@@ -181,7 +181,7 @@ class Moto
         $tabExtension = explode('.', $name);
         $extension = strtolower(end($tabExtension));
 
-        $extensions = ['jpg', 'png', 'jpeg', 'gif'];
+        $extensions = ['jpg', 'png', 'jpeg'];
         $maxSize = 1024 * 1024 * 5;
 
         if (in_array($extension, $extensions) && $size <= $maxSize && $error == 0) {

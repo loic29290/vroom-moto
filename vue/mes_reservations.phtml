@@ -1,5 +1,6 @@
 <main>
     <h1>Mes locations </h1>
+     <div class="moto-list">
     <?php
     if (isset($data['reservations'])) {
     ?>
@@ -8,8 +9,7 @@
             $moto = $reservation->getMoto();
             $avis = Avis::getAvisByLocation($reservation->getId());
         ?>
-            <div>
-                <div>
+         <div class="moto-card">
                     <p><?= $moto->getMarque(); ?> <?= $moto->getModele(); ?>
                     Début:  <?= $reservation->getDebutFormate() ?> Fin: <?= $reservation->getFinFormate() ?></p>
                     
@@ -22,10 +22,10 @@
                     <?php } else { ?>
                         <a href="index.php?page=avis&id=<?= $reservation->getId() ?>">Laissez un avis</a>
                     <?php } ?>
-                </div>
-            </div>
+             </div>
     <?php
         }
     }
     ?>
+    
 </main>

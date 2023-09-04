@@ -5,6 +5,8 @@ class LocationController
     // Méthode pour gérer l'ajout d'une location
     public static function getLocation()
     {
+        $error = false;
+        $error_msg = [];
         
         // Si l'utilisateur n'est pas connecté, le rediriger vers la page de connexion
         if (!isset($_SESSION['ID'])) {
@@ -33,48 +35,28 @@ class LocationController
 
             // Vérifier la validité des données POST
             if ($location->checkPost()) {
-                $valid = true;
+                $error  = true;
 
 
                 // Vérification de la date de réservation
                 if ($location->getDebut() < $dateJour) {
-                    $valid = false;
-                    
-                    //echo "La date de réservation ne peut pas être antérieure à la date du jour.";
-                    
-                    $errorMessage = "La date de réservation ne peut pas être antérieure à la date du jour.";
-                    echo "<script>alert('$errorMessage');</script>";
-                   // header("refresh:3");
-                    //die;
+                     $error_msg[] = "La date de réservation ne peut pas être antérieure à la date du jour.";
+                     $error = true;
                 }
                 // Validation des dates
                 if ($location->getDebut() >= $location->getFin()) {
-                    $valid = false;
-                   // echo "La date de début doit être antérieure à la date de fin.";
-                    
-                    $errorMessage = "La date de début doit être antérieure à la date de fin.";
-                    echo "<script>alert('$errorMessage');</script>";
-                    
-                    // Redirection vers la page des reservations après 3 secondes
-                    // header("refresh:3");
-                    //die;
+                     $error_msg[] = "La date de début doit être antérieure à la date de fin.";
+                     $error = true;
                 }
 
                 // Vérification si la moto est déjà réservée pour cette date
                 $tableau_reservations = Location::findMotoReservations($_GET['id'], $location->getDebut(), $location->getFin());
                 if (!empty($tableau_reservations)) {
-                    $valid = false;
-                   // echo "La moto est déjà réservée pour cette date.";
-                   
-                    
-                    $errorMessage = "La moto est déjà réservée pour cette date.";
-                    echo "<script>alert('$errorMessage');</script>";
-                    // Redirection vers la page des reservations après 3 secondes
-                   // header("refresh:3");
-                    //die;
+                    $error_msg[] = "La moto est déjà réservée pour cette période.";
+                $error = true;
                 }
 
-                if ($valid) {
+                if (!$error) {
                     // Ajout de la liaison utilisateur - locataire_id
                     $id = $_SESSION['ID'];
                     $location->setLocataireId($id);
@@ -85,10 +67,7 @@ class LocationController
                     // Enregistrer la réservation
                     $location->save();
     
-                    // Message de confirmation
-                    echo "Réservation effectuée";
-    
-                    // Redirection vers la page des motos
+                    // redirection
                     header("Location: index.php?page=motos");
                     die;
                 }
@@ -99,7 +78,8 @@ class LocationController
 
         // Afficher la vue de réservation avec l'objet Location
         Renderer::render("vue/reservation.phtml", [
-            "locationMoto" => $locationMoto
+            "locationMoto" => $locationMoto,
+            "errors" => $error_msg,
         ]);
     }
 

@@ -3,17 +3,20 @@
     if (isset($data['motos'])) {
     ?>
         <h1>Mes motos</h1>
+        <div class="moto-list">
         <?php
         foreach ($data['motos'] as $moto) {
         ?>
-            <div>
-                <form class="mes_motos" method="POST">
-                    <h2><a href="index.php?page=moto&id=<?= $moto->getId() ?>"><?= $moto->getModele() ?></a></h2>
-
-                </form>
+        
+               <div class="moto-card">
+                   
+                    <p><a href="index.php?page=moto&id=<?= $moto->getId() ?>"><?= $moto->getModele() ?></a></p>
+                    <img src="<?= $moto->getImage() ?>" />
+               
             </div>
     <?php
         }
     }
     ?>
+     </div>
 </main>

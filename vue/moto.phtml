@@ -1,39 +1,31 @@
 <main>
-    <div class="reservation">
-        <h1><?= $data['moto']->getModele() ?></h1>
-        <p>Marque: <?= $data['moto']->getMarque() ?></p>
-        <p>Année: <?= $data['moto']->getAnnee() ?></p>
-        <p>Description: <?= $data['moto']->getDescription() ?></p>
-        <p>Prix: <?= $data['moto']->getPrix() ?> €</p>
-        <img src="<?= $data['moto']->getImage() ?>" />
+    <h1><?= $data['moto']->getModele() ?></h1>
+    
+    <div class="motorcycle">
+        <div class="motorcycle__info">
+            <p>Marque: <?= $data['moto']->getMarque() ?></p>
+            <p>Année: <?= $data['moto']->getAnnee() ?></p>
+            <p>Description: <?= $data['moto']->getDescription() ?></p>
+            <p>Prix: <?= $data['moto']->getPrix() ?> €</p>
+        </div>
 
-        <!--garder l id de la moto pour la reservation -->
-        <p><a href="index.php?page=reservation&id=<?= $data['moto']->getId() ?>">Réservation</a></p>
+        <div class="motorcycle__image">
+            <img src="<?= $data['moto']->getImage() ?>" alt="<?= $data['moto']->getModele() ?> Image" />
+        </div>
 
+        <div class="motorcycle__reservation">
+            <a href="index.php?page=reservation&id=<?= $data['moto']->getId() ?>">Réservation</a>
+        </div>
     </div>
 
-
-
-
-    <?php
-    if (isset($data['avis'])) {
-    ?>
-        <?php
-        foreach ($data['avis'] as $avis) {
-            $user = User::avisName($avis->getLocationId());
-        ?>
-            <div>
+    <?php if (isset($data['avis'])): ?>
+        <?php foreach ($data['avis'] as $avis): ?>
+            <?php $user = User::avisName($avis->getLocationId()); ?>
+            <div class="review">
                 <p>Auteur: <?= $user->getNom() ?></p>
                 <p>Commentaire: <?= $avis->getCommentaire() ?></p>
                 <p>Note: <?= $avis->getNote() ?></p>
-
             </div>
-    <?php
-        }
-    }
-    ?>
-    </div>
-     <div>
-      
-   
+        <?php endforeach; ?>
+    <?php endif; ?>
 </main>

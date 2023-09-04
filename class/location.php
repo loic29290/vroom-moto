@@ -183,7 +183,7 @@ class Location
         ]);
     }
     
-    public static function locationMoto($motoId): mixed {
+    public static function locationMoto(int $motoId): mixed {
         $query = "SELECT location.* FROM location 
               WHERE moto_id = :moto_id";
         $sth = Db::getDbh()->prepare($query);

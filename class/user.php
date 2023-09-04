@@ -65,6 +65,7 @@ class User
         $this->setNom($this->clearForm($_POST['nom']));
         $this->setPassword($this->clearForm($_POST['pwd']));
     }
+    
     // Méthode pour nettoyer les valeurs des champs de formulaire
     public function clearForm($valeur)
     {
@@ -77,7 +78,7 @@ class User
     }
 
     //Vérifie que tout les champs du fomrulaire soit remplis
-    public function testFormInscription($password2)
+    public function testFormInscription(string $password2): mixed
     {
         $error = false;
         $error_msg = [];
@@ -130,7 +131,7 @@ class User
         return true;
     }
     // Méthode pour valider le formulaire de connexion utilisateur
-    public function testFormConnexion()
+    public function testFormConnexion(): bool
     {
         $error = false;
         
@@ -171,7 +172,7 @@ class User
         return false;
     }
     // Ajouter les informations a la BDD
-    public function addUserOnDb()
+    public function addUserOnDb(): void
     {
         $query = "INSERT INTO user (nom, password, mail) VALUES (:nom, :password, :mail)";
         $sth = Db::getDbh()->prepare($query);
@@ -183,7 +184,7 @@ class User
     }
 
     // Méthode pour vérifier si un compte avec le nom d'utilisateur existe
-    public function userExists()
+    public function userExists(): bool
     {
         $query = "SELECT COUNT(*) as count FROM user WHERE nom=:nom";
         $sth = Db::getDbh()->prepare($query);
@@ -196,7 +197,7 @@ class User
         return ($row['count'] > 0); // Retourne true si au moins un compte existe
     }
     // Méthode pour récupérer tous les utilisateurs de la base de données
-    public static function findUsers()
+    public static function findUsers(): mixed
     {
         $query = "SELECT * FROM user";
         $sth = Db::getDbh()->prepare($query);
@@ -204,7 +205,7 @@ class User
         return $sth->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "User");
     }
     // Méthode pour récupérer un utilisateur de la base de données
-    public static function findUser()
+    public static function findUser(): mixed
     {
         $query = "SELECT * FROM user WHERE id=:id";
         $sth = Db::getDbh()->prepare($query);
