@@ -35,7 +35,7 @@ class LocationController
 
             // Vérifier la validité des données POST
             if ($location->checkPost()) {
-                $error  = true;
+                $error  = false;
 
 
                 // Vérification de la date de réservation
@@ -67,7 +67,7 @@ class LocationController
                     // Enregistrer la réservation
                     $location->save();
     
-                    // redirection
+                    // Redirection vers la page des motos
                     header("Location: index.php?page=motos");
                     die;
                 }

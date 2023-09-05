@@ -5,13 +5,13 @@
         <form method="POST" enctype="multipart/form-data">
             
             <label for="marque">Marque</label>
-            <input name="marque" type="text" placeholder="Marque" value="<?= $data['moto']->getMarque() ?>" />
+            <input name="marque" type="text" placeholder="marque" value="<?= $data['moto']->getMarque() ?>" />
             
             <label for="modele">Modèle</label>
-            <input name="modele" type="text" placeholder="Modèle" value="<?= $data['moto']->getModele() ?>" />
+            <input name="modele" type="text" placeholder="modele" value="<?= $data['moto']->getModele() ?>" />
             
             <label for="categorie">catégorie</label>
-            <select name="catégorie">
+            <select name="categorie">
                 <option value="">Toutes les catégories</option>
                 <option value="Sportive">Sportive</option>
                 <option value="Roadster">Roadster</option>
@@ -22,7 +22,7 @@
             </select>
             
             <label for="annee">Année</label>
-            <input name="annee" type="number" placeholder="Année" />
+            <input name="annee" type="number" placeholder="annee" />
             
             <label for="bridee">Bridée ou non ?</label>
             <select name="bridee">
@@ -32,10 +32,10 @@
             </select>
             
             <label for="description">Descritpion</label>
-            <textarea name="description" placeholder="Description de la moto"></textarea>
+            <textarea name="description" placeholder="description"></textarea>
             
             <label for="prix">Prix de la location</label>
-            <input name="prix" type="number" placeholder="Prix" />
+            <input name="prix" type="number" placeholder="prix" />
             
             <label for="file">Format: jpg, png, jpeg Max :5Mo</label>
             <input type="file" name="file" id="imageFile">

@@ -20,7 +20,7 @@
             <label for="fin">Fin:</label>
             <input type="date" id="fin" name="fin" required><br>
 
-            <button name="submit" name="reserver">Réserver moto</button>
+            <button name="submit">Réserver moto</button>
         </form>
     </div>
 
@@ -47,10 +47,7 @@
         <?php
         foreach ($data['locationMoto'] as $locationMoto) {
             $moto = $locationMoto->getMoto();
-            
         ?>
-        
-                
                 <p><?= $moto->getMarque(); ?> <?= $moto->getModele(); ?> 
                 Début: <?= $locationMoto->getDebutFormate() ?> Fin: <?= $locationMoto->getFinFormate() ?></p>
             
