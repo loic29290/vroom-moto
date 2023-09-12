@@ -147,7 +147,6 @@ header h1 {
   }
   50% {
     transform: translateY(-0.625rem);
-    /* Réglez cette valeur pour ajuster l'ampleur de la vague */
   }
 }
 header p {
@@ -176,9 +175,6 @@ nav {
   align-items: center;
   padding: 10px 20px;
   color: var(--couleur-secondaire);
-  /* Style du sous-menu (caché par défaut) */
-  /* Appliquer le style du sous-menu lorsque l'élément parent a la classe 'ouvert' */
-  /* Indicateur visuel */
 }
 nav .menu {
   list-style: none;
@@ -223,8 +219,7 @@ nav .deroulant.ouvert .sous {
 }
 nav .menu li.deroulant::after {
   content: "▼";
-  /* Flèche vers le bas ou autre icône */
-  margin-left: 5px;
+  margin-left: 0.375rem;
 }
 
 main {
@@ -236,9 +231,6 @@ main {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
   height: max-content;
-  /* Styles pour la liste à puces */
-  /* Mise en forme des avis */
-  /* Styles de base pour les petits écrans (mobiles) */
 }
 main h1 {
   text-align: center;
@@ -282,7 +274,7 @@ main h2 {
 }
 main ol {
   font-size: 16px;
-  margin-bottom: 30px; /* Espacement entre les éléments de liste */
+  margin-bottom: 30px;
 }
 main li {
   margin-bottom: 10px;
@@ -292,8 +284,8 @@ main .motorcycle {
   padding: 1rem;
   background-color: #fff;
   border-radius: 0.5rem;
-  max-width: 100%; /* Pour s'adapter à la largeur de l'écran */
-  box-sizing: border-box; /* Inclure la marge et la bordure dans la largeur */
+  max-width: 100%;
+  box-sizing: border-box;
 }
 main .motorcycle h1 {
   font-size: 1.5rem;
@@ -330,13 +322,13 @@ main .motorcycle .motorcycle__reservation a {
   border-radius: 0.5rem;
   display: inline-block;
 }
-main .review {
+main .motorcycle .review {
   background-color: #f8f8f8;
   border: 1px solid #ddd;
   padding: 1rem;
   margin: 1rem 0;
 }
-main .review p {
+main .motorcycle .review p {
   font-weight: bold;
   margin: 0.5rem 0;
 }
@@ -358,7 +350,6 @@ main .moto-card {
 }
 main .moto-card:hover {
   transform: scale(1.05);
-  /* Applique un effet d'agrandissement au survol */
 }
 main .moto-card h2 {
   font-size: 18px;
@@ -369,8 +360,8 @@ main .moto-card p {
   margin-bottom: 5px;
 }
 main .moto-card img {
-  width: 150px;
-  height: 200px;
+  width: 10rem;
+  height: 12.5rem;
 }
 main div.comment {
   background-color: #fff;
@@ -518,7 +509,6 @@ main .today {
 }
 main .reserved {
   background-color: rgb(243, 156, 18);
-  /* Couleur de fond pour les jours réservés */
   color: white;
   opacity: 0.5;
 }
@@ -562,7 +552,6 @@ main button[name=subscribe] {
 }
 main button[name=submit]:hover {
   background-color: rgb(37, 129, 185);
-  /* Une nuance plus sombre au survol */
 }
 main input[type=file] {
   margin-top: 1rem;
@@ -588,6 +577,7 @@ main .moto-item {
   margin-bottom: 10px;
   padding: 10px;
   text-align: center;
+  display: inline-grid;
 }
 main .moto-item h2 {
   font-size: 1rem;
@@ -597,15 +587,27 @@ main .moto-item h2 a {
   text-decoration: none;
   color: var(--couleur-texte);
 }
+main .moto-item img {
+  width: 6rem;
+  height: 10rem;
+}
+main .avis {
+  display: flex;
+  flex-direction: column;
+}
+main .avis .review {
+  border-radius: 1.25rem;
+  background-color: white;
+  margin: 1rem;
+  width: 100%;
+}
+main .avis p {
+  margin: 20px;
+}
 main #admin {
   background-color: rgb(244, 244, 244);
   padding: 20px;
-  text-align: center; /* Centrer le contenu horizontalement */
-  /* Styliser l'en-tête pour mobile */
-  /* Styliser les sections pour mobile */
-  /* Styliser les sections pour mobile */
-  /* Styliser la liste des utilisateurs et la liste des motos pour mobile */
-  /* Styliser les liens pour mobile */
+  text-align: center;
 }
 main #admin h1 {
   text-align: center;
@@ -620,7 +622,7 @@ main #admin .section {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   padding: 20px;
-  text-align: center; /* Aligner le contenu des sections à gauche */
+  text-align: center;
 }
 main #admin .section h2 {
   text-align: center;
@@ -639,9 +641,16 @@ main #admin .review-list li {
   background-color: rgb(249, 249, 249);
   border-radius: 3px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  display: inline-block; /* Afficher les éléments côte à côte */
-  margin-right: 10px; /* Espacement horizontal entre les éléments */
-  font-size: 14px; /* Réduire la taille de la police */
+  margin-right: 10px;
+  font-size: 14px;
+}
+main #admin .moto-list {
+  place-items: self-end;
+}
+main #admin .moto-list .moto-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 main #admin .moto-list a {
   text-decoration: none;
@@ -688,30 +697,22 @@ footer a {
   }
   nav .burger-menu {
     display: none;
-    /* Masque le menu hamburger */
   }
   nav .menu {
     display: flex;
-    /* Affiche la liste de menu */
     flex-direction: row;
     width: 100%;
-    /* Les éléments prennent toute la largeur */
   }
   nav .menu li {
     flex: 1;
-    /* Les éléments se répartissent la largeur disponible */
     min-width: auto;
     position: relative;
   }
   nav .menu li a {
     text-decoration: none;
-    /* Supprime la soulignement du texte */
     color: white;
-    /* Ajustez la couleur du texte */
     padding: 10px;
-    /* Ajoute un padding aux éléments du menu principal */
     display: block;
-    /* Pour que les liens remplissent toute la largeur */
     text-align: center;
   }
   nav .deroulant {
@@ -742,7 +743,6 @@ footer a {
     display: block;
     padding: 10px;
   }
-  /* Autres styles spécifiques */
   .menu {
     background-color: rgb(51, 51, 51);
     list-style: none;
@@ -766,26 +766,20 @@ footer a {
     content: "▼";
     margin-left: 5px;
   }
-  .menu li.deroulant.ouvert a {
-    background-color: rgb(85, 85, 85);
-  }
   main form {
     max-width: 30rem;
     margin: auto;
   }
   main form button[name=submit] {
-    order: 2; /* Réorganise le bouton sous les autres champs */
+    order: 2;
     width: 100%;
     margin-top: 1rem;
   }
   main .motorcycle {
     text-align: center;
-    max-width: 80%;
   }
   main .motorcycle__image {
-    max-width: 100%;
     height: auto;
-    margin: 1rem 0;
     float: right;
   }
   main .motorcycle__info {
@@ -797,6 +791,15 @@ footer a {
     clear: both;
     text-align: center;
   }
+  main .moto-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin: 1.25rem;
+  }
+  main .avis {
+    flex-direction: initial;
+  }
 }
 @media (min-width: 1200px) {
   body {
@@ -806,30 +809,22 @@ footer a {
   }
   nav .burger-menu {
     display: none;
-    /* Masque le menu hamburger */
   }
   nav .menu {
     display: flex;
-    /* Affiche la liste de menu */
     flex-direction: row;
     width: 100%;
-    /* Les éléments prennent toute la largeur */
   }
   nav .menu li {
     flex: 1;
-    /* Les éléments se répartissent la largeur disponible */
     min-width: auto;
     position: relative;
   }
   nav .menu li a {
     text-decoration: none;
-    /* Supprime la soulignement du texte */
     color: white;
-    /* Ajustez la couleur du texte */
     padding: 10px;
-    /* Ajoute un padding aux éléments du menu principal */
     display: block;
-    /* Pour que les liens remplissent toute la largeur */
     text-align: center;
   }
   nav .deroulant {
@@ -860,7 +855,6 @@ footer a {
     display: block;
     padding: 10px;
   }
-  /* Autres styles spécifiques */
   .menu {
     background-color: rgb(51, 51, 51);
     list-style: none;
@@ -884,35 +878,47 @@ footer a {
     content: "▼";
     margin-left: 5px;
   }
-  .menu li.deroulant.ouvert a {
-    background-color: rgb(85, 85, 85);
-  }
-  main {
-    max-width: 960px;
-    margin: 0 auto;
-    /* Ajustement de la taille du carrousel */
-    /* Réorganiser la liste à puces en colonnes */
-  }
   main #carousel img {
-    max-width: 300px;
-    margin: 10px;
+    max-width: 18.75rem;
+    margin: 0.625rem;
   }
   main ol {
     columns: 2;
-    column-gap: 20px;
+    column-gap: 1.25rem;
+  }
+  main .motorcycle {
+    text-align: center;
+    max-width: 100%;
+  }
+  main .motorcycle__image {
+    max-width: 100%;
+    height: auto;
+    float: right;
+  }
+  main .motorcycle__info {
+    margin: 1rem;
+    text-align: left;
+    float: left;
+  }
+  main .motorcycle__reservation {
+    clear: both;
+    text-align: center;
+  }
+  main .avis {
+    flex-direction: initial;
   }
   main .moto-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.25rem;
-    margin: 20px 0;
+    margin: 1.25rem;
   }
   main form {
     max-width: 40rem;
     margin: auto;
   }
   main button[name=submit] {
-    order: 2; /* Réorganise le bouton sous les autres champs */
+    order: 2;
     width: 100%;
     margin-top: 1rem;
   }
@@ -926,16 +932,21 @@ footer a {
   main .avis-section {
     width: 100%;
   }
+  main .mes_motos {
+    display: table;
+    width: 100%;
+  }
+  main .mes_motos h2 {
+    font-size: 18px;
+    margin: 0;
+  }
+  main .mes_motos a {
+    display: block;
+    padding: 5px;
+  }
   main #admin {
-    max-width: 1600px;
-    width: 90%;
-    margin: 0 auto;
-    /* Styliser les éléments de moto (annonces) pour les écrans plus larges */
-    /* Appliquer une animation de transition pour les éléments de moto (annonces) pour les écrans plus larges */
-    /* Styliser les éléments de commentaire pour les écrans plus larges */
-    /* Appliquer une animation de transition pour les éléments de commentaire pour les écrans plus larges */
-    /* Styliser le bouton de suppression pour les écrans plus larges */
-    /* Appliquer un changement de couleur de fond au bouton de suppression au survol pour les écrans plus larges */
+    max-width: 100rem;
+    margin: auto;
   }
   main #admin .users-motos-section {
     display: flex;
@@ -950,18 +961,18 @@ footer a {
   main #admin .moto-item {
     position: relative;
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 1.25rem;
     text-align: center;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   }
   main #admin .moto-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 6px rgba(0, 0, 0, 0.1);
   }
   main #admin .review-item {
     position: relative;
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 1.25rem;
     text-align: center;
   }
   main #admin .review-item:hover {
@@ -974,18 +985,6 @@ footer a {
   }
   main #admin .delete-button:hover {
     background-color: rgb(217, 83, 79);
-  }
-  main .mes_motos {
-    display: table;
-    width: 100%;
-  }
-  main .mes_motos h2 {
-    font-size: 18px;
-    margin: 0;
-  }
-  main .mes_motos a {
-    display: block;
-    padding: 5px;
   }
   footer p {
     margin: 0;

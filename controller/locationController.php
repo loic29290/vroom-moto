@@ -99,7 +99,9 @@ class LocationController
         Renderer::render("vue/mes_locations.phtml", [
             "locations" => $locations
         ]);
-    }    // Méthode pour afficher les locations effectuées par l'utilisateur
+    }  
+    
+    // Méthode pour afficher les locations effectuées par l'utilisateur
     public static function locationMoto()
     {
  

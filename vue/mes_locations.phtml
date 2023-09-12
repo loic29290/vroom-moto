@@ -14,7 +14,8 @@
             <div class="moto-card">
                 
                 <p><?= $moto->getMarque(); ?> <?= $moto->getModele(); ?>
-                 Début: <?= $location->getDebut() ?> Fin: <?= $location->getFin() ?></p>
+                 Début: <?= $location->getDebutFormate() ?> Fin: <?= $location->getFinFormate() ?></p>
+                <img src="<?= $moto->getImage() ?>">
             </div>
     <?php
         }

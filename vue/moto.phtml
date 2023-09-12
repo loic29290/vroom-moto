@@ -17,7 +17,10 @@
             <a href="index.php?page=reservation&id=<?= $data['moto']->getId() ?>">Réservation</a>
         </div>
     </div>
-
+    
+     <h2>Tous les avis sur la moto</h2>
+<div class="avis">
+   
     <?php if (isset($data['avis'])): ?>
         <?php foreach ($data['avis'] as $avis): ?>
             <?php $user = User::avisName($avis->getLocationId()); ?>
@@ -28,4 +31,5 @@
             </div>
         <?php endforeach; ?>
     <?php endif; ?>
+    </div>
 </main>
