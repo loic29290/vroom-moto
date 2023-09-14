@@ -2,7 +2,7 @@
 :root {
   --couleur-principale: rgba(0, 74, 171, 1);
   --couleur-secondaire: rgba(255, 255, 255, 1);
-  --couleur-texte: rgba(16,30,221,1);
+  --couleur-texte: rgba(16, 30, 221, 1);
   --couleur-fond: rgba(192, 192, 192, 1);
   --border-radius: 1.25rem;
   --font-size: 1rem;
@@ -115,7 +115,7 @@ body footer {
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-color: var(--couleur-fond);
   color: var(--couleur-texte);
   font-size: var(--font-size);
@@ -195,6 +195,7 @@ nav .burger-menu {
   cursor: pointer;
   display: block;
   color: var(--couleur-secondaire);
+  margin: 1rem;
 }
 nav .bar {
   width: 25px;
@@ -216,6 +217,7 @@ nav .sous a {
 }
 nav .deroulant.ouvert .sous {
   display: block;
+  text-align: center;
 }
 nav .menu li.deroulant::after {
   content: "▼";
@@ -249,6 +251,7 @@ main #reservation {
 main h2 {
   font-size: 1.25rem;
   margin-bottom: 10px;
+  text-decoration: underline;
 }
 main p {
   font-size: 1rem;
@@ -282,7 +285,7 @@ main li {
 main .motorcycle {
   text-align: center;
   padding: 1rem;
-  background-color: #fff;
+  background-color: var(--couleur-secondaire);
   border-radius: 0.5rem;
   max-width: 100%;
   box-sizing: border-box;
@@ -298,7 +301,6 @@ main .motorcycle .motorcycle__info {
   color: #555;
   text-align: center;
   width: 25rem;
-  height: 25rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -351,10 +353,6 @@ main .moto-card {
 main .moto-card:hover {
   transform: scale(1.05);
 }
-main .moto-card h2 {
-  font-size: 18px;
-  margin-bottom: 5px;
-}
 main .moto-card p {
   font-size: 18px;
   margin-bottom: 5px;
@@ -393,21 +391,35 @@ main #carousel img:first-child {
 }
 main .container {
   max-width: 800px;
-  margin: 0 auto;
+  margin: auto;
   padding: 2rem;
 }
-main .wrapper {
+main .reservations {
+  text-align: center;
+  margin: auto;
+  max-width: min-content;
+}
+main .reservations .reservation {
+  background-color: var(--couleur-secondaire);
+}
+main .reservations input {
+  margin: 5px;
+}
+main .reservations button {
+  margin: 20px;
+}
+main .reservations .wrapper {
   margin: 15px auto;
   max-width: 1100px;
 }
-main .container-calendar {
+main .reservations .container-calendar {
   background: var(--couleur-secondaire);
   padding: 15px;
   max-width: 475px;
   margin: 0 auto;
   overflow: auto;
 }
-main .button-container-calendar button {
+main .reservations .button-container-calendar button {
   cursor: pointer;
   display: inline-block;
   zoom: 1;
@@ -417,46 +429,46 @@ main .button-container-calendar button {
   border-radius: 4px;
   padding: 5px 10px;
 }
-main .table-calendar {
+main .reservations .table-calendar {
   border-collapse: collapse;
   width: 100%;
 }
-main .table-calendar td,
-main .table-calendar th {
+main .reservations .table-calendar td,
+main .reservations .table-calendar th {
   padding: 5px;
   border: 1px solid rgb(226, 226, 226);
   text-align: center;
   vertical-align: top;
 }
-main .date-picker.selected {
+main .reservations .date-picker.selected {
   font-weight: bold;
   outline: 1px dashed rgb(0, 188, 212);
 }
-main .date-picker.selected span {
+main .reservations .date-picker.selected span {
   border-bottom: 2px solid currentColor;
 }
-main #monthAndYear {
+main .reservations #monthAndYear {
   text-align: center;
   margin-top: 0;
 }
-main .button-container-calendar {
+main .reservations .button-container-calendar {
   position: relative;
   margin-bottom: 1em;
   overflow: hidden;
   clear: both;
 }
-main #previous {
+main .reservations #previous {
   float: left;
 }
-main #next {
+main .reservations #next {
   float: right;
 }
-main .footer-container-calendar {
+main .reservations .footer-container-calendar {
   margin-top: 1em;
   border-top: 1px solid rgb(218, 218, 218);
   padding: 10px 0;
 }
-main .footer-container-calendar select {
+main .reservations .footer-container-calendar select {
   cursor: pointer;
   display: inline-block;
   zoom: 1;
@@ -466,55 +478,62 @@ main .footer-container-calendar select {
   border-radius: 3px;
   padding: 5px 1em;
 }
-main .calendar {
+main .reservations .calendar {
   width: 300px;
   margin: 0 auto;
 }
-main .header {
+main .reservations .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: rgb(221, 221, 221);
   padding: 10px;
 }
-main .days-of-week {
+main .reservations .days-of-week {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 5px;
   margin-top: 10px;
 }
-main .days-of-week span {
+main .reservations .days-of-week span {
   text-align: center;
   font-weight: bold;
 }
-main .days {
+main .reservations .days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 5px;
   margin-top: 10px;
 }
-main .day {
+main .reservations .day {
   text-align: center;
   padding: 5px;
   border: 1px solid rgb(221, 221, 221);
   cursor: pointer;
 }
-main .selected {
+main .reservations .selected {
   background-color: rgb(243, 156, 18);
-  color: white;
+  color: var(--couleur-secondaire);
 }
-main .today {
+main .reservations .today {
   background-color: rgb(39, 174, 96);
-  color: white;
+  color: var(--couleur-secondaire);
 }
-main .reserved {
+main .reservations .reserved {
   background-color: rgb(243, 156, 18);
-  color: white;
+  color: var(--couleur-secondaire);
   opacity: 0.5;
+}
+main .affiche-resa {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+main .affiche-resa .affiche-moto {
+  max-widht: auto;
 }
 main form {
   max-width: 25rem;
-  margin: 0;
+  margin: 1rem;
   padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 1rem;
@@ -546,6 +565,7 @@ main button[name=subscribe] {
   border: none;
   border-radius: var(--border-radius);
   padding: 0.5rem 1rem;
+  margin: 1rem;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -579,11 +599,7 @@ main .moto-item {
   text-align: center;
   display: inline-grid;
 }
-main .moto-item h2 {
-  font-size: 1rem;
-  margin: 0;
-}
-main .moto-item h2 a {
+main .moto-item a {
   text-decoration: none;
   color: var(--couleur-texte);
 }
@@ -638,7 +654,7 @@ main #admin .moto-list li,
 main #admin .review-list li {
   margin-bottom: 10px;
   padding: 5px 10px;
-  background-color: rgb(249, 249, 249);
+  background-color: var(--couleur-secondaire);
   border-radius: 3px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   margin-right: 10px;
@@ -654,7 +670,7 @@ main #admin .moto-list .moto-item {
 }
 main #admin .moto-list a {
   text-decoration: none;
-  color: #007bff;
+  color: var(--couleur-texte);
 }
 main #admin .moto-list a:hover {
   text-decoration: underline;
@@ -710,7 +726,7 @@ footer a {
   }
   nav .menu li a {
     text-decoration: none;
-    color: white;
+    color: var(--couleur-secondaire);
     padding: 10px;
     display: block;
     text-align: center;
@@ -721,21 +737,18 @@ footer a {
   nav .deroulant .sous {
     display: none;
     position: absolute;
-    background-color: rgb(51, 51, 51);
+    background-color: #333;
     list-style: none;
-    padding: 0;
-    margin: 0;
+    padding: 10px;
     z-index: 1;
-    top: 40px;
-    left: 0;
-    width: 100%;
   }
   nav .deroulant:hover .sous {
     display: block;
   }
   nav .sous li {
-    margin: 10px 0;
+    margin: 10px;
     padding: 10px;
+    width: auto;
   }
   nav .sous a {
     text-decoration: none;
@@ -756,7 +769,7 @@ footer a {
   }
   .menu li {
     padding: 10px;
-    color: rgb(255, 255, 255);
+    color: var(--couleur-secondaire);
     position: relative;
     text-align: center;
     min-width: 200px;
@@ -768,12 +781,19 @@ footer a {
   }
   main form {
     max-width: 30rem;
-    margin: auto;
+    margin: 1.25rem;
   }
   main form button[name=submit] {
     order: 2;
-    width: 100%;
     margin-top: 1rem;
+  }
+  main form .reservation {
+    background-color: var(--couleur-secondaire);
+    text-align: end;
+    margin: 0.625rem;
+  }
+  main form .reservation input {
+    margin: 5px;
   }
   main .motorcycle {
     text-align: center;
@@ -784,6 +804,7 @@ footer a {
   }
   main .motorcycle__info {
     margin: 1rem;
+    height: 25rem;
     text-align: left;
     float: left;
   }
@@ -799,6 +820,10 @@ footer a {
   }
   main .avis {
     flex-direction: initial;
+  }
+  main .affiche-resa {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (min-width: 1200px) {
@@ -822,7 +847,7 @@ footer a {
   }
   nav .menu li a {
     text-decoration: none;
-    color: white;
+    color: var(--couleur-secondaire);
     padding: 10px;
     display: block;
     text-align: center;
@@ -846,7 +871,7 @@ footer a {
     display: block;
   }
   nav .sous li {
-    margin: 10px 0;
+    margin: 10px;
     padding: 10px;
   }
   nav .sous a {
@@ -882,6 +907,13 @@ footer a {
     max-width: 18.75rem;
     margin: 0.625rem;
   }
+  main .container {
+    max-width: 1200px;
+    margin: 1rem;
+  }
+  main .container li {
+    margin: 2rem;
+  }
   main ol {
     columns: 2;
     column-gap: 1.25rem;
@@ -897,6 +929,7 @@ footer a {
   }
   main .motorcycle__info {
     margin: 1rem;
+    height: 25rem;
     text-align: left;
     float: left;
   }
@@ -919,13 +952,13 @@ footer a {
   }
   main button[name=submit] {
     order: 2;
-    width: 100%;
     margin-top: 1rem;
   }
   main .users-motos-section {
     flex-direction: row;
   }
-  main .users-section, main .motos-section {
+  main .users-section,
+  main .motos-section {
     flex: 1;
     width: auto;
   }
@@ -936,13 +969,35 @@ footer a {
     display: table;
     width: 100%;
   }
-  main .mes_motos h2 {
-    font-size: 18px;
-    margin: 0;
-  }
   main .mes_motos a {
     display: block;
     padding: 5px;
+  }
+  main .reservations {
+    text-align: center;
+    margin: auto;
+    max-width: min-content;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+  main .reservations .reservation {
+    background-color: var(--couleur-secondaire);
+    margin: 2rem;
+  }
+  main .reservations input {
+    margin: 5px;
+  }
+  main .reservations button {
+    margin: 20px;
+  }
+  main h2 {
+    text-align: center;
+  }
+  main .affiche-resa {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
   }
   main #admin {
     max-width: 100rem;

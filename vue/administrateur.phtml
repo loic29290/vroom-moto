@@ -23,7 +23,7 @@
                         <?php foreach ($data['motos'] as $moto) { ?>
                             <li class="moto-item">
                                 <a href="index.php?page=moto&id=<?= $moto->getId() ?>"><?= $moto->getModele() ?></a>
-                                 <img src="<?= $moto->getImage() ?>" />
+                                <img src="<?= $moto->getImage() ?>" />
                             </li>
                         <?php } ?>
                     </ul>
@@ -40,7 +40,7 @@
                             <?php $user = User::avisName($avis->getLocationId()); ?>
                             <p class="author">Auteur: <?= $user->getNom() ?></p>
                             <p>Commentaire: <?= $avis->getCommentaire() ?></p>
-                             <p>Note: <?= $avis->getNote() ?></p>
+                            <p>Note: <?= $avis->getNote() ?></p>
                             <form class="admin-form" method="POST">
                                 <button class="delete-button" name="supprimerAvis" value="<?= $avis->getId() ?>">Supprimer avis</button>
                             </form>
