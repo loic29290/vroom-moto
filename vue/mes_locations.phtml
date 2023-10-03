@@ -4,20 +4,25 @@
     if (isset($data['locations'])) {
 
     ?>
-        <h1>Les locations de mes motos</h1>
-        <div class="moto-list">
+    <h1>Les locations de mes motos</h1>
+    <div class="moto-list">
         <?php
         foreach ($data['locations'] as $location) {
             $moto = $location->getMoto();
             
         ?>
-            <div class="moto-card">
-                
-                <p><?= $moto->getMarque(); ?> <?= $moto->getModele(); ?>
-                 Début: <?= $location->getDebutFormate() ?> Fin: <?= $location->getFinFormate() ?></p>
-                <img src="<?= $moto->getImage() ?>">
-            </div>
-    <?php
+        <div class="moto-card">
+
+            <p>
+                <?= $moto->getMarque(); ?>
+                <?= $moto->getModele(); ?>
+                Début:
+                <?= $location->getDebutFormate() ?> Fin:
+                <?= $location->getFinFormate() ?>
+            </p>
+            <img src="<?= $moto->getImage() ?>">
+        </div>
+        <?php
         }
     }
     ?>

@@ -60,10 +60,10 @@ class UserController
             } else {
 
                 //echo "Login ou Mot de passe incorrect ou inexistant";
-               
+
                 $errorMessage = "Login ou Mot de passe incorrect ou inexistant";
                 echo "<script>alert('$errorMessage');</script>";
-            
+
                 // Rediriger vers la page de connexion en cas d'échec de connexion
                 //header("Location: index.php?page=connexion");
                 //die; // Arrêter l'exécution du script
@@ -116,6 +116,4 @@ class UserController
         Renderer::render("vue/mes_motos.phtml");
         return false;
     }
-        
-    
 }

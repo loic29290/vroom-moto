@@ -65,7 +65,7 @@ class Location
     {
         return $this->fin;
     }
-    
+
     public function getFinFormate(): string
     {
         $date = new DateTime($this->fin);
@@ -86,7 +86,7 @@ class Location
 
         return true;
     }
-    
+
 
     public function getMoto(): ?Moto
     {
@@ -115,9 +115,9 @@ class Location
         ]);
         return $sth->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Location");
     }
-    
-  
-    
+
+
+
     // récupère les réservations en cours et futures pour une moto spécifique.
     public static function verifDate(int $motoId): array
     {
@@ -182,8 +182,9 @@ class Location
             ":fin" => $this->getFin()
         ]);
     }
-    
-    public static function locationMoto(int $motoId): mixed {
+
+    public static function locationMoto(int $motoId): mixed
+    {
         $query = "SELECT location.* FROM location 
               WHERE moto_id = :moto_id";
         $sth = Db::getDbh()->prepare($query);
@@ -192,5 +193,4 @@ class Location
         ]);
         return $sth->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Location");
     }
-     
 }

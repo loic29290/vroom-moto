@@ -2,21 +2,23 @@
     <?php
     if (isset($data['motos'])) {
     ?>
-        <h1>Mes motos</h1>
-        <div class="moto-list">
+    <h1>Mes motos</h1>
+    <div class="moto-list">
         <?php
         foreach ($data['motos'] as $moto) {
         ?>
-        
-               <div class="moto-card">
-                   
-                    <p><a href="index.php?page=moto&id=<?= $moto->getId() ?>"><?= $moto->getModele() ?></a></p>
-                    <img src="<?= $moto->getImage() ?>" />
-               
-            </div>
-    <?php
+
+        <div class="moto-card">
+
+            <p><a href="index.php?page=moto&id=<?= $moto->getId() ?>">
+                    <?= $moto->getModele() ?>
+                </a></p>
+            <img src="<?= $moto->getImage() ?>" />
+
+        </div>
+        <?php
         }
     }
     ?>
-     </div>
+    </div>
 </main>

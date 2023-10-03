@@ -3,11 +3,19 @@
 
     <?php
     if (!empty($data['errors'])) {
-    ?><ul><?php
+    ?>
+    <ul>
+        <?php
                 foreach ($data['errors'] as $error) {
-                ?><li><?= $error ?></li><?php
+                ?>
+        <li>
+            <?= $error ?>
+        </li>
+        <?php
             }
-                ?></ul><?php
+                ?>
+    </ul>
+    <?php
             }
                 ?>
     <div class="reservations">
@@ -40,18 +48,24 @@
     if (isset($data['locationMoto'])) {
 
     ?>
-        <h2>Réservation pour cette moto</h2>
-        <div class="affiche-resa">
-            <?php
+    <h2>Réservation pour cette moto</h2>
+    <div class="affiche-resa">
+        <?php
             foreach ($data['locationMoto'] as $locationMoto) {
                 $moto = $locationMoto->getMoto();
             ?>
-                <div class="moto-card">
-                    <p><?= $moto->getMarque(); ?> <?= $moto->getModele(); ?>
-                        Début: <?= $locationMoto->getDebutFormate() ?> Fin: <?= $locationMoto->getFinFormate() ?></p>
-                </div><?php
+        <div class="moto-card">
+            <p>
+                <?= $moto->getMarque(); ?>
+                <?= $moto->getModele(); ?>
+                Début:
+                <?= $locationMoto->getDebutFormate() ?> Fin:
+                <?= $locationMoto->getFinFormate() ?>
+            </p>
+        </div>
+        <?php
                     }
                 }
                         ?>
-        </div>
+    </div>
 </main>

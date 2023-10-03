@@ -6,12 +6,14 @@
 
     <div class="bienvenue">
         <?php if ($user) { ?>
-            <p>Bienvenue <?= $user->getNom() ?></p>
-            <a href="index.php?page=disconnect">Déconnexion</a>
+        <p>Bienvenue
+            <?= $user->getNom() ?>
+        </p>
+        <a href="index.php?page=disconnect">Déconnexion</a>
 
         <?php } else { ?>
 
-            <a href="index.php?page=connexion">Se connecter</a>
+        <a href="index.php?page=connexion">Se connecter</a>
 
         <?php } ?>
 

@@ -65,7 +65,7 @@ class User
         $this->setNom($this->clearForm($_POST['nom']));
         $this->setPassword($this->clearForm($_POST['pwd']));
     }
-    
+
     // Méthode pour nettoyer les valeurs des champs de formulaire
     public function clearForm($valeur)
     {
@@ -134,7 +134,7 @@ class User
     public function testFormConnexion(): bool
     {
         $error = false;
-        
+
 
         if (empty($this->getNom())) {
             $error = true;
@@ -215,10 +215,10 @@ class User
         $sth->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "User");
         return $sth->fetch();
     }
-    
-     // Méthode pour récupérer le nom d'un utilisateur par rapport à l'avis
-      public static function avisName(int $location_id) : mixed
-        
+
+    // Méthode pour récupérer le nom d'un utilisateur par rapport à l'avis
+    public static function avisName(int $location_id): mixed
+
     {
         $query = "SELECT user.* FROM user, avis WHERE user.id = avis.auteur_id AND avis.location_id = :location_id";
         $sth = Db::getDbh()->prepare($query);
@@ -228,6 +228,4 @@ class User
         $sth->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "User");
         return $sth->fetch();
     }
-   
-    
 }
