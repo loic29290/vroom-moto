@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    //Burger menu
     const burgerButton = document.querySelector('.burger-menu');
     const menu = document.querySelector('.menu');
 
@@ -8,18 +9,35 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     const deroulantItem = document.querySelector('.deroulant');
 
-deroulantItem.addEventListener('click', function () {
-    deroulantItem.classList.toggle('ouvert');
-});
+    deroulantItem.addEventListener('click', function () {
+        deroulantItem.classList.toggle('ouvert');
+    });
 
-    
+    //Animation chargement page
+    let loadingSpinner = document.getElementById('chargement');
+    let body = document.querySelector('body');
+
+    document.querySelectorAll('a').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            let targetUrl = this.href;
+
+            chargement.style.display = 'block'; // Affichez l'effet de chargement au début de la transition
+            body.style.opacity = 0; // Réduisez l'opacité de la page
+
+            setTimeout(function () {
+                window.location = targetUrl; // Redirigez vers la nouvelle page
+            }, 500); // Délai pour l'animation (0.5 seconde dans cet exemple)
+        });
+    });
 
     //Carousel
 
-    let images = document.querySelectorAll('#carousel>img');
+    let images = document.querySelectorAll('.carousel>img');
     let imageIndex = 0;
     let timer;
-    let slider = document.querySelector('#carousel');
+    let slider = document.querySelector('.carousel');
 
     function goToNext() {
         //console.log(images[imageIndex]);

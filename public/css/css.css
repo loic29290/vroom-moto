@@ -120,6 +120,28 @@ body {
   color: var(--couleur-texte);
   font-size: var(--font-size);
   width: 100%;
+  transition: opacity 0.5s ease-in-out;
+}
+body #chargement {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #000; /* Couleur du spinner */
+  border-radius: 50%;
+  width: 1.875rem;
+  height: 1.875rem;
+  animation: spin 1s linear infinite; /* Animation de rotation */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none; /* Masquez initialement l'effet de chargement */
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 header {
@@ -131,7 +153,7 @@ header {
   box-shadow: 0rem 0.3rem 1rem rgba(0, 0, 0, 0.5);
 }
 header img {
-  max-width: 100px;
+  max-width: 6.25rem;
   margin-bottom: 0.3rem;
 }
 header h1 {
@@ -173,7 +195,7 @@ nav {
   background-color: rgb(51, 51, 51);
   display: flex;
   align-items: center;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   color: var(--couleur-secondaire);
 }
 nav .menu {
@@ -185,7 +207,7 @@ nav .menu.active {
   flex-direction: column;
 }
 nav .menu li {
-  margin: 20px;
+  margin: 1.25rem;
 }
 nav .menu a {
   color: var(--couleur-secondaire);
@@ -198,17 +220,17 @@ nav .burger-menu {
   margin: 1rem;
 }
 nav .bar {
-  width: 25px;
-  height: 3px;
+  width: 1.6rem;
+  height: 0.2rem;
   background-color: var(--couleur-secondaire);
-  margin: 6px 0;
+  margin: 0.375rem;
 }
 nav .sous {
   display: none;
   position: absolute;
-  background-color: #333;
+  background-color: rgb(51, 51, 51);
   list-style: none;
-  padding: 10px;
+  padding: 0.625rem;
   z-index: 1;
 }
 nav .sous a {
@@ -238,49 +260,49 @@ main h1 {
   text-align: center;
   text-decoration: underline;
   padding: 1.25rem;
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 main div {
   text-align: center;
-  padding: 5px;
+  padding: 0.3rem;
 }
 main #reservation {
   display: content;
 }
 main h2 {
   font-size: 1.25rem;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
   text-decoration: underline;
 }
 main p {
   font-size: 1rem;
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem;
   text-align: center;
 }
 main img {
-  max-width: 250px;
+  max-width: 15.625rem;
   border-radius: var(--border-radius);
   margin: 1.25rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 main a {
-  padding: 10px;
+  padding: 0.625rem;
   position: relative;
   text-align: center;
   text-decoration: none;
 }
 main h2 {
-  font-size: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  font-size: 1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 main ol {
-  font-size: 16px;
-  margin-bottom: 30px;
+  font-size: 1rem;
+  margin-bottom: 1.875rem;
 }
 main li {
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 main .motorcycle {
   text-align: center;
@@ -310,7 +332,7 @@ main .motorcycle .motorcycle__image {
   max-width: 100%;
   height: auto;
   margin: 1rem 0;
-  border: 1px solid #ddd;
+  border: 1px solid rgb(221, 221, 221);
   border-radius: 0.5rem;
 }
 main .motorcycle .motorcycle__reservation {
@@ -318,15 +340,15 @@ main .motorcycle .motorcycle__reservation {
 }
 main .motorcycle .motorcycle__reservation a {
   text-decoration: none;
-  background-color: #007bff;
+  background-color: rgb(0, 123, 255);
   color: #fff;
   padding: 1rem 2rem;
   border-radius: 0.5rem;
   display: inline-block;
 }
 main .motorcycle .review {
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
+  background-color: rgb(248, 248, 248);
+  border: 1px solid rgb(221, 221, 221);
   padding: 1rem;
   margin: 1rem 0;
 }
@@ -342,9 +364,9 @@ main .moto-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
+  padding: 0.625rem;
   margin: 1.5rem;
-  border: 1px solid #ccc;
+  border: 1px solid rgb(204, 204, 204);
   border-radius: 1.25rem;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s;
@@ -354,43 +376,43 @@ main .moto-card:hover {
   transform: scale(1.05);
 }
 main .moto-card p {
-  font-size: 18px;
-  margin-bottom: 5px;
+  font-size: 1.125rem;
+  margin-bottom: 0.3rem;
 }
 main .moto-card img {
   width: 10rem;
   height: 12.5rem;
 }
 main div.comment {
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
   border-radius: var(--border-radius);
-  padding: 15px;
+  padding: 1rem;
   margin-top: 1.25rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 main div.comment p {
-  margin: 5px;
+  margin: 0.3rem;
 }
-main #carousel {
+main .carousel {
   position: relative;
-  width: 250px;
-  height: 350px;
+  width: 16rem;
+  height: 25rem;
   margin: 1.25rem;
   display: flex;
   justify-content: center;
 }
-main #carousel img {
+main .carousel img {
   display: block;
   position: absolute;
   opacity: 0;
   transition: opacity 1s ease-in-out;
   border-radius: 10%;
 }
-main #carousel img:first-child {
+main .carousel img:first-child {
   opacity: 1;
 }
 main .container {
-  max-width: 800px;
+  max-width: 50rem;
   margin: auto;
   padding: 2rem;
 }
@@ -403,20 +425,20 @@ main .reservations .reservation {
   background-color: var(--couleur-secondaire);
 }
 main .reservations input {
-  margin: 5px;
+  margin: 0.3rem;
 }
 main .reservations button {
-  margin: 20px;
+  margin: 1.25rem;
 }
 main .reservations .wrapper {
-  margin: 15px auto;
-  max-width: 1100px;
+  margin: 1rem auto;
+  max-width: 68.75rem;
 }
 main .reservations .container-calendar {
   background: var(--couleur-secondaire);
-  padding: 15px;
-  max-width: 475px;
-  margin: 0 auto;
+  padding: 1rem;
+  max-width: 29.7rem;
+  margin: auto;
   overflow: auto;
 }
 main .reservations .button-container-calendar button {
@@ -425,9 +447,9 @@ main .reservations .button-container-calendar button {
   zoom: 1;
   background: var(--couleur-principale);
   color: var(--couleur-secondaire);
-  border: 1px solid #0aa2b5;
-  border-radius: 4px;
-  padding: 5px 10px;
+  border: 1px solid rgb(10, 162, 181);
+  border-radius: 0.25rem;
+  padding: 0.3rem 0.625rem;
 }
 main .reservations .table-calendar {
   border-collapse: collapse;
@@ -435,7 +457,7 @@ main .reservations .table-calendar {
 }
 main .reservations .table-calendar td,
 main .reservations .table-calendar th {
-  padding: 5px;
+  padding: 0.3rem;
   border: 1px solid rgb(226, 226, 226);
   text-align: center;
   vertical-align: top;
@@ -466,7 +488,7 @@ main .reservations #next {
 main .reservations .footer-container-calendar {
   margin-top: 1em;
   border-top: 1px solid rgb(218, 218, 218);
-  padding: 10px 0;
+  padding: 0.625rem;
 }
 main .reservations .footer-container-calendar select {
   cursor: pointer;
@@ -475,25 +497,25 @@ main .reservations .footer-container-calendar select {
   background: var(--couleur-secondaire);
   color: rgb(88, 88, 88);
   border: 1px solid rgb(191, 197, 197);
-  border-radius: 3px;
-  padding: 5px 1em;
+  border-radius: 0.2rem;
+  padding: 0.3rem 1em;
 }
 main .reservations .calendar {
-  width: 300px;
-  margin: 0 auto;
+  width: 18.75rem;
+  margin: auto;
 }
 main .reservations .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: rgb(221, 221, 221);
-  padding: 10px;
+  padding: 0.625rem;
 }
 main .reservations .days-of-week {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
-  margin-top: 10px;
+  gap: 0.3rem;
+  margin-top: 0.625rem;
 }
 main .reservations .days-of-week span {
   text-align: center;
@@ -502,12 +524,12 @@ main .reservations .days-of-week span {
 main .reservations .days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
-  margin-top: 10px;
+  gap: 0.3rem;
+  margin-top: 0.625rem;
 }
 main .reservations .day {
   text-align: center;
-  padding: 5px;
+  padding: 0.3rem;
   border: 1px solid rgb(221, 221, 221);
   cursor: pointer;
 }
@@ -529,13 +551,13 @@ main .affiche-resa {
   grid-template-columns: repeat(2, 1fr);
 }
 main .affiche-resa .affiche-moto {
-  max-widht: auto;
+  max-width: auto;
 }
 main form {
   max-width: 25rem;
   margin: 1rem;
   padding: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid rgb(204, 204, 204);
   border-radius: 1rem;
   display: block;
 }
@@ -594,8 +616,8 @@ main .motos-list {
 }
 main .moto-item {
   border: 1px solid var(--couleur-fond);
-  margin-bottom: 10px;
-  padding: 10px;
+  margin-bottom: 0.625rem;
+  padding: 0.625rem;
   text-align: center;
   display: inline-grid;
 }
@@ -613,31 +635,31 @@ main .avis {
 }
 main .avis .review {
   border-radius: 1.25rem;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   margin: 1rem;
   width: 100%;
 }
 main .avis p {
-  margin: 20px;
+  margin: 1.25rem;
 }
 main #admin {
   background-color: rgb(244, 244, 244);
-  padding: 20px;
+  padding: 1.25rem;
   text-align: center;
 }
 main #admin h1 {
   text-align: center;
   background-color: rgb(51, 51, 51);
   color: var(--couleur-secondaire);
-  padding: 15px;
-  margin-bottom: 20px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
 }
 main #admin .section {
   background-color: var(--couleur-secondaire);
-  border-radius: 5px;
+  border-radius: 0.3rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  padding: 20px;
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
   text-align: center;
 }
 main #admin .section h2 {
@@ -652,13 +674,13 @@ main #admin .review-list {
 main #admin .user-list li,
 main #admin .moto-list li,
 main #admin .review-list li {
-  margin-bottom: 10px;
-  padding: 5px 10px;
+  margin-bottom: 0.625rem;
+  padding: 0.3rem 0.625rem;
   background-color: var(--couleur-secondaire);
   border-radius: 3px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  margin-right: 10px;
-  font-size: 14px;
+  margin-right: 0.625rem;
+  font-size: 0.875rem;
 }
 main #admin .moto-list {
   place-items: self-end;
@@ -679,13 +701,13 @@ main #admin .delete-button {
   background-color: rgb(255, 99, 71);
   color: var(--couleur-secondaire);
   border: none;
-  padding: 10px 15px;
-  border-radius: 3px;
+  padding: 0.625rem 1rem;
+  border-radius: 0.2rem;
 }
 
 footer {
   text-align: center;
-  padding: 10px;
+  padding: 0.625rem;
   background-color: var(--couleur-fond);
   display: flex;
   justify-content: space-around;
@@ -697,12 +719,12 @@ footer div {
 }
 footer p {
   margin: 0;
-  padding-right: 2px;
-  font-size: 12px;
+  padding-right: 0.12rem;
+  font-size: 0.75rem;
 }
 footer a {
   text-decoration: none;
-  margin: 10px;
+  margin: 0.625rem;
 }
 
 @media (min-width: 768px) and (max-width: 1200px) {
@@ -727,7 +749,7 @@ footer a {
   nav .menu li a {
     text-decoration: none;
     color: var(--couleur-secondaire);
-    padding: 10px;
+    padding: 0.625rem;
     display: block;
     text-align: center;
   }
@@ -737,24 +759,24 @@ footer a {
   nav .deroulant .sous {
     display: none;
     position: absolute;
-    background-color: #333;
+    background-color: rgb(51, 51, 51);
     list-style: none;
-    padding: 10px;
+    padding: 0.625rem;
     z-index: 1;
   }
   nav .deroulant:hover .sous {
     display: block;
   }
   nav .sous li {
-    margin: 10px;
-    padding: 10px;
+    margin: 0.625rem;
+    padding: 0.625rem;
     width: auto;
   }
   nav .sous a {
     text-decoration: none;
     color: var(--couleur-secondaire);
     display: block;
-    padding: 10px;
+    padding: 0.625rem;
   }
   .menu {
     background-color: rgb(51, 51, 51);
@@ -768,16 +790,16 @@ footer a {
     display: flex;
   }
   .menu li {
-    padding: 10px;
+    padding: 0.625rem;
     color: var(--couleur-secondaire);
     position: relative;
     text-align: center;
-    min-width: 200px;
+    min-width: 12.5rem;
     width: 100%;
   }
   .menu li.deroulant::after {
     content: "▼";
-    margin-left: 5px;
+    margin-left: 0.3rem;
   }
   main form {
     max-width: 30rem;
@@ -793,7 +815,7 @@ footer a {
     margin: 0.625rem;
   }
   main form .reservation input {
-    margin: 5px;
+    margin: 0.3rem;
   }
   main .motorcycle {
     text-align: center;
@@ -848,7 +870,7 @@ footer a {
   nav .menu li a {
     text-decoration: none;
     color: var(--couleur-secondaire);
-    padding: 10px;
+    padding: 0.625rem;
     display: block;
     text-align: center;
   }
@@ -863,7 +885,7 @@ footer a {
     padding: 0;
     margin: 0;
     z-index: 1;
-    top: 40px;
+    top: 2.5rem;
     left: 0;
     width: 100%;
   }
@@ -871,14 +893,14 @@ footer a {
     display: block;
   }
   nav .sous li {
-    margin: 10px;
-    padding: 10px;
+    margin: 0.625rem;
+    padding: 0.625rem;
   }
   nav .sous a {
     text-decoration: none;
     color: var(--couleur-secondaire);
     display: block;
-    padding: 10px;
+    padding: 0.625rem;
   }
   .menu {
     background-color: rgb(51, 51, 51);
@@ -892,23 +914,23 @@ footer a {
     display: flex;
   }
   .menu li {
-    padding: 10px;
+    padding: 0.625rem;
     color: rgb(255, 255, 255);
     position: relative;
     text-align: center;
-    min-width: 200px;
+    min-width: 12.5rem;
     width: 100%;
   }
   .menu li.deroulant::after {
     content: "▼";
-    margin-left: 5px;
+    margin-left: 0.3rem;
   }
   main #carousel img {
     max-width: 18.75rem;
     margin: 0.625rem;
   }
   main .container {
-    max-width: 1200px;
+    max-width: 75rem;
     margin: 1rem;
   }
   main .container li {
@@ -987,10 +1009,10 @@ footer a {
     margin: 2rem;
   }
   main .reservations input {
-    margin: 5px;
+    margin: 0.3rem;
   }
   main .reservations button {
-    margin: 20px;
+    margin: 1.25rem;
   }
   main h2 {
     text-align: center;
@@ -1043,12 +1065,12 @@ footer a {
   }
   footer p {
     margin: 0;
-    padding-right: 2px;
+    padding-right: 0.125rem;
     font-size: 1rem;
   }
   footer a {
     text-decoration: none;
-    margin: 5px;
+    margin: 0.3rem;
     font-size: 1rem;
   }
 }
