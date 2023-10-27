@@ -1,0 +1,10 @@
+<?php if(!empty($resultats)): ?>
+    <?php foreach ($resultats as $moto) : ?>
+        <article class="moto-card">
+            <h2><a href="index.php?page=moto&id=<?= htmlspecialchars($moto->getId()); ?>"><?= htmlspecialchars($moto->getModele()); ?></a></h2>
+            <img src="<?= htmlspecialchars($moto->getImage()); ?>" alt="<?= htmlspecialchars($moto->getModele()); ?> Image" />
+        </article>
+    <?php endforeach; ?>
+<?php else: ?>
+    <p>Aucune moto de cette catégorie avec ce bridage n'existe sur le site.</p>
+<?php endif ?>

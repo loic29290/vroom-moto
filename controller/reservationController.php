@@ -5,11 +5,7 @@ class ReservationController
     // Méthode pour afficher les réservations liées à une moto
     public static function getReservations()
     {
-        // Si l'utilisateur n'est pas connecté, le rediriger vers la page de connexion
-        if (!isset($_SESSION['ID'])) {
-            header("Location: index.php?page=connexion&retour=mes_reservations");
-            die;
-        }
+        
 
         // Appel au modèle Location pour récupérer les réservations liées à l'utilisateur
         $reservations = Location::findReservation();
@@ -30,7 +26,7 @@ class ReservationController
         }
 
         // Récupérer la réservation par son ID
-        $reservation = Location::findById($_GET['id']);
+        $reservation = Location::findLocationById($_GET['id']);
 
         // Vérifier si la réservation existe
         if (!$reservation) {

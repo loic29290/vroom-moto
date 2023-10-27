@@ -102,10 +102,26 @@ class User
             $error = true;
         }
 
-        if (strlen($this->getPassword()) < 4) {
-            $error_msg[] =  "Le mot de passe doit faire 4 caractères ou plus";
+        if (strlen($this->getPassword()) < 8) {
+            $error_msg[] =  "Le mot de passe doit faire 8 caractères ou plus";
             $error = true;
         }
+        
+        if (!preg_match('/[A-Z]/', $this->getPassword())) {
+            $error_msg[] = "Le mot de passe doit contenir au moins une lettre majuscule";
+            $error = true;
+        }
+    
+        if (!preg_match('/[0-9]/', $this->getPassword())) {
+            $error_msg[] = "Le mot de passe doit contenir au moins un chiffre";
+            $error = true;
+        }
+    
+        if (!preg_match('/[^A-Za-z0-9]/', $this->getPassword())) {
+            $error_msg[] = "Le mot de passe doit contenir au moins un caractère spécial";
+            $error = true;
+        }
+        
 
         if (!($this->getPassword() == $password2)) {
             $error_msg[] =  "Les mots de passes de correspondent pas";

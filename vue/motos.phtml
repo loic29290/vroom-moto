@@ -1,18 +1,42 @@
 <main>
+    <section>
+        <form id="searchForm">
+            <label for="categorieRecherche">Catégorie de recherche</label>
+            <select id="categorieRecherche" name="categorieRecherche">
+                <option value="">Toutes les catégories</option>
+                <option value="Sportive">Sportive</option>
+                <option value="Roadster">Roadster</option>
+                <option value="Trail">Trail</option>
+                <option value="Routiere">Routière</option>
+                <option value="Cross">Cross</option>
+                <option value="Scooter">Scooter</option>
+            </select>
 
-    <h1>Liste des motos </h1>
-    <div class="moto-list">
-        <?php
-        foreach ($data['motos'] as $moto) {
-        ?>
-        <div class="moto-card">
-            <h2><a href="index.php?page=moto&id=<?= $moto->getId() ?>">
-                    <?= $moto->getModele() ?>
-                </a></h2>
-            <img src="<?= $moto->getImage() ?>" />
+            <label for="bridageRecherche">Bridée ou non ?</label>
+            <select id="bridageRecherche" name="bridageRecherche">
+                <option value="">Indifférent</option>
+                <option value="oui">Oui</option>
+                <option value="non">Non</option>
+            </select>
+
+            <button type="reset" id="resetButton">Réinitialiser</button>
+        </form>
+    </section>
+
+    <section>
+        <h1>Liste des motos</h1>
+        <div class="moto-list">
+            <?php
+            foreach ($data['motos'] as $moto) {
+            ?>
+                <article class="moto-card">
+                    <h2><a href="index.php?page=moto&id=<?= htmlspecialchars($moto->getId()); ?>"><?= htmlspecialchars($moto->getModele()); ?></a></h2>
+                    <img src="<?= htmlspecialchars($moto->getImage()); ?>" alt="<?= htmlspecialchars($moto->getModele()); ?> Image" />
+                </article>
+            <?php
+            }
+            ?>
         </div>
-        <?php
-        }
-        ?>
-    </div>
+    </section>
 </main>
+<script src="public/js/recherche.js"></script>

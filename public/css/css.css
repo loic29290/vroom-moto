@@ -1,13 +1,4 @@
 @charset "UTF-8";
-:root {
-  --couleur-principale: rgba(0, 74, 171, 1);
-  --couleur-secondaire: rgba(255, 255, 255, 1);
-  --couleur-texte: rgba(16, 30, 221, 1);
-  --couleur-fond: rgba(192, 192, 192, 1);
-  --border-radius: 1.25rem;
-  --font-size: 1rem;
-}
-
 html,
 body,
 div,
@@ -145,19 +136,21 @@ body #chargement {
 }
 
 header {
-  background-color: var(--couleur-principale);
+  background-image: url("../images/route.jpg");
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1.25rem;
-  box-shadow: 0rem 0.3rem 1rem rgba(0, 0, 0, 0.5);
 }
 header img {
-  max-width: 6.25rem;
-  margin-bottom: 0.3rem;
+  max-width: 4rem;
+  margin-bottom: 2rem;
 }
 header h1 {
-  color: var(--couleur-secondaire);
+  color: rgb(255, 255, 255);
   text-align: center;
   position: relative;
   animation: waveEffect 2s infinite;
@@ -172,7 +165,7 @@ header h1 {
   }
 }
 header p {
-  color: var(--couleur-secondaire);
+  color: rgb(255, 255, 255);
 }
 header div {
   display: flex;
@@ -180,7 +173,7 @@ header div {
   align-items: center;
 }
 header a {
-  color: var(--couleur-secondaire);
+  color: rgb(255, 255, 255);
   font-size: 1rem;
   text-decoration: none;
   margin-left: 0.3rem;
@@ -195,8 +188,8 @@ nav {
   background-color: rgb(51, 51, 51);
   display: flex;
   align-items: center;
-  padding: 0.625rem 1.25rem;
-  color: var(--couleur-secondaire);
+  padding: 10px 20px;
+  color: rgb(255, 255, 255);
 }
 nav .menu {
   list-style: none;
@@ -207,34 +200,35 @@ nav .menu.active {
   flex-direction: column;
 }
 nav .menu li {
-  margin: 1.25rem;
+  margin: 1rem;
+  text-align: center;
 }
 nav .menu a {
-  color: var(--couleur-secondaire);
+  color: rgb(255, 255, 255);
   text-decoration: none;
 }
 nav .burger-menu {
   cursor: pointer;
   display: block;
-  color: var(--couleur-secondaire);
+  color: rgb(255, 255, 255);
   margin: 1rem;
 }
 nav .bar {
-  width: 1.6rem;
-  height: 0.2rem;
-  background-color: var(--couleur-secondaire);
-  margin: 0.375rem;
+  width: 25px;
+  height: 3px;
+  background-color: rgb(255, 255, 255);
+  margin: 6px 0;
 }
 nav .sous {
   display: none;
   position: absolute;
-  background-color: rgb(51, 51, 51);
+  background-color: #333;
   list-style: none;
-  padding: 0.625rem;
+  padding: 10px;
   z-index: 1;
 }
 nav .sous a {
-  color: var(--couleur-secondaire);
+  color: rgb(255, 255, 255);
   text-decoration: none;
 }
 nav .deroulant.ouvert .sous {
@@ -261,53 +255,67 @@ main h1 {
   text-decoration: underline;
   padding: 1.25rem;
   font-size: 1.5rem;
-  margin-bottom: 1.25rem;
 }
-main div {
+main section {
   text-align: center;
-  padding: 0.3rem;
+  padding: 5px;
 }
 main #reservation {
   display: content;
 }
 main h2 {
   font-size: 1.25rem;
-  margin-bottom: 0.625rem;
+  margin-bottom: 10px;
   text-decoration: underline;
+  padding: 1.25rem;
 }
 main p {
   font-size: 1rem;
-  margin-bottom: 1.875rem;
+  margin-bottom: 30px;
   text-align: center;
 }
 main img {
-  max-width: 15.625rem;
-  border-radius: var(--border-radius);
+  max-width: 250px;
+  border-radius: 1.25rem;
   margin: 1.25rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 main a {
-  padding: 0.625rem;
+  padding: 10px;
   position: relative;
   text-align: center;
   text-decoration: none;
 }
-main h2 {
-  font-size: 1.25rem;
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
+main .cloud-bubble {
+  position: relative;
+  display: inline-block;
+  margin: 20px;
 }
-main ol {
-  font-size: 1rem;
-  margin-bottom: 1.875rem;
+main .bubble {
+  background-color: rgb(235, 235, 235);
+  border-radius: 15px;
+  padding: 10px;
+  max-width: 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
 }
-main li {
-  margin-bottom: 0.625rem;
+main .bubble strong {
+  display: block;
+  margin-bottom: 5px;
+}
+main .bubble-list {
+  text-align: -webkit-center;
+}
+main .bubble-list strong {
+  text-decoration: underline;
+}
+main ul {
+  list-style-type: none;
 }
 main .motorcycle {
   text-align: center;
   padding: 1rem;
-  background-color: var(--couleur-secondaire);
+  background-color: rgb(235, 235, 235);
   border-radius: 0.5rem;
   max-width: 100%;
   box-sizing: border-box;
@@ -332,7 +340,7 @@ main .motorcycle .motorcycle__image {
   max-width: 100%;
   height: auto;
   margin: 1rem 0;
-  border: 1px solid rgb(221, 221, 221);
+  border: 1px solid #ddd;
   border-radius: 0.5rem;
 }
 main .motorcycle .motorcycle__reservation {
@@ -340,15 +348,15 @@ main .motorcycle .motorcycle__reservation {
 }
 main .motorcycle .motorcycle__reservation a {
   text-decoration: none;
-  background-color: rgb(0, 123, 255);
-  color: #fff;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   padding: 1rem 2rem;
   border-radius: 0.5rem;
   display: inline-block;
 }
 main .motorcycle .review {
-  background-color: rgb(248, 248, 248);
-  border: 1px solid rgb(221, 221, 221);
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
   padding: 1rem;
   margin: 1rem 0;
 }
@@ -358,46 +366,46 @@ main .motorcycle .review p {
 }
 main .moto-list {
   margin: 1.5rem;
-  padding: 1.5rem;
 }
 main .moto-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.625rem;
+  padding: 10px;
   margin: 1.5rem;
-  border: 1px solid rgb(204, 204, 204);
+  border: 1px solid #ccc;
   border-radius: 1.25rem;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s;
-  background-color: var(--couleur-secondaire);
+  background-color: rgb(235, 235, 235);
 }
 main .moto-card:hover {
   transform: scale(1.05);
 }
-main .moto-card p {
-  font-size: 1.125rem;
-  margin-bottom: 0.3rem;
+main .moto-card h2 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  text-decoration: none;
 }
 main .moto-card img {
   width: 10rem;
   height: 12.5rem;
+  object-fit: cover;
 }
 main div.comment {
-  background-color: rgb(255, 255, 255);
-  border-radius: var(--border-radius);
-  padding: 1rem;
+  background-color: #fff;
+  border-radius: 1.25rem;
+  padding: 15px;
   margin-top: 1.25rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 main div.comment p {
-  margin: 0.3rem;
+  margin: 5px;
 }
 main .carousel {
   position: relative;
   width: 16rem;
-  height: 25rem;
-  margin: 1.25rem;
+  height: 22rem;
   display: flex;
   justify-content: center;
 }
@@ -412,7 +420,7 @@ main .carousel img:first-child {
   opacity: 1;
 }
 main .container {
-  max-width: 50rem;
+  max-width: 800px;
   margin: auto;
   padding: 2rem;
 }
@@ -422,34 +430,34 @@ main .reservations {
   max-width: min-content;
 }
 main .reservations .reservation {
-  background-color: var(--couleur-secondaire);
+  background-color: rgb(255, 255, 255);
 }
 main .reservations input {
-  margin: 0.3rem;
+  margin: 5px;
 }
 main .reservations button {
-  margin: 1.25rem;
+  margin: 20px;
 }
 main .reservations .wrapper {
-  margin: 1rem auto;
-  max-width: 68.75rem;
+  margin: 15px auto;
+  max-width: 1100px;
 }
 main .reservations .container-calendar {
-  background: var(--couleur-secondaire);
-  padding: 1rem;
-  max-width: 29.7rem;
-  margin: auto;
+  background: rgb(255, 255, 255);
+  padding: 15px;
+  max-width: 475px;
+  margin: 0 auto;
   overflow: auto;
 }
 main .reservations .button-container-calendar button {
   cursor: pointer;
   display: inline-block;
   zoom: 1;
-  background: var(--couleur-principale);
-  color: var(--couleur-secondaire);
-  border: 1px solid rgb(10, 162, 181);
-  border-radius: 0.25rem;
-  padding: 0.3rem 0.625rem;
+  background: rgb(0, 74, 171);
+  color: rgb(255, 255, 255);
+  border: 1px solid #0aa2b5;
+  border-radius: 4px;
+  padding: 5px 10px;
 }
 main .reservations .table-calendar {
   border-collapse: collapse;
@@ -457,7 +465,7 @@ main .reservations .table-calendar {
 }
 main .reservations .table-calendar td,
 main .reservations .table-calendar th {
-  padding: 0.3rem;
+  padding: 5px;
   border: 1px solid rgb(226, 226, 226);
   text-align: center;
   vertical-align: top;
@@ -488,34 +496,34 @@ main .reservations #next {
 main .reservations .footer-container-calendar {
   margin-top: 1em;
   border-top: 1px solid rgb(218, 218, 218);
-  padding: 0.625rem;
+  padding: 10px 0;
 }
 main .reservations .footer-container-calendar select {
   cursor: pointer;
   display: inline-block;
   zoom: 1;
-  background: var(--couleur-secondaire);
+  background: rgb(255, 255, 255);
   color: rgb(88, 88, 88);
   border: 1px solid rgb(191, 197, 197);
-  border-radius: 0.2rem;
-  padding: 0.3rem 1em;
+  border-radius: 3px;
+  padding: 5px 1em;
 }
 main .reservations .calendar {
-  width: 18.75rem;
-  margin: auto;
+  width: 300px;
+  margin: 0 auto;
 }
 main .reservations .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: rgb(221, 221, 221);
-  padding: 0.625rem;
+  padding: 10px;
 }
 main .reservations .days-of-week {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 0.3rem;
-  margin-top: 0.625rem;
+  gap: 5px;
+  margin-top: 10px;
 }
 main .reservations .days-of-week span {
   text-align: center;
@@ -524,26 +532,26 @@ main .reservations .days-of-week span {
 main .reservations .days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 0.3rem;
-  margin-top: 0.625rem;
+  gap: 5px;
+  margin-top: 10px;
 }
 main .reservations .day {
   text-align: center;
-  padding: 0.3rem;
+  padding: 5px;
   border: 1px solid rgb(221, 221, 221);
   cursor: pointer;
 }
 main .reservations .selected {
   background-color: rgb(243, 156, 18);
-  color: var(--couleur-secondaire);
+  color: rgb(255, 255, 255);
 }
 main .reservations .today {
   background-color: rgb(39, 174, 96);
-  color: var(--couleur-secondaire);
+  color: rgb(255, 255, 255);
 }
 main .reservations .reserved {
   background-color: rgb(243, 156, 18);
-  color: var(--couleur-secondaire);
+  color: rgb(255, 255, 255);
   opacity: 0.5;
 }
 main .affiche-resa {
@@ -554,10 +562,11 @@ main .affiche-resa .affiche-moto {
   max-width: auto;
 }
 main form {
+  background-color: rgb(235, 235, 235);
   max-width: 25rem;
   margin: 1rem;
   padding: 1rem;
-  border: 1px solid rgb(204, 204, 204);
+  border: 1px solid #ccc;
   border-radius: 1rem;
   display: block;
 }
@@ -570,10 +579,10 @@ main textarea {
   width: 100%;
   padding: 0.5rem;
   margin-bottom: 1rem;
-  border: 1px solid var(--couleur-texte);
-  border-radius: var(--border-radius);
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 1.25rem;
   font-size: 1rem;
-  background-color: var(--couleur-secondaire);
+  background-color: rgb(255, 255, 255);
   text-align: center;
 }
 main select {
@@ -582,10 +591,10 @@ main select {
 main button[name=submit],
 main button[name=connexion],
 main button[name=subscribe] {
-  background-color: var(--couleur-principale);
-  color: var(--couleur-secondaire);
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   border: none;
-  border-radius: var(--border-radius);
+  border-radius: 1.25rem;
   padding: 0.5rem 1rem;
   margin: 1rem;
   font-size: 1rem;
@@ -599,12 +608,12 @@ main input[type=file] {
   margin-top: 1rem;
 }
 main .mes_motos {
-  background-color: var(--couleur-secondaire);
+  background-color: rgb(255, 255, 255);
   padding: 1rem;
   border: 1px solid rgb(204, 204, 204);
 }
 main .mes_motos a {
-  color: var(--couleur-texte);
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 main .mes_motos a:hover {
@@ -615,15 +624,15 @@ main .motos-list {
   padding: 0;
 }
 main .moto-item {
-  border: 1px solid var(--couleur-fond);
-  margin-bottom: 0.625rem;
-  padding: 0.625rem;
+  border: 1px solid rgb(255, 255, 255);
+  margin-bottom: 10px;
+  padding: 10px;
   text-align: center;
   display: inline-grid;
 }
 main .moto-item a {
   text-decoration: none;
-  color: var(--couleur-texte);
+  color: rgb(0, 0, 0);
 }
 main .moto-item img {
   width: 6rem;
@@ -635,31 +644,31 @@ main .avis {
 }
 main .avis .review {
   border-radius: 1.25rem;
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   margin: 1rem;
   width: 100%;
 }
 main .avis p {
-  margin: 1.25rem;
+  margin: 20px;
 }
 main #admin {
   background-color: rgb(244, 244, 244);
-  padding: 1.25rem;
+  padding: 20px;
   text-align: center;
 }
 main #admin h1 {
   text-align: center;
   background-color: rgb(51, 51, 51);
-  color: var(--couleur-secondaire);
-  padding: 1rem;
-  margin-bottom: 1.25rem;
+  color: rgb(255, 255, 255);
+  padding: 15px;
+  margin-bottom: 20px;
 }
 main #admin .section {
-  background-color: var(--couleur-secondaire);
-  border-radius: 0.3rem;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.25rem;
-  padding: 1.25rem;
+  margin-bottom: 20px;
+  padding: 20px;
   text-align: center;
 }
 main #admin .section h2 {
@@ -674,13 +683,13 @@ main #admin .review-list {
 main #admin .user-list li,
 main #admin .moto-list li,
 main #admin .review-list li {
-  margin-bottom: 0.625rem;
-  padding: 0.3rem 0.625rem;
-  background-color: var(--couleur-secondaire);
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  background-color: rgb(255, 255, 255);
   border-radius: 3px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  margin-right: 0.625rem;
-  font-size: 0.875rem;
+  margin-right: 10px;
+  font-size: 14px;
 }
 main #admin .moto-list {
   place-items: self-end;
@@ -692,25 +701,26 @@ main #admin .moto-list .moto-item {
 }
 main #admin .moto-list a {
   text-decoration: none;
-  color: var(--couleur-texte);
+  color: rgb(0, 0, 0);
 }
 main #admin .moto-list a:hover {
   text-decoration: underline;
 }
 main #admin .delete-button {
   background-color: rgb(255, 99, 71);
-  color: var(--couleur-secondaire);
+  color: rgb(255, 255, 255);
   border: none;
-  padding: 0.625rem 1rem;
-  border-radius: 0.2rem;
+  padding: 10px 15px;
+  border-radius: 3px;
 }
 
 footer {
   text-align: center;
   padding: 0.625rem;
-  background-color: var(--couleur-fond);
+  background-color: rgb(51, 51, 51);
   display: flex;
   justify-content: space-around;
+  color: rgb(255, 255, 255);
 }
 footer div {
   display: flex;
@@ -719,12 +729,15 @@ footer div {
 }
 footer p {
   margin: 0;
-  padding-right: 0.12rem;
+  padding-right: 0.125rem;
   font-size: 0.75rem;
 }
 footer a {
   text-decoration: none;
   margin: 0.625rem;
+}
+footer i {
+  color: rgb(255, 255, 255);
 }
 
 @media (min-width: 768px) and (max-width: 1200px) {
@@ -732,6 +745,10 @@ footer a {
     display: grid;
     grid-template: "header header" "nav nav" "main main" "footer footer";
     grid-template-columns: 1fr 4fr;
+  }
+  header img {
+    max-width: 6rem;
+    margin-bottom: 2rem;
   }
   nav .burger-menu {
     display: none;
@@ -748,9 +765,8 @@ footer a {
   }
   nav .menu li a {
     text-decoration: none;
-    color: var(--couleur-secondaire);
-    padding: 0.625rem;
-    display: block;
+    color: rgb(255, 255, 255);
+    padding: 10px;
     text-align: center;
   }
   nav .deroulant {
@@ -759,24 +775,24 @@ footer a {
   nav .deroulant .sous {
     display: none;
     position: absolute;
-    background-color: rgb(51, 51, 51);
+    background-color: #333;
     list-style: none;
-    padding: 0.625rem;
+    padding: 10px;
     z-index: 1;
   }
   nav .deroulant:hover .sous {
     display: block;
   }
   nav .sous li {
-    margin: 0.625rem;
-    padding: 0.625rem;
+    margin: 10px;
+    padding: 10px;
     width: auto;
   }
   nav .sous a {
     text-decoration: none;
-    color: var(--couleur-secondaire);
+    color: rgb(255, 255, 255);
     display: block;
-    padding: 0.625rem;
+    padding: 10px;
   }
   .menu {
     background-color: rgb(51, 51, 51);
@@ -790,16 +806,16 @@ footer a {
     display: flex;
   }
   .menu li {
-    padding: 0.625rem;
-    color: var(--couleur-secondaire);
+    padding: 10px;
+    color: rgb(255, 255, 255);
     position: relative;
     text-align: center;
-    min-width: 12.5rem;
+    min-width: 200px;
     width: 100%;
   }
   .menu li.deroulant::after {
     content: "▼";
-    margin-left: 0.3rem;
+    margin-left: 5px;
   }
   main form {
     max-width: 30rem;
@@ -810,12 +826,20 @@ footer a {
     margin-top: 1rem;
   }
   main form .reservation {
-    background-color: var(--couleur-secondaire);
+    background-color: rgb(255, 255, 255);
     text-align: end;
     margin: 0.625rem;
   }
   main form .reservation input {
-    margin: 0.3rem;
+    margin: 5px;
+  }
+  main .bubble-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+  main .bubble-list strong {
+    text-decoration: underline;
   }
   main .motorcycle {
     text-align: center;
@@ -854,6 +878,10 @@ footer a {
     grid-template: "header header header" "nav nav nav" "main main main" "footer footer footer";
     grid-template-columns: 15fr 70fr 15fr;
   }
+  header img {
+    max-width: 8rem;
+    margin-bottom: 2rem;
+  }
   nav .burger-menu {
     display: none;
   }
@@ -863,14 +891,14 @@ footer a {
     width: 100%;
   }
   nav .menu li {
-    flex: 1;
-    min-width: auto;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   nav .menu li a {
     text-decoration: none;
-    color: var(--couleur-secondaire);
-    padding: 0.625rem;
+    color: rgb(255, 255, 255);
+    padding: 10px;
     display: block;
     text-align: center;
   }
@@ -895,12 +923,13 @@ footer a {
   nav .sous li {
     margin: 0.625rem;
     padding: 0.625rem;
+    width: auto;
   }
   nav .sous a {
     text-decoration: none;
-    color: var(--couleur-secondaire);
+    color: rgb(255, 255, 255);
     display: block;
-    padding: 0.625rem;
+    padding: 10px;
   }
   .menu {
     background-color: rgb(51, 51, 51);
@@ -914,31 +943,36 @@ footer a {
     display: flex;
   }
   .menu li {
-    padding: 0.625rem;
+    padding: 10px;
     color: rgb(255, 255, 255);
     position: relative;
     text-align: center;
-    min-width: 12.5rem;
+    min-width: 200px;
     width: 100%;
   }
   .menu li.deroulant::after {
     content: "▼";
-    margin-left: 0.3rem;
+    margin-left: 5px;
   }
   main #carousel img {
     max-width: 18.75rem;
     margin: 0.625rem;
   }
   main .container {
-    max-width: 75rem;
+    max-width: 1200px;
     margin: 1rem;
+    padding: 0rem;
   }
   main .container li {
     margin: 2rem;
   }
-  main ol {
-    columns: 2;
-    column-gap: 1.25rem;
+  main .bubble-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+  }
+  main .bubble-list strong {
+    text-decoration: underline;
   }
   main .motorcycle {
     text-align: center;
@@ -1005,14 +1039,14 @@ footer a {
     align-items: center;
   }
   main .reservations .reservation {
-    background-color: var(--couleur-secondaire);
+    background-color: rgb(255, 255, 255);
     margin: 2rem;
   }
   main .reservations input {
-    margin: 0.3rem;
+    margin: 5px;
   }
   main .reservations button {
-    margin: 1.25rem;
+    margin: 20px;
   }
   main h2 {
     text-align: center;
@@ -1065,12 +1099,12 @@ footer a {
   }
   footer p {
     margin: 0;
-    padding-right: 0.125rem;
+    padding-right: 2px;
     font-size: 1rem;
   }
   footer a {
     text-decoration: none;
-    margin: 0.3rem;
+    margin: 5px;
     font-size: 1rem;
   }
 }

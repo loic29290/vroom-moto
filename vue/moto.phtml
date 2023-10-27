@@ -1,51 +1,36 @@
 <main>
-    <h1>
-        <?= $data['moto']->getModele() ?>
-    </h1>
+    <section class="motorcycle-details">
+        <h1><?= htmlspecialchars($data['moto']->getModele()); ?></h1>
+        
+        <div class="motorcycle">
+            <div class="motorcycle__info">
+                <p>Marque: <?= htmlspecialchars($data['moto']->getMarque()); ?></p>
+                <p>Année: <?= htmlspecialchars($data['moto']->getAnnee()); ?></p>
+                <p>Description: <?= htmlspecialchars($data['moto']->getDescription()); ?></p>
+                <p>Prix: <?= htmlspecialchars($data['moto']->getPrix()); ?> €</p>
+            </div>
 
-    <div class="motorcycle">
-        <div class="motorcycle__info">
-            <p>Marque:
-                <?= $data['moto']->getMarque() ?>
-            </p>
-            <p>Année:
-                <?= $data['moto']->getAnnee() ?>
-            </p>
-            <p>Description:
-                <?= $data['moto']->getDescription() ?>
-            </p>
-            <p>Prix:
-                <?= $data['moto']->getPrix() ?> €
-            </p>
+            <div class="motorcycle__image">
+                <img src="<?= htmlspecialchars($data['moto']->getImage()); ?>" alt="Image de la moto <?= htmlspecialchars($data['moto']->getModele()); ?>" />
+            </div>
+
+            <div class="motorcycle__reservation">
+                <a href="index.php?page=reservation&id=<?= htmlspecialchars($data['moto']->getId()); ?>">Réservation</a>
+            </div>
         </div>
-
-        <div class="motorcycle__image">
-            <img src="<?= $data['moto']->getImage() ?>" alt="<?= $data['moto']->getModele() ?> Image" />
+        
+        <h2>Tous les avis sur la moto</h2>
+        <div class="avis">
+            <?php if (isset($data['avis'])): ?>
+                <?php foreach ($data['avis'] as $avis): ?>
+                    <?php $user = User::avisName($avis->getLocationId()); ?>
+                    <div class="review">
+                        <p>Auteur: <?= htmlspecialchars($user->getNom()); ?></p>
+                        <p>Commentaire: <?= htmlspecialchars($avis->getCommentaire()); ?></p>
+                        <p>Note: <?= htmlspecialchars($avis->getNote()); ?></p>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
-
-        <div class="motorcycle__reservation">
-            <a href="index.php?page=reservation&id=<?= $data['moto']->getId() ?>">Réservation</a>
-        </div>
-    </div>
-
-    <h2>Tous les avis sur la moto</h2>
-    <div class="avis">
-
-        <?php if (isset($data['avis'])): ?>
-        <?php foreach ($data['avis'] as $avis): ?>
-        <?php $user = User::avisName($avis->getLocationId()); ?>
-        <div class="review">
-            <p>Auteur:
-                <?= $user->getNom() ?>
-            </p>
-            <p>Commentaire:
-                <?= $avis->getCommentaire() ?>
-            </p>
-            <p>Note:
-                <?= $avis->getNote() ?>
-            </p>
-        </div>
-        <?php endforeach; ?>
-        <?php endif; ?>
-    </div>
+    </section>
 </main>

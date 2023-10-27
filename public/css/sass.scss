@@ -1,13 +1,6 @@
 // Mobile First
-:root {
-    --couleur-principale: rgba(0, 74, 171, 1); //bleu
-    --couleur-secondaire: rgba(255, 255, 255, 1); //blanc
-    --couleur-texte: rgba(16, 30, 221, 1); // bleu foncé
-    --couleur-fond: rgba(192, 192, 192, 1);
-    --border-radius: 1.25rem;
-    --font-size: 1rem;
-}
-// mise à 0 
+@import 'variables';
+
 html,
 body,
 div,
@@ -127,50 +120,52 @@ body {
 //BODY
 body {
     font-family: 'Montserrat', sans-serif;
-    ;
     background-color: var(--couleur-fond);
     color: var(--couleur-texte);
     font-size: var(--font-size);
     width: 100%;
     transition: opacity 0.5s ease-in-out;
-    //Animation page
-    #chargement {
-  border: 4px solid rgba(255, 255, 255, 0.3);
-  border-top: 4px solid #000; /* Couleur du spinner */
-  border-radius: 50%;
-  width: 1.875rem;
-  height: 1.875rem;
-  animation: spin 1s linear infinite; /* Animation de rotation */
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: none; /* Masquez initialement l'effet de chargement */
-}
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
+     //Animation page
+     #chargement {
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top: 4px solid #000; /* Couleur du spinner */
+        border-radius: 50%;
+        width: 1.875rem;
+        height: 1.875rem;
+        animation: spin 1s linear infinite; /* Animation de rotation */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none; /* Masquez initialement l'effet de chargement */
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
 }
 
 //HEADER
 header {
-    background-color: var(--couleur-principale);
+    background-image: url('../images/route.jpg');
+    background-position: center bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1.25rem;
-    box-shadow: 0rem 0.3rem 1rem rgba(0, 0, 0, 0.5);
-
+   
     img {
-        max-width: 6.25rem;
-        margin-bottom: 0.3rem;
+        max-width: 4rem;
+        margin-bottom: 2rem;
     }
 
     h1 {
-        color: var(--couleur-secondaire);
+        color: $couleur-secondaire;
         text-align: center;
         position: relative;
         animation: waveEffect 2s infinite;
@@ -193,7 +188,7 @@ header {
     }
 
     p {
-        color: var(--couleur-secondaire);
+        color: $couleur-secondaire;
     }
 
 
@@ -204,7 +199,7 @@ header {
     }
 
     a {
-        color: var(--couleur-secondaire);
+        color: $couleur-secondaire;
         font-size: 1rem;
         text-decoration: none;
         margin-left: 0.3rem;
@@ -225,8 +220,8 @@ nav {
     background-color: rgba(51, 51, 51, 1);
     display: flex;
     align-items: center;
-    padding: 0.625rem 1.25rem;
-    color: var(--couleur-secondaire);
+    padding: 10px 20px;
+    color: $couleur-secondaire;
 
 
     .menu {
@@ -240,41 +235,42 @@ nav {
     }
 
     .menu li {
-        margin: 1.25rem;
+        margin: 1rem;
+        text-align: center;
 
     }
 
     .menu a {
-        color: var(--couleur-secondaire);
+        color: $couleur-secondaire;
         text-decoration: none;
     }
 
     .burger-menu {
         cursor: pointer;
         display: block;
-        color: var(--couleur-secondaire);
+        color: $couleur-secondaire;
         margin: 1rem;
     }
 
     .bar {
-        width: 1.6rem;
-        height: 0.2rem;
-        background-color: var(--couleur-secondaire);
-        margin: 0.375rem ;
+        width: 25px;
+        height: 3px;
+        background-color: $couleur-secondaire;
+        margin: 6px 0;
     }
 
     // Style du sous-menu (caché par défaut) 
     .sous {
         display: none;
         position: absolute;
-        background-color: rgba(51,51,51,1);
+        background-color: #333;
         list-style: none;
-        padding: 0.625rem;
+        padding: 10px;
         z-index: 1;
     }
 
     .sous a {
-        color: var(--couleur-secondaire);
+        color: $couleur-secondaire;
         text-decoration: none;
     }
 
@@ -311,14 +307,13 @@ main {
         text-decoration: underline;
         padding: 1.25rem;
         font-size: 1.5rem;
-        margin-bottom: 1.25rem;
 
     }
 
 
-    div {
+    section {
         text-align: center;
-        padding: 0.3rem;
+        padding: 5px;
     }
 
     #reservation {
@@ -328,51 +323,70 @@ main {
 
     h2 {
         font-size: 1.25rem;
-        margin-bottom: 0.625rem;
+        margin-bottom: 10px;
         text-decoration: underline;
+        padding: 1.25rem;
     }
 
     p {
         font-size: 1rem;
-        margin-bottom: 1.875rem;
+        margin-bottom: 30px;
         text-align: center;
+        
     }
 
     img {
-        max-width: 15.625rem;
-        border-radius: var(--border-radius);
+        max-width: 250px;
+        border-radius: $border-radius;
         margin: 1.25rem;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     a {
-        padding: 0.625rem;
+        padding: 10px;
         position: relative;
         text-align: center;
         text-decoration: none;
     }
 
-    h2 {
-        font-size: 1.25rem;
-        margin-top: 1.25rem;
-        margin-bottom: 1.25rem;
+
+    .cloud-bubble {
+        position: relative;
+        display: inline-block;
+        margin: 20px;
+    }
+    
+    .bubble {
+        background-color: $couleur-box;
+        border-radius: 15px;
+        padding: 10px;
+        max-width: 200px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+    }
+    
+    .bubble strong {
+        display: block;
+        margin-bottom: 5px;
     }
 
-    // Styles pour la liste à puces 
-    ol {
-        font-size: 1rem;
-        margin-bottom: 1.875rem;
+    .bubble-list{
+        text-align: -webkit-center; 
+        
+        strong{
+            text-decoration: underline;
+        }
     }
 
-    li {
-        margin-bottom: 0.625rem;
+    ul {
+        list-style-type: none;
     }
 
     // Page moto
     .motorcycle {
         text-align: center;
         padding: 1rem;
-        background-color: var(--couleur-secondaire);
+        background-color: $couleur-box;
         border-radius: 0.5rem;
         max-width: 100%;
         box-sizing: border-box;
@@ -399,7 +413,7 @@ main {
             max-width: 100%;
             height: auto;
             margin: 1rem 0;
-            border: 1px solid rgba(221,221,221,1);
+            border: 1px solid #ddd;
             border-radius: 0.5rem;
         }
 
@@ -408,8 +422,8 @@ main {
 
             a {
                 text-decoration: none;
-                background-color: rgba(0,123,255,1);
-                color: #fff;
+                background-color: $couleur-fond;
+                color: $couleur-texte;
                 padding: 1rem 2rem;
                 border-radius: 0.5rem;
                 display: inline-block;
@@ -418,8 +432,8 @@ main {
 
 
         .review {
-            background-color: rgba(248,248,248,1);
-            border: 1px solid rgba(221,221,221,1);
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
             padding: 1rem;
             margin: 1rem 0;
 
@@ -431,52 +445,52 @@ main {
     }
 
     .moto-list {
-
         margin: 1.5rem;
-        padding: 1.5rem;
     }
 
     .moto-card {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0.625rem;
+        padding: 10px;
         margin: 1.5rem;
-        border: 1px solid rgba(204,204,204,1);
+        border: 1px solid #ccc;
         border-radius: 1.25rem;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
         transition: transform 0.2s;
-        background-color: var(--couleur-secondaire);
+        background-color: $couleur-box;
 
         &:hover {
             transform: scale(1.05);
             // Applique un effet d'agrandissement au survol 
         }
+    
 
-
-        p {
-            font-size: 1.125rem;
-            margin-bottom: 0.3rem;
+        h2 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            text-decoration: none;
         }
 
         img {
             width: 10rem;
             height: 12.5rem;
+            object-fit:cover;
         }
     }
 
 
     // Mise en forme des avis 
     div.comment {
-        background-color: rgba(255,255,255,1);
-        border-radius: var(--border-radius);
-        padding: 1rem;
+        background-color: #fff;
+        border-radius: $border-radius;
+        padding: 15px;
         margin-top: 1.25rem;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
 
         p {
-            margin: 0.3rem;
+            margin: 5px;
         }
     }
 
@@ -484,8 +498,7 @@ main {
     .carousel {
         position: relative;
         width: 16rem;
-        height: 25rem;
-        margin: 1.25rem;
+        height: 22rem;
         display: flex;
         justify-content: center;
 
@@ -503,7 +516,7 @@ main {
     }
 
     .container {
-        max-width: 50rem;
+        max-width: 800px;
         margin: auto;
         padding: 2rem;
     }
@@ -517,31 +530,31 @@ main {
         max-width: min-content;
 
         .reservation {
-            background-color: var(--couleur-secondaire);
+            background-color: $couleur-secondaire;
         }
 
 
         input {
-            margin: 0.3rem;
+            margin: 5px;
         }
 
         button {
-            margin: 1.25rem;
+            margin: 20px;
         }
 
         //calendrier
 
 
         .wrapper {
-            margin: 1rem auto;
-            max-width: 68.75rem;
+            margin: 15px auto;
+            max-width: 1100px;
         }
 
         .container-calendar {
-            background: var(--couleur-secondaire);
-            padding: 1rem;
-            max-width: 29.7rem;
-            margin: auto;
+            background: $couleur-secondaire;
+            padding: 15px;
+            max-width: 475px;
+            margin: 0 auto;
             overflow: auto;
         }
 
@@ -549,11 +562,11 @@ main {
             cursor: pointer;
             display: inline-block;
             zoom: 1;
-            background: var(--couleur-principale);
-            color: var(--couleur-secondaire);
-            border: 1px solid rgba(10,162,181,1);
-            border-radius: 0.25rem;
-            padding: 0.3rem 0.625rem;
+            background: $couleur-principale;
+            color: $couleur-secondaire;
+            border: 1px solid #0aa2b5;
+            border-radius: 4px;
+            padding: 5px 10px;
         }
 
         .table-calendar {
@@ -563,7 +576,7 @@ main {
 
         .table-calendar td,
         .table-calendar th {
-            padding: 0.3rem;
+            padding: 5px;
             border: 1px solid rgba(226, 226, 226, 1);
             text-align: center;
             vertical-align: top;
@@ -602,23 +615,23 @@ main {
         .footer-container-calendar {
             margin-top: 1em;
             border-top: 1px solid rgba(218, 218, 218, 1);
-            padding: 0.625rem;
+            padding: 10px 0;
         }
 
         .footer-container-calendar select {
             cursor: pointer;
             display: inline-block;
             zoom: 1;
-            background: var(--couleur-secondaire);
+            background: $couleur-secondaire;
             color: rgba(88, 88, 88, 1);
             border: 1px solid rgba(191, 197, 197, 1);
-            border-radius: 0.2rem;
-            padding: 0.3rem 1em;
+            border-radius: 3px;
+            padding: 5px 1em;
         }
 
         .calendar {
-            width: 18.75rem;
-            margin: auto;
+            width: 300px;
+            margin: 0 auto;
         }
 
         .header {
@@ -626,14 +639,14 @@ main {
             justify-content: space-between;
             align-items: center;
             background-color: rgba(221, 221, 221, 1);
-            padding: 0.625rem;
+            padding: 10px;
         }
 
         .days-of-week {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 0.3rem;
-            margin-top: 0.625rem;
+            gap: 5px;
+            margin-top: 10px;
         }
 
         .days-of-week span {
@@ -644,31 +657,31 @@ main {
         .days {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 0.3rem;
-            margin-top: 0.625rem;
+            gap: 5px;
+            margin-top: 10px;
         }
 
         .day {
             text-align: center;
-            padding: 0.3rem;
+            padding: 5px;
             border: 1px solid rgba(221, 221, 221, 1);
             cursor: pointer;
         }
 
         .selected {
             background-color: rgba(243, 156, 18, 1);
-            color: var(--couleur-secondaire);
+            color: $couleur-secondaire;
         }
 
         .today {
             background-color: rgba(39, 174, 96, 1);
-            color: var(--couleur-secondaire);
+            color: $couleur-secondaire;
         }
 
         .reserved {
             background-color: rgba(243, 156, 18, 1);
             // Couleur de fond pour les jours réservés 
-            color: var(--couleur-secondaire);
+            color: $couleur-secondaire;
             opacity: 0.5;
         }
     }
@@ -689,10 +702,11 @@ main {
 
     // Formulaire
     form {
+        background-color: $couleur-box;
         max-width: 25rem;
         margin: 1rem;
         padding: 1rem;
-        border: 1px solid rgba(204,204,204,1);
+        border: 1px solid #ccc;
         border-radius: 1rem;
         display: block;
     }
@@ -706,10 +720,10 @@ main {
         width: 100%;
         padding: 0.5rem;
         margin-bottom: 1rem;
-        border: 1px solid var(--couleur-texte);
-        border-radius: var(--border-radius);
+        border: 1px solid $couleur-texte;
+        border-radius: $border-radius;
         font-size: 1rem;
-        background-color: var(--couleur-secondaire);
+        background-color: $couleur-secondaire;
         text-align: center;
     }
 
@@ -720,10 +734,10 @@ main {
     button[name="submit"],
     button[name="connexion"],
     button[name="subscribe"] {
-        background-color: var(--couleur-principale);
-        color: var(--couleur-secondaire);
+        background-color: $couleur-secondaire;
+        color: $couleur-texte;
         border: none;
-        border-radius: var(--border-radius);
+        border-radius: $border-radius;
         padding: 0.5rem 1rem;
         margin: 1rem;
         font-size: 1rem;
@@ -740,12 +754,12 @@ main {
     }
 
     .mes_motos {
-        background-color: var(--couleur-secondaire);
+        background-color: $couleur-secondaire;
         padding: 1rem;
         border: 1px solid rgba(204, 204, 204, 1);
 
         a {
-            color: var(--couleur-texte);
+            color: $couleur-texte;
             text-decoration: none;
         }
 
@@ -760,16 +774,16 @@ main {
     }
 
     .moto-item {
-        border: 1px solid var(--couleur-fond);
-        margin-bottom: 0.625rem;
-        padding: 0.625rem;
+        border: 1px solid $couleur-fond;
+        margin-bottom: 10px;
+        padding: 10px;
         text-align: center;
         display: inline-grid;
 
 
         a {
             text-decoration: none;
-            color: var(--couleur-texte);
+            color: $couleur-texte;
         }
 
         img {
@@ -784,14 +798,14 @@ main {
 
         .review {
             border-radius: 1.25rem;
-            background-color: rgba(255,255,255,1);
+            background-color: white;
             margin: 1rem;
             width: 100%;
 
         }
 
         p {
-            margin: 1.25rem;
+            margin: 20px;
         }
     }
 
@@ -801,23 +815,23 @@ main {
 
     #admin {
         background-color: rgba(244, 244, 244, 1);
-        padding: 1.25rem;
+        padding: 20px;
         text-align: center;
 
         h1 {
             text-align: center;
             background-color: rgba(51, 51, 51, 1);
-            color: var(--couleur-secondaire);
-            padding: 1rem;
-            margin-bottom: 1.25rem;
+            color: $couleur-secondaire;
+            padding: 15px;
+            margin-bottom: 20px;
         }
 
         .section {
-            background-color: var(--couleur-secondaire);
-            border-radius: 0.3rem;
+            background-color: $couleur-secondaire;
+            border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 1.25rem;
-            padding: 1.25rem;
+            margin-bottom: 20px;
+            padding: 20px;
             text-align: center;
         }
 
@@ -835,13 +849,13 @@ main {
         .user-list li,
         .moto-list li,
         .review-list li {
-            margin-bottom: 0.625rem;
-            padding: 0.3rem 0.625rem;
-            background-color: var(--couleur-secondaire);
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            background-color: $couleur-secondaire;
             border-radius: 3px;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-            margin-right: 0.625rem;
-            font-size: 0.875rem;
+            margin-right: 10px;
+            font-size: 14px;
 
         }
 
@@ -857,7 +871,7 @@ main {
 
             a {
                 text-decoration: none;
-                color: var(--couleur-texte);
+                color: $couleur-texte;
             }
 
             a:hover {
@@ -868,10 +882,10 @@ main {
 
         .delete-button {
             background-color: rgba(255, 99, 71, 1);
-            color: var(--couleur-secondaire);
+            color: $couleur-secondaire;
             border: none;
-            padding: 0.625rem 1rem;
-            border-radius: 0.2rem;
+            padding: 10px 15px;
+            border-radius: 3px;
 
         }
 
@@ -885,9 +899,11 @@ main {
 footer {
     text-align: center;
     padding: 0.625rem;
-    background-color: var(--couleur-fond);
+    background-color: rgb(51, 51, 51);;
     display: flex;
     justify-content: space-around;
+    color: $couleur-secondaire;
+
 
 
     div {
@@ -898,14 +914,16 @@ footer {
 
     p {
         margin: 0;
-        padding-right: 0.12rem;
+        padding-right: 0.125rem;
         font-size: 0.75rem;
     }
 
     a {
         text-decoration: none;
         margin: 0.625rem;
-
+    }
+    i{
+        color: $couleur-secondaire;
     }
 }
 
@@ -927,6 +945,14 @@ footer {
     }
 
     //HEADER
+    header {
+
+        img{
+            max-width: 6rem;
+        margin-bottom: 2rem;
+        }
+        }
+    
 
 
     //NAV
@@ -951,9 +977,8 @@ footer {
 
         .menu li a {
             text-decoration: none;
-            color: var(--couleur-secondaire);
-            padding: 0.625rem;
-            display: block;
+            color: $couleur-secondaire;
+            padding: 10px;
             text-align: center;
         }
 
@@ -964,9 +989,9 @@ footer {
         .deroulant .sous {
             display: none;
             position: absolute;
-            background-color: rgba(51,51,51,1);
+            background-color: #333;
             list-style: none;
-            padding: 0.625rem;
+            padding: 10px;
             z-index: 1;
         }
 
@@ -975,16 +1000,16 @@ footer {
         }
 
         .sous li {
-            margin: 0.625rem;
-            padding: 0.625rem;
+            margin: 10px;
+            padding: 10px;
             width: auto;
         }
 
         .sous a {
             text-decoration: none;
-            color: var(--couleur-secondaire);
+            color: $couleur-secondaire;
             display: block;
-            padding: 0.625rem;
+            padding: 10px;
         }
 
 
@@ -1004,17 +1029,17 @@ footer {
     }
 
     .menu li {
-        padding: 0.625rem;
-        color: var(--couleur-secondaire);
+        padding: 10px;
+        color: $couleur-secondaire;
         position: relative;
         text-align: center;
-        min-width: 12.5rem;
+        min-width: 200px;
         width: 100%;
     }
 
     .menu li.deroulant::after {
         content: "▼";
-        margin-left: 0.3rem;
+        margin-left: 5px;
     }
 
 
@@ -1034,15 +1059,25 @@ footer {
             }
 
             .reservation {
-                background-color: var(--couleur-secondaire);
+                background-color: $couleur-secondaire;
                 text-align: end;
                 margin: 0.625rem;
 
                 input {
-                    margin: 0.3rem;
+                    margin: 5px;
                 }
             }
         }
+        //page acceuil
+        .bubble-list{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            justify-items: center;
+        
+        strong{
+            text-decoration: underline;
+        }
+    }
 
 
         .motorcycle {
@@ -1112,7 +1147,13 @@ footer {
 
 
     //HEADER
-    header {}
+    header {
+
+    img{
+        max-width: 8rem;
+    margin-bottom: 2rem;
+    }
+    }
 
     //NAV
     nav {
@@ -1127,16 +1168,15 @@ footer {
         }
 
         .menu li {
-            flex: 1;
-            // Les éléments se répartissent la largeur disponible 
-            min-width: auto;
-            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .menu li a {
             text-decoration: none;
-            color: var(--couleur-secondaire);
-            padding: 0.625rem;
+            color: $couleur-secondaire;
+            padding: 10px;
             display: block;
             text-align: center;
         }
@@ -1165,13 +1205,14 @@ footer {
         .sous li {
             margin: 0.625rem;
             padding: 0.625rem;
+            width: auto;
         }
 
         .sous a {
             text-decoration: none;
-            color: var(--couleur-secondaire);
+            color: $couleur-secondaire;
             display: block;
-            padding: 0.625rem;
+            padding: 10px;
         }
 
 
@@ -1191,17 +1232,17 @@ footer {
     }
 
     .menu li {
-        padding: 0.625rem;
+        padding: 10px;
         color: rgba(255, 255, 255, 1);
         position: relative;
         text-align: center;
-        min-width: 12.5rem;
+        min-width: 200px;
         width: 100%;
     }
 
     .menu li.deroulant::after {
         content: "▼";
-        margin-left: 0.3rem;
+        margin-left: 5px;
     }
 
 
@@ -1222,18 +1263,23 @@ footer {
 
         //Page acceuil
         .container {
-            max-width: 75rem;
+            max-width: 1200px;
             margin: 1rem;
+            padding:0rem;
 
             li {
                 margin: 2rem;
             }
         }
 
-        // Réorganiser la liste à puces en colonnes 
-        ol {
-            columns: 2;
-            column-gap: 1.25rem;
+        .bubble-list{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-items: center;
+            
+        strong{
+            text-decoration: underline;
+            }
         }
 
         // page moto
@@ -1323,16 +1369,16 @@ footer {
             align-items: center;
 
             .reservation {
-                background-color: var(--couleur-secondaire);
+                background-color: $couleur-secondaire;
                 margin: 2rem;
             }
 
             input {
-                margin: 0.3rem;
+                margin: 5px;
             }
 
             button {
-                margin: 1.25rem;
+                margin: 20px;
             }
         }
 
@@ -1413,13 +1459,13 @@ footer {
 
         p {
             margin: 0;
-            padding-right: 0.125rem;
+            padding-right: 2px;
             font-size: 1rem;
         }
 
         a {
             text-decoration: none;
-            margin: 0.3rem;
+            margin: 5px;
             font-size: 1rem;
         }
     }

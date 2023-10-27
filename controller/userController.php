@@ -29,7 +29,7 @@ class UserController
         }
 
         // Afficher la vue d'inscription avec l'objet utilisateur
-        Renderer::render('vue/inscription.phtml', ["user" => $user, "errors" => $errors]);
+        Renderer::render('vue/inscription.phtml', ["user" => $user, "errors" => $errors, "saisiePrecedente" => $_POST]);
     }
 
     // Méthode pour gérer la connexion de l'utilisateur
@@ -60,10 +60,10 @@ class UserController
             } else {
 
                 //echo "Login ou Mot de passe incorrect ou inexistant";
-
+               
                 $errorMessage = "Login ou Mot de passe incorrect ou inexistant";
                 echo "<script>alert('$errorMessage');</script>";
-
+            
                 // Rediriger vers la page de connexion en cas d'échec de connexion
                 //header("Location: index.php?page=connexion");
                 //die; // Arrêter l'exécution du script
@@ -92,9 +92,7 @@ class UserController
     // Méthode pour vérifier si l'utilisateur est admin
     public static function getAdmin()
     {
-        if (isset($_SESSION['ID']) && isset($_SESSION['ADMIN'])) {
-            if ($_SESSION['ADMIN'] === 1) {
-
+        
                 $allUsers = User::findUsers();
                 $motos =  Moto::findAll();
                 $avis = Avis::allAvis();
@@ -108,12 +106,12 @@ class UserController
                         "avis" => $avis,
                     ]
                 );
-                return true;
-            }
-        }
-
-        // L'utilisateur n'est pas un administrateur
-        Renderer::render("vue/mes_motos.phtml");
-        return false;
+        
     }
+    
+     public static function isAdmin(){
+         
+         return (isset($_SESSION['ID']) && isset($_SESSION['ADMIN']) && $_SESSION['ADMIN'] === 1);
+     }
 }
+

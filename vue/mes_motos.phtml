@@ -1,24 +1,19 @@
 <main>
-    <?php
-    if (isset($data['motos'])) {
-    ?>
-    <h1>Mes motos</h1>
-    <div class="moto-list">
-        <?php
-        foreach ($data['motos'] as $moto) {
-        ?>
-
-        <div class="moto-card">
-
-            <p><a href="index.php?page=moto&id=<?= $moto->getId() ?>">
-                    <?= $moto->getModele() ?>
-                </a></p>
-            <img src="<?= $moto->getImage() ?>" />
-
+    <section>
+        <h1>Mes motos</h1>
+        <div class="moto-list">
+            <?php
+            if (isset($data['motos'])) {
+                foreach ($data['motos'] as $moto) {
+            ?>
+                    <article class="moto-card">
+                        <p><a href="index.php?page=moto&id=<?= htmlspecialchars($moto->getId()); ?>"><?= htmlspecialchars($moto->getModele()); ?></a></p>
+                        <img src="<?= htmlspecialchars($moto->getImage()); ?>" alt="<?= htmlspecialchars($moto->getModele()); ?> Image" />
+                    </article>
+            <?php
+                }
+            }
+            ?>
         </div>
-        <?php
-        }
-    }
-    ?>
-    </div>
+    </section>
 </main>

@@ -1,38 +1,44 @@
 <main>
-    <p>Tous les champs de ce formulaire doivent être remplis</p>
-    <?php
+    <section>
+        <p>Tous les champs de ce formulaire doivent être remplis</p>
+        <?php
         if (!empty($data['errors'])) {
-        ?>
-    <ul>
-        <?php
-            foreach ($data['errors'] as $error) {
+            ?>
+            <ul>
+                <?php
+                foreach ($data['errors'] as $error) {
+                    ?>
+                    <li><?= $error ?></li>
+                    <?php
+                }
                 ?>
-        <li>
-            <?= $error ?>
-        </li>
-        <?php
-            }
-        ?>
-    </ul>
-    <?php
+            </ul>
+            <?php
         }
-    ?>
-    <div>
-    <form method="POST">
+        ?>
+    </section>
 
-        <label for="text">Renseignez le nom qui vous servira d'identifiant de connexion</label>
-        <input type="text" name="nom" placeholder="Votre nom" />
+    <section>
+        <div>
+            <form method="POST">
+                <label for="nom">Renseignez le nom qui vous servira d'identifiant de connexion</label>
+                <?php if(isset($data['saisiePrecedente']['nom'])): ?>
+                    <input type="text" id="nom" name="nom" placeholder="Votre nom" value="<?= htmlspecialchars($data['saisiePrecedente']['nom']) ?>" />
+                <?php else: ?>
+                    <input type="text" id="nom" name="nom" placeholder="Votre nom" />
+                <?php endif ?>
 
-        <label for="email">Adresse email </label>
-        <input type="email" name="email" placeholder="Email" />
+                <label for="email">Adresse email</label>
+                <input type="email" id="email" name="email" placeholder="Email" />
 
-        <label for="password">Choisissez un mot de passe d'au moins 4 caractèresion</label>
-        <input type="password" name="pwd" placeholder="Votre mot de passe" />
+                <label for="pwd">Choisissez un mot de passe d'au moins 8 caractères, une majusucle, un chiffre et un caractére spécial</label>
+                <input type="password" id="pwd" name="pwd" placeholder="Votre mot de passe" />
 
-        <label for="password">Re-tapez votre mot de passe</label>
-        <input type="password" name="pwd2" placeholder="Re-tapez votre mot de passe" />
+                <label for="pwd2">Re-tapez votre mot de passe</label>
+                <input type="password" id="pwd2" name="pwd2" placeholder="Re-tapez votre mot de passe" />
 
-        <button name="subscribe">S'inscrire</button>
-    </form>
-    </div>
+                <button name="subscribe" type="submit">S'inscrire</button>
+            </form>
+        </div>
+    </section>
 </main>

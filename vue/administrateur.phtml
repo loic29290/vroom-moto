@@ -1,64 +1,53 @@
 <main>
-    <div id="admin">
-        <div class="section">
+    <section id="admin">
+        <article class="section">
             <h1>Administrateur</h1>
-        </div>
+        </article>
 
-        <div class="users-motos-section">
-            <div class="section">
+        <article class="users-motos-section">
+            <section class="section">
                 <?php if (isset($data['allUsers'])) { ?>
-                <h2>Tous les utilisateurs</h2>
-                <ul class="user-list">
-                    <?php foreach ($data['allUsers'] as $user) { ?>
-                    <li>
-                        <?= $user->getNom() ?>
-                    </li>
-                    <?php } ?>
-                </ul>
+                    <h2>Tous les utilisateurs</h2>
+                    <ul class="user-list">
+                        <?php foreach ($data['allUsers'] as $user) { ?>
+                            <li><?= htmlspecialchars($user->getNom()); ?></li>
+                        <?php } ?>
+                    </ul>
                 <?php } ?>
-            </div>
+            </section>
 
-            <div class="section">
+            <section class="section">
                 <?php if (isset($data['motos'])) { ?>
-                <h2>Toutes les annonces du site</h2>
-                <ul class="moto-list">
-                    <?php foreach ($data['motos'] as $moto) { ?>
-                    <li class="moto-item">
-                        <a href="index.php?page=moto&id=<?= $moto->getId() ?>">
-                            <?= $moto->getModele() ?>
-                        </a>
-                        <img src="<?= $moto->getImage() ?>" />
-                    </li>
-                    <?php } ?>
-                </ul>
+                    <h2>Toutes les annonces du site</h2>
+                    <ul class="moto-list">
+                        <?php foreach ($data['motos'] as $moto) { ?>
+                            <li class="moto-item">
+                                <a href="index.php?page=moto&id=<?= $moto->getId() ?>"><?= htmlspecialchars($moto->getModele()); ?></a>
+                                <img src="<?= htmlspecialchars($moto->getImage()); ?>" alt="<?= htmlspecialchars($moto->getModele()); ?>">
+                            </li>
+                        <?php } ?>
+                    </ul>
                 <?php } ?>
-            </div>
-        </div>
+            </section>
+        </article>
 
-        <div class="section">
+        <article class="section">
             <h2>Tous les avis du site</h2>
             <?php if (isset($data['avis'])) { ?>
-            <ul class="review-list">
-                <?php foreach ($data['avis'] as $avis) { ?>
-                <li class="review-item">
-                    <?php $user = User::avisName($avis->getLocationId()); ?>
-                    <p class="author">Auteur:
-                        <?= $user->getNom() ?>
-                    </p>
-                    <p>Commentaire:
-                        <?= $avis->getCommentaire() ?>
-                    </p>
-                    <p>Note:
-                        <?= $avis->getNote() ?>
-                    </p>
-                    <form class="admin-form" method="POST">
-                        <button class="delete-button" name="supprimerAvis" value="<?= $avis->getId() ?>">Supprimer
-                            avis</button>
-                    </form>
-                </li>
-                <?php } ?>
-            </ul>
+                <ul class="review-list">
+                    <?php foreach ($data['avis'] as $avis) { ?>
+                        <li class="review-item">
+                            <?php $user = User::avisName($avis->getLocationId()); ?>
+                            <p class="author">Auteur: <?= htmlspecialchars($user->getNom()); ?></p>
+                            <p>Commentaire: <?= htmlspecialchars($avis->getCommentaire()); ?></p>
+                            <p>Note: <?= htmlspecialchars($avis->getNote()); ?></p>
+                            <form class="admin-form" method="POST" action="index.php?page=supprimerAvisAdmin">
+                                <button class="delete-button" name="supprimerAvis" value="<?= $avis->getId() ?>">Supprimer avis</button>
+                            </form>
+                        </li>
+                    <?php } ?>
+                </ul>
             <?php } ?>
-        </div>
-    </div>
+        </article>
+    </section>
 </main>

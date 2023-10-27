@@ -45,11 +45,7 @@ class MotoController
     // Méthode pour afficher le formulaire d'ajout de moto
     public static function getFormulaire()
     {
-        // Si l'utilisateur n'est pas connecté, le rediriger vers la page de connexion
-        if (!isset($_SESSION['ID'])) {
-            header("Location: index.php?page=connexion&retour=formulaire_moto");
-            die;
-        }
+        
 
         // Créer un objet Moto
         $moto = new Moto();
@@ -75,19 +71,13 @@ class MotoController
         }
 
         // Afficher la vue du formulaire d'ajout de moto avec l'objet Moto
-        Renderer::render("vue/formulaire_moto.phtml", [
-            "moto" => $moto
-        ]);
+        Renderer::render("vue/formulaire_moto.phtml", ["moto" => $moto, "sauvegarde" => $_POST ]);
     }
 
     // Méthode pour afficher les motos d'un propriétaire spécifique
     public static function motoProprietaire()
     {
-        // Si l'utilisateur n'est pas connecté, le rediriger vers la page de connexion
-        if (!isset($_SESSION['ID'])) {
-            header("Location: index.php?page=connexion&retour=mes_motos");
-            die;
-        }
+        
 
         // Appel au modèle Moto pour récupérer les motos du propriétaire actuellement connecté
         $mesMotos = Moto::proprietaireAnnonces($_SESSION['ID']);
@@ -102,5 +92,18 @@ class MotoController
         Renderer::render("vue/mes_motos.phtml", [
             "motos" => $mesMotos
         ]);
+    }
+    
+    // Ajax
+    public static function searchAction() {
+        // Récupérer les valeurs postées
+        $categorie = !empty($_POST['categorieRecherche']) ? $_POST['categorieRecherche'] : null;
+        $bridee = !empty($_POST['bridageRecherche']) ? $_POST['bridageRecherche'] : null;
+    
+        // Faire la recherche en utilisant les paramètres
+        $resultats = Moto::searchByCategoryAndBridage($categorie, $bridee);
+    
+        // Charger la vue spécifique à l'AJAX et passer les résultats
+        include 'vue/recherche.phtml';
     }
 }

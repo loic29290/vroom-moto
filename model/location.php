@@ -2,7 +2,6 @@
 
 class Location
 {
-    use Assainit;
 
     private $id;
     private $moto_id;
@@ -162,8 +161,8 @@ class Location
 
     public function loadFromPost(): void
     {
-        $this->setDebut($this->assainit($_POST['debut']));
-        $this->setFin($this->assainit($_POST['fin']));
+        $this->setDebut(trim($_POST['debut']));
+        $this->setFin(trim($_POST['fin']));
     }
 
 

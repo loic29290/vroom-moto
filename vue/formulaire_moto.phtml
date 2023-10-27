@@ -1,46 +1,90 @@
 <main>
+    <section>
+        <h1>Formulaire d'ajout d'une moto</h1>
+        <div>
+            <form method="POST" enctype="multipart/form-data">
 
-    <h1>Formulaire d'ajout d'une moto</h1>
-    <div>
-        <form method="POST" enctype="multipart/form-data">
+                <label for="marque">Marque</label>
+                <?php if (isset($data['sauvegarde']['marque'])) : ?>
+                    <input type="text" id="marque" name="marque" placeholder="Marque" value="<?= htmlspecialchars($data['sauvegarde']['marque']) ?>" />
+                <?php else : ?>
+                    <input type="text" id="marque" name="marque" placeholder="Marque" />
+                <?php endif ?>
 
-            <label for="marque">Marque</label>
-            <input name="marque" type="text" placeholder="marque" value="<?= $data['moto']->getMarque() ?>" />
+                <label for="modele">Modèle</label>
+                <?php if (isset($data['sauvegarde']['modele'])) : ?>
+                    <input type="text" id="modele" name="modele" placeholder="Modèle" value="<?= htmlspecialchars($data['sauvegarde']['modele']) ?>" />
+                <?php else : ?>
+                    <input type="text" id="modele" name="modele" placeholder="Modèle" />
+                <?php endif ?>
 
-            <label for="modele">Modèle</label>
-            <input name="modele" type="text" placeholder="modele" value="<?= $data['moto']->getModele() ?>" />
+                <label for="categorie">Catégorie</label>
+                <?php if (isset($data['sauvegarde']['categorie'])) : ?>
+                    <select id="categorie" name="categorie">
+                        <option value="">Toutes les catégories</option>
+                        <option value="Sportive" <?php if ($data['sauvegarde']['categorie'] == 'Sportive') echo 'selected'; ?>>Sportive</option>
+                        <option value="Roadster" <?php if ($data['sauvegarde']['categorie'] == 'Roadster') echo 'selected'; ?>>Roadster</option>
+                        <option value="Trail" <?php if ($data['sauvegarde']['categorie'] == 'Trail') echo 'selected'; ?>>Trail</option>
+                        <option value="Routiere" <?php if ($data['sauvegarde']['categorie'] == 'Routiere') echo 'selected'; ?>>Routière</option>
+                        <option value="Cross" <?php if ($data['sauvegarde']['categorie'] == 'Cross') echo 'selected'; ?>>Cross</option>
+                        <option value="Scooter" <?php if ($data['sauvegarde']['categorie'] == 'Scooter') echo 'selected'; ?>>Scooter</option>
+                    </select>
+                <?php else : ?>
+                    <select id="categorie" name="categorie">
+                        <option value="">Toutes les catégories</option>
+                        <option value="Sportive">Sportive</option>
+                        <option value="Roadster">Roadster</option>
+                        <option value="Trail">Trail</option>
+                        <option value="Routiere">Routière</option>
+                        <option value="Cross">Cross</option>
+                        <option value="Scooter">Scooter</option>
+                    </select>
+                <?php endif ?>
 
-            <label for="categorie">catégorie</label>
-            <select name="categorie">
-                <option value="">Toutes les catégories</option>
-                <option value="Sportive">Sportive</option>
-                <option value="Roadster">Roadster</option>
-                <option value="Trail">Trail</option>
-                <option value="Routiere">Routiére</option>
-                <option value="Cross">Cross</option>
-                <option value="Scooter">Scooter</option>
-            </select>
 
-            <label for="annee">Année</label>
-            <input name="annee" type="number" placeholder="annee" />
 
-            <label for="bridee">Bridée ou non ?</label>
-            <select name="bridee">
-                <option value="">Bridage</option>
-                <option value="oui">oui</option>
-                <option value="non">non</option>
-            </select>
+                <label for="annee">Année</label>
+                <?php if (isset($data['sauvegarde']['annee'])) : ?>
+                    <input type="number" id="annee" name="annee" placeholder="Année" value="<?= htmlspecialchars($data['sauvegarde']['annee']) ?>" />
+                <?php else : ?>
+                    <input type="number" id="annee" name="annee" placeholder="Année" />
+                <?php endif ?>
 
-            <label for="description">Descritpion</label>
-            <textarea name="description" placeholder="description"></textarea>
+                <label for="bridee">Bridée ou non ?</label>
+                <?php if (isset($data['sauvegarde']['bridee'])) : ?>
+                    <select id="bridee" name="bridee">
+                        <option value="">Bridage</option>
+                        <option value="oui" <?php if ($data['sauvegarde']['bridee'] == 'oui') echo 'selected'; ?>>Oui</option>
+                        <option value="non" <?php if ($data['sauvegarde']['bridee'] == 'non') echo 'selected'; ?>>Non</option>
+                    </select>
+                <?php else : ?>
+                    <select id="bridee" name="bridee">
+                        <option value="">Bridage</option>
+                        <option value="oui">Oui</option>
+                        <option value="non">Non</option>
+                    </select>
+                <?php endif ?>
 
-            <label for="prix">Prix de la location</label>
-            <input name="prix" type="number" placeholder="prix" />
 
-            <label for="file">Format: jpg, png, jpeg Max :5Mo</label>
-            <input type="file" name="file" id="imageFile">
+                <label for="description">Description</label>
+                <?php if (isset($data['sauvegarde']['marque'])) : ?>
+                    <textarea id="description" name="description" placeholder="Description"><?= htmlspecialchars($data['sauvegarde']['description']) ?></textarea>
+                <?php else : ?>
+                    <textarea id="description" name="description" placeholder="Description"></textarea>
+                <?php endif ?>
 
-            <button name="submit">Envoyer</button>
-        </form>
-    </div>
+                <label for="prix">Prix de la location</label>
+                <?php if (isset($data['sauvegarde']['prix'])) : ?>
+                    <input type="number" id="prix" name="prix" placeholder="Prix" value="<?= htmlspecialchars($data['sauvegarde']['prix']) ?>" />
+                <?php else : ?>
+                    <input type="number" id="prix" name="prix" placeholder="Prix" />
+                <?php endif ?>
+
+                <label for="file">Format : jpg, png, jpeg, webp - Max : 5Mo</label>
+                <input type="file" id="file" name="file" accept="image/*">
+
+                <button type="submit" name="submit">Envoyer</button>
+            </form>
+        </div>
+    </section>
 </main>

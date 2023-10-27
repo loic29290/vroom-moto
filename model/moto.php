@@ -4,7 +4,6 @@
 
 class Moto
 {
-    use Assainit;
 
     private $id;
     private $marque;
@@ -181,16 +180,32 @@ class Moto
         $tabExtension = explode('.', $name);
         $extension = strtolower(end($tabExtension));
 
-        $extensions = ['jpg', 'png', 'jpeg'];
+        $extensions = ['jpg', 'png', 'jpeg', 'webp'];
         $maxSize = 1024 * 1024 * 5;
 
         if (in_array($extension, $extensions) && $size <= $maxSize && $error == 0) {
+            
+            require_once("lib/Tinify/Exception.php");
+            require_once("lib/Tinify/ResultMeta.php");
+            require_once("lib/Tinify/Result.php");
+            require_once("lib/Tinify/Source.php");
+            require_once("lib/Tinify/Client.php");
+            require_once("lib/Tinify.php");
+            
+            \Tinify\setKey("8t2xhbGcrfw33Tk8Wq9H6kWvgJG2K8Xj");
+            
+            
             $uniqueName = uniqid('', true);
             //uniqid génère quelque chose comme ca : 5f586bf96dcd38.73540086
-            $file = $uniqueName . "." . $extension;
+            $file = $uniqueName . ".webp" ;
             //$file = 5f586bf96dcd38.73540086.jpg
+            
+            $source = \Tinify\fromFile($tmpName);
+            $destination = $source->resize(["method" => "cover", "width" => 250, "height" => ceil(250 / (160 / 200))]);
+            $destination = $destination->convert(["type" => "image/webp"]);
+            $destination->toFile('./upload/' . $file);
 
-            move_uploaded_file($tmpName, './upload/' . $file);
+            //move_uploaded_file($tmpName, './upload/' . $file);
 
             // Le fichier a bien été sauvé sur le serveur
             $this->setImage('./upload/' . $file);
@@ -203,14 +218,14 @@ class Moto
 
     public function loadFromPost(): void
     {
-        $this->setMarque($this->assainit($_POST['marque']));
-        $this->setModele($this->assainit($_POST['modele']));
-        $this->setCategorie($this->assainit($_POST['categorie']));
-        $this->setAnnee($this->assainitFloat($_POST['annee']));
-        $this->setBridee($this->assainit($_POST['bridee']));
-        $this->setDescription($this->assainit($_POST['description']));
-        $this->setPrix($this->assainitFloat($_POST['prix']));
-        //$this->setProprietaire_id($this->assainit($_POST['proprietaire_id']));
+        $this->setMarque(trim($_POST['marque']));
+        $this->setModele(trim($_POST['modele']));
+        $this->setCategorie(trim($_POST['categorie']));
+        $this->setAnnee(floatval($_POST['annee']));
+        $this->setBridee(trim($_POST['bridee']));
+        $this->setDescription(trim($_POST['description']));
+        $this->setPrix(floatval($_POST['prix']));
+        //$this->setProprietaire_id(trim($_POST['proprietaire_id']));
     }
 
     public function save(): void
@@ -241,5 +256,32 @@ class Moto
         $stmt->execute();
         $annonces = $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Moto");
         return $annonces;
+    }
+    
+    // pour ajax
+    public static function searchByCategoryAndBridage(?string $categorie = null, ?string $bridee = null): array
+    {
+        if($categorie !== null && $bridee !== null) {
+            $query = "SELECT * FROM moto WHERE categorie=:categorie AND bridee=:bridee";
+            $sth = Db::getDbh()->prepare($query);
+            $sth->bindParam(':categorie', $categorie, PDO::PARAM_STR);
+            $sth->bindParam(':bridee', $bridee, PDO::PARAM_STR);
+        }
+        elseif($categorie !== null) {
+            $query = "SELECT * FROM moto WHERE categorie=:categorie";
+            $sth = Db::getDbh()->prepare($query);
+            $sth->bindParam(':categorie', $categorie, PDO::PARAM_STR);
+        }
+        elseif($bridee !== null) {
+            $query = "SELECT * FROM moto WHERE bridee=:bridee";
+            $sth = Db::getDbh()->prepare($query);
+            $sth->bindParam(':bridee', $bridee, PDO::PARAM_STR);
+        }
+        else {
+            $query = "SELECT * FROM moto";
+            $sth = Db::getDbh()->prepare($query);
+        }
+        $sth->execute();
+        return $sth->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "Moto");
     }
 }

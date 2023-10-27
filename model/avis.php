@@ -2,7 +2,6 @@
 
 class Avis
 {
-    use Assainit;
 
     private $id;
     private $location_id;
@@ -84,10 +83,8 @@ class Avis
     // Charger les données d'un avis depuis les données POST
     public function loadFromPost(): void
     {
-        // Assainir et attribuer la note à l'objet
-        $this->setNote($this->assainitFloat($_POST['note']));
-        // Assainir et attribuer le commentaire à l'objet
-        $this->setCommentaire($this->assainit($_POST['commentaire']));
+        $this->setNote(floatval($_POST['note']));
+        $this->setCommentaire(floatval($_POST['commentaire']));
     }
 
     // Vérifier si une moto a été réservée par un utilisateur 
@@ -130,6 +127,7 @@ class Avis
             ":note" => $this->getNote(),
             ":commentaire" => $this->getCommentaire()
         ]);
+        
     }
 
     // Récupérer les avis liés à une moto

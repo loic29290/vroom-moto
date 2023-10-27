@@ -1,11 +1,17 @@
 <main>
-    <div>
+    <section>
         <form method="POST">
-            <input type="text" name="nom" placeholder="Votre nom" />
-            <input type="password" name="pwd" placeholder="Votre mot de passe" />
-            <button name="connexion">Se connecter</button>
-        </form>
+            <label for="nom">Votre nom</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" >
 
-        <h4><a href="index.php?page=inscription">Créer un compte </a></h4>
-    </div>
+            <label for="pwd">Votre mot de passe</label>
+            <input type="password" id="pwd" name="pwd" placeholder="Votre mot de passe" >
+
+            <button name="connexion" type="submit">Se connecter</button>
+        </form>
+    </section>
+
+    <section>
+        <a href="index.php?page=inscription" aria-label="Inscription" target="_blank">Créer un compte</a>
+    </section>
 </main>

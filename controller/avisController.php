@@ -5,13 +5,7 @@ class AvisController
     // Méthode pour afficher le formulaire de soumission d'avis
     public static function getAvis()
     {
-        // Si l'utilisateur n'est pas connecté, le rediriger vers la page de connexion
-        if (!isset($_SESSION['ID'])) {
-            // Permet le retour à la page de la moto sélectionnée après connexion
-            $retour_string = urlencode("avis&id=" . $_GET['id']);
-            header("Location: index.php?page=connexion&retour=$retour_string");
-            die;
-        }
+       
 
         // Vérifier si le formulaire d'envoi d'avis a été soumis
         if (isset($_POST['envoyerAvis'])) {
@@ -61,9 +55,6 @@ class AvisController
                     // Enregistrer l'avis
                     $avis->envoyerAvis();
 
-                    // Message de confirmation
-                    echo "Avis envoyé";
-
                     // Redirection vers la page des motos
                     header("Location: index.php?page=mes_reservations");
                     die;
@@ -78,7 +69,7 @@ class AvisController
     public static function avisMoto()
     {
         // Appeler le modèle Avis pour afficher les avis liés à une moto
-        $avisMoto = Avis::afficherAvis();
+        $avisMoto = Avis::getAvisByMotoLocation($_GET['id']);
 
         // Afficher la vue des avis
         Renderer::render("vue/avis.php", [
@@ -90,7 +81,7 @@ class AvisController
     public static function avisUser()
     {
         // Appeler le modèle Avis pour afficher les avis d'un utilisateur
-        $avisUser = Avis::findAvis();
+        $avisUser = Avis::avisUser();
 
         // Afficher la vue des avis
         Renderer::render("vue/avis.php", [
@@ -101,7 +92,7 @@ class AvisController
     public static function allAvis()
     {
         // Appeler le modèle Avis pour afficher les avis d'un utilisateur
-        $allAvis = Avis::findAllAvis();
+        $allAvis = Avis::avisUser();
 
         // Afficher la vue des avis
         Renderer::render("vue/administrateur.php", [

@@ -1,43 +1,29 @@
 <main>
-    <h1>Mes locations </h1>
-    <div class="moto-list">
-        <?php
-    if (isset($data['reservations'])) {
-    ?>
-        <?php
-        foreach ($data['reservations'] as $reservation) {
-            $moto = $reservation->getMoto();
-            $avis = Avis::getAvisByLocation($reservation->getId());
-        ?>
-        <div class="moto-card">
-            <p>
-                <?= $moto->getMarque(); ?>
-                <?= $moto->getModele(); ?>
-                Début:
-                <?= $reservation->getDebutFormate() ?> Fin:
-                <?= $reservation->getFinFormate() ?>
-            </p>
-            <img src="<?= $moto->getImage() ?>">
-
-            <?php if ($avis) { 
-                     
-                     ?>
-
-            <p>Commentaire:
-                <?= $avis->getCommentaire() ?>
-            </p>
-            <p>Note:
-                <?= $avis->getNote() ?>
-            </p>
-            <a href="index.php?page=avis&id=<?= $reservation->getId() ?>">Modifiez votre avis</a>
-            <?php } else { ?>
-            <a href="index.php?page=avis&id=<?= $reservation->getId() ?>">Laissez un avis</a>
-            <?php } ?>
+    <section>
+        <h1>Mes locations </h1>
+        <div class="moto-list">
+            <?php
+            if (isset($data['reservations'])) {
+                foreach ($data['reservations'] as $reservation) {
+                    $moto = $reservation->getMoto();
+                    $avis = Avis::getAvisByLocation($reservation->getId());
+            ?>
+                    <article class="moto-card">
+                        <p><?= htmlspecialchars($moto->getMarque()); ?> <?= htmlspecialchars($moto->getModele()); ?>
+                            Début: <?= htmlspecialchars($reservation->getDebutFormate()); ?> Fin: <?= htmlspecialchars($reservation->getFinFormate()); ?></p>
+                        <img src="<?= htmlspecialchars($moto->getImage()); ?>" alt="<?= htmlspecialchars($moto->getModele()); ?>">
+                        <?php if ($avis) { ?>
+                            <p>Commentaire: <?= htmlspecialchars($avis->getCommentaire()); ?></p>
+                            <p>Note: <?= htmlspecialchars($avis->getNote()); ?></p>
+                            <a href="index.php?page=avis&id=<?= $reservation->getId() ?>">Modifiez votre avis</a>
+                        <?php } else { ?>
+                            <a href="index.php?page=avis&id=<?= $reservation->getId() ?>">Laissez un avis</a>
+                        <?php } ?>
+                    </article>
+            <?php
+                }
+            }
+            ?>
         </div>
-        <?php
-        }
-    }
-    ?>
-    </div>
-
+    </section>
 </main>
