@@ -6,6 +6,7 @@
             <div class="motorcycle__info">
                 <p>Marque: <?= htmlspecialchars($data['moto']->getMarque()); ?></p>
                 <p>Année: <?= htmlspecialchars($data['moto']->getAnnee()); ?></p>
+                <p>Bridée: <?= $data['moto']->getBridee() ?></p>
                 <p>Description: <?= htmlspecialchars($data['moto']->getDescription()); ?></p>
                 <p>Prix: <?= htmlspecialchars($data['moto']->getPrix()); ?> €</p>
             </div>

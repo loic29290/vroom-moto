@@ -41,8 +41,8 @@
                             <p class="author">Auteur: <?= htmlspecialchars($user->getNom()); ?></p>
                             <p>Commentaire: <?= htmlspecialchars($avis->getCommentaire()); ?></p>
                             <p>Note: <?= htmlspecialchars($avis->getNote()); ?></p>
-                            <form class="admin-form" method="POST" action="index.php?page=supprimerAvisAdmin">
-                                <button class="delete-button" name="supprimerAvis" value="<?= $avis->getId() ?>">Supprimer avis</button>
+                            <form class="admin-form" method="POST">
+                                <button type="submit" class="delete-button" name="supprimerAvis" value="<?= $avis->getId() ?>">Supprimer avis</button>
                             </form>
                         </li>
                     <?php } ?>

@@ -84,7 +84,7 @@ class Avis
     public function loadFromPost(): void
     {
         $this->setNote(floatval($_POST['note']));
-        $this->setCommentaire(floatval($_POST['commentaire']));
+        $this->setCommentaire(trim($_POST['commentaire']));
     }
 
     // Vérifier si une moto a été réservée par un utilisateur 
@@ -197,4 +197,5 @@ class Avis
         $sth->bindParam(':id', $avisID, PDO::PARAM_INT);
         $sth->execute();
     }
+    
 }

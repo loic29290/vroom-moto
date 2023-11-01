@@ -26,6 +26,12 @@ class Router
             if ($_GET['page'] == "connexion") {
                 UserController::getConnexion();
             }
+            
+            
+            if ($_GET['page'] == "verifDateAction") {
+                LocationController::verifDateAction();
+            }
+
 // ajax
             if ($_GET['page'] == "searchAction") {
                 MotoController::searchAction();
@@ -111,10 +117,6 @@ class Router
                 LocationController::getLocation();
             }
 
-            // pour ajax
-            if ($_GET['page'] == "verifDateAction") {
-                LocationController::verifDateAction();
-            }
 
 
             if ($_GET['page'] == "avis") {
@@ -130,7 +132,6 @@ class Router
             }
 
             if ($_GET['page'] == "avisMotos") {
-
                 // Si l'utilisateur n'est pas connecté, le rediriger vers la page de connexion
                 if (!isset($_SESSION['ID'])) {
                     // Permet le retour à la page de la moto sélectionnée après connexion
@@ -149,16 +150,8 @@ class Router
                     header("Location: index.php?page=connexion");
                     die;
                 }
-                UserController::getAdmin();
-            }
-
-            if ($_GET['page'] == "administrateur") {
-                //si tu n'est pas admin  
-                if (!(isset($_SESSION['ID']) && isset($_SESSION['ADMIN']) && $_SESSION['ADMIN'] === 1)) {
-                    header("Location: index.php?page=connexion");
-                    die;
-                }
                 AvisController::supprimerAvis();
+                UserController::getAdmin();
             }
         } else {
             // Défaut

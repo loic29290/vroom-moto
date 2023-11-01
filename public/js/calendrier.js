@@ -125,29 +125,5 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     updateCalendar([]);
-    
-// ajax
-    async function ajaxfn(formData) {
-        try {
-            let myInit = {
-                method: "GET",
-                headers: new Headers(),
-                mode: "cors",
-                cache: "default",
-                body: formData,
-            };
-
-            const response = await fetch("index.php?page=verifDateAction", myInit);
-
-            if (response.ok) {
-                const data = await response.json();
-                updateCalendar(data);
-            } else {
-                console.error("Erreur lors de la requête AJAX : ", response.status);
-            }
-        } catch (error) {
-            console.error("Erreur lors de la requête AJAX : ", error);
-        }
-    }
 
 });

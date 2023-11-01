@@ -28,10 +28,7 @@ class AvisController
                 // Vérifier la validité des données POST
                 if ($avis->checkPost()) {
                     $avis->envoyerAvis();
-
-                    // Message de confirmation
-                    echo "Avis modifié";
-
+                    
                     // Redirection vers la page des motos
                     header("Location: index.php?page=mes_reservations");
                     die;

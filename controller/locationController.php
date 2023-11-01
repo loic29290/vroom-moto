@@ -140,11 +140,6 @@ class LocationController
             "auteurAvis" => $auteurAvis
         ]);
     }
-  // a revoir
-  public function verifDateAction() {
-   header('Content-Type: application/json');
-   echo json_encode(Location::locationMoto($_GET['id']));
-}
 
     
 }
